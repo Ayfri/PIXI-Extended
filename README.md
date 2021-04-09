@@ -1,2 +1,2 @@
 # PIXI-utils
-A framework to help you develop with PIXI 2d games.
+A framework as a npm library to help you develop with PIXI 2d games.
