@@ -21,8 +21,8 @@
 		"2d",
 		"games"
 	],
-	"license": "ISC",
-	"main": "src/index.js",
+	"license": "GNU",
+	"main": "dist/index.js",
 	"name": "pixi-utils",
 	"prettier": {
 		"arrowParens": "avoid",
@@ -38,7 +38,10 @@
 		"url": "git+https://github.com/Ayfri/PIXI-utils.git"
 	},
 	"scripts": {
-		"prettier": "prettier --write ./"
+		"build": "tsc",
+		"watch": "npm run build -- --watch",
+		"prettier": "prettier --write ./",
+		"tests": "node tests/test.js"
 	},
 	"version": "1.0.0"
 }
