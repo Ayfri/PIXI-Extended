@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-export default class Vector2 extends PIXI.Point {
+export class Vector2 extends PIXI.Point {
 	private _values = new Float32Array(2);
 
 	constructor(public x: number = 0, public y: number = 0) {
