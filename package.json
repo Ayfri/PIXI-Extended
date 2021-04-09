@@ -37,6 +37,8 @@
 		"type": "git",
 		"url": "git+https://github.com/Ayfri/PIXI-utils.git"
 	},
-	"scripts": {},
+	"scripts": {
+		"prettier": "prettier --write ./"
+	},
 	"version": "1.0.0"
 }
