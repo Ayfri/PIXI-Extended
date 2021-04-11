@@ -34,23 +34,23 @@ export class Vector2 extends PIXI.Point {
 	}
 
 	/**
-	 * Retrieves the maximum vector values between two vectors.
+	 * Retrieves the maximum vector values between two or more vectors.
 	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
+	 * @param {Vector2[]} vectors
 	 * @returns {Vector2} The result of the maximum vector values.
 	 */
-	static max(vector: Vector2, vector2: Vector2): Vector2 {
-		return new Vector2(Math.max(vector.x, vector2.x), Math.max(vector.y, vector2.y));
+	static max(vector: Vector2, ...vectors: Vector2[]): Vector2 {
+		return new Vector2(Math.max(vector.x, ...vectors.map(v => v.x)), Math.max(vector.y, ...vectors.map(v => v.y)));
 	}
 
 	/**
-	 * Retrieves the minimum vector values between two vectors.
+	 * Retrieves the minimum vector values between two or more vectors.
 	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
+	 * @param {Vector2[]} vectors
 	 * @returns {Vector2} The result of the minimum vector values.
 	 */
-	static min(vector: Vector2, vector2: Vector2): Vector2 {
-		return new Vector2(Math.min(vector.x, vector2.x), Math.min(vector.y, vector2.y));
+	static min(vector: Vector2, ...vectors: Vector2[]): Vector2 {
+		return new Vector2(Math.min(vector.x, ...vectors.map(v => v.x)), Math.min(vector.y, ...vectors.map(v => v.y)));
 	}
 
 	/**
@@ -191,9 +191,7 @@ export class Vector2 extends PIXI.Point {
 	}
 
 	static getIntersect(planePosition: Vector2, planeNormal: Vector2, rayOrigin: Vector2, rayDirection: Vector2) {
-		let planeDistance: Vector2;
-		planeDistance =
-			planeNormal.x > 0 || planeNormal.y > 0 ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin) : planePosition.subtract(rayOrigin, new Vector2());
+		const planeDistance = planeNormal.x > 0 || planeNormal.y > 0 ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin) : planePosition.subtract(rayOrigin, new Vector2());
 		const t = Vector2.dot(planeNormal, planeDistance) / Vector2.dot(planeNormal, rayDirection);
 		const mul = rayDirection.multiply(new Vector2(t, t), planeDistance);
 		return rayOrigin.add(mul, mul);
