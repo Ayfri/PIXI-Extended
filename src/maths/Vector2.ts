@@ -34,20 +34,20 @@ export class Vector2 extends PIXI.Point {
 	}
 
 	/**
-	 * Retrieves the maximum vector between two vectors.
+	 * Retrieves the maximum vector values between two vectors.
 	 * @param {Vector2} vector
 	 * @param {Vector2} vector2
-	 * @returns {Vector2} The maximum vector.
+	 * @returns {Vector2} The result of the maximum vector values.
 	 */
 	static max(vector: Vector2, vector2: Vector2): Vector2 {
 		return new Vector2(Math.max(vector.x, vector2.x), Math.max(vector.y, vector2.y));
 	}
 
 	/**
-	 * Retrieves the minimum vector between two vectors.
+	 * Retrieves the minimum vector values between two vectors.
 	 * @param {Vector2} vector
 	 * @param {Vector2} vector2
-	 * @returns {Vector2} The minimum vector.
+	 * @returns {Vector2} The result of the minimum vector values.
 	 */
 	static min(vector: Vector2, vector2: Vector2): Vector2 {
 		return new Vector2(Math.min(vector.x, vector2.x), Math.min(vector.y, vector2.y));
@@ -70,7 +70,7 @@ export class Vector2 extends PIXI.Point {
 	 * @returns {number} The distance between the two vectors.
 	 */
 	static distance(vector: Vector2, vector2: PIXI.IPointData): number {
-		return Math.sqrt(this.squaredDistance(vector, vector2));
+		return Math.sqrt(Vector2.squaredDistance(vector, vector2));
 	}
 
 	/**
@@ -80,8 +80,8 @@ export class Vector2 extends PIXI.Point {
 	 * @returns {number} The distance between the two vectors.
 	 */
 	static squaredDistance(vector: Vector2, vector2: PIXI.IPointData) {
-		let x = vector2.x - vector.x;
-		let y = vector2.y - vector.y;
+		const x = vector2.x - vector.x;
+		const y = vector2.y - vector.y;
 		return x * x + y * y;
 	}
 
@@ -260,13 +260,7 @@ export class Vector2 extends PIXI.Point {
 	 * @returns {boolean}
 	 */
 	equals(other: Vector2, threshold = 0.00001): boolean {
-		if (Math.abs(this.x - other.x) > threshold) {
-			return false;
-		}
-		if (Math.abs(this.y - other.y) > threshold) {
-			return false;
-		}
-		return true;
+		return Math.abs(this.x - other.x) > threshold ? false : Math.abs(this.y - other.y) <= threshold;
 	}
 
 	/**
@@ -282,9 +276,7 @@ export class Vector2 extends PIXI.Point {
 	 * @returns {number}
 	 */
 	squaredLength(): number {
-		let x = this.x;
-		let y = this.y;
-		return x * x + y * y;
+		return this.x ** 2 + this.y ** 2;
 	}
 
 	/**
@@ -380,6 +372,6 @@ export class Vector2 extends PIXI.Point {
 	}
 
 	toString(): string {
-		return '(' + this.x + ', ' + this.y + ')';
+		return `(${this.x}, ${this.y})`;
 	}
 }
