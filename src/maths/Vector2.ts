@@ -1,13 +1,57 @@
 import * as PIXI from 'pixi.js';
 
-export class Vector2 extends PIXI.Point {
+export class Vector2 implements PIXI.IPoint {
 	private _values = new Float32Array(2);
 
-	constructor(public x: number = 0, public y: number = 0) {
-		super(x, y);
+	constructor(x: number = 0, y: number = 0) {
 		this.xy = [x, y];
 		this._values[0] = x;
 		this._values[1] = y;
+	}
+
+	copyFrom(p: PIXI.IPointData): this {
+        this.set(p.x, p.y);
+        return this;
+    }
+
+    copyTo<T extends PIXI.IPoint>(p: T): T {
+		p.x = this.x;
+		p.y = this.y;
+		return p;
+    }
+
+    set(x: number, y: number): void;
+    set(value?: number): void;
+    set(): void;
+    set(x?: number, y?: number): void {
+        this.xy = [x ?? 0, y ?? x ?? 0];
+    }
+	/**
+	 * @returns {number} The x-component of the vector
+	 */
+	get x(): number {
+		return this._values[0]
+	}
+
+	/**
+	 * @returns {number} The y-component of the vector
+	 */
+	get y(): number {
+		return this._values[1]
+	}
+
+	/**
+	 * @param {number} value The new x-component of the vector
+	 */
+	set x(value: number) {
+		this._values[0] = value
+	}
+
+	/**
+	 * @param {number} value The new y-component of the vector
+	 */
+	set y(value: number) {
+		this._values[1] = value
 	}
 
 	/**
@@ -190,8 +234,10 @@ export class Vector2 extends PIXI.Point {
 		return dest;
 	}
 
-	static getIntersect(planePosition: Vector2, planeNormal: Vector2, rayOrigin: Vector2, rayDirection: Vector2) {
-		const planeDistance = planeNormal.x > 0 || planeNormal.y > 0 ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin) : planePosition.subtract(rayOrigin, new Vector2());
+	static getIntersect(planePosition: Vector2, planeNormal: Vector2, rayOrigin: Vector2, rayDirection: Vector2): Vector2 {
+		const planeDistance = planeNormal.x > 0 || planeNormal.y > 0
+		                      ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin)
+		                      : planePosition.subtract(rayOrigin, new Vector2());
 		const t = Vector2.dot(planeNormal, planeDistance) / Vector2.dot(planeNormal, rayDirection);
 		const mul = rayDirection.multiply(new Vector2(t, t), planeDistance);
 		return rayOrigin.add(mul, mul);
@@ -232,7 +278,7 @@ export class Vector2 extends PIXI.Point {
 	 * @param {Vector2} dest
 	 * @returns {Vector2}
 	 */
-	copy(dest?: Vector2): Vector2 {
+	clone(dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
 		dest.xy = this.xy;
 		return dest;
@@ -258,7 +304,12 @@ export class Vector2 extends PIXI.Point {
 	 * @returns {boolean}
 	 */
 	equals(other: Vector2, threshold = 0.00001): boolean {
+		return !this.subtract(other).abs().greaterThan(new Vector2(threshold, threshold));
 		return Math.abs(this.x - other.x) > threshold ? false : Math.abs(this.y - other.y) <= threshold;
+	}
+
+	greaterThan(other: Vector2): boolean {
+		return this.x > other.x && this.y > other.y;
 	}
 
 	/**
@@ -356,9 +407,7 @@ export class Vector2 extends PIXI.Point {
 		if (!dest) dest = this;
 		dest.xy = this.xy;
 		let length = dest.length();
-		if (length === 1) {
-			return dest;
-		}
+		if (length === 1) return dest;
 		if (length === 0) {
 			dest.reset();
 			return dest;
