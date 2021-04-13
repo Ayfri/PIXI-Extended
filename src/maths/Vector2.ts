@@ -9,23 +9,40 @@ export class Vector2 implements PIXI.IPoint {
 		this._values[1] = y;
 	}
 
-	copyFrom(p: PIXI.IPointData): this {
-        this.set(p.x, p.y);
+	/**
+	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
+	 * @param {Vector2} src The source point.
+	 */
+	copyFrom(src: Vector2): this {
+        this.set(src.x, src.y);
         return this;
     }
 
+	/**
+	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
+	 * @typeParam T The type of your source, can also be a Vector2.
+	 * @param {T} p The source point.
+	 * @returns {T}
+	 */
     copyTo<T extends PIXI.IPoint>(p: T): T {
 		p.x = this.x;
 		p.y = this.y;
 		return p;
     }
 
-    set(x: number, y: number): void;
-    set(value?: number): void;
-    set(): void;
-    set(x?: number, y?: number): void {
-        this.xy = [x ?? 0, y ?? x ?? 0];
+	/**
+	 * Set the x and y values.
+	 * @param {number} x
+	 * @param {number} y
+	 * @returns {this}
+	 */
+    set(x: number, y: number): this;
+    set(value?: number): this;
+    set(x: number = 0, y?: number): this {
+        this.xy = [x, y ?? x];
+        return this;
     }
+
 	/**
 	 * @returns {number} The x-component of the vector
 	 */
@@ -139,16 +156,15 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	static direction(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
-		let x = vector.x - vector2.x;
-		let y = vector.y - vector2.y;
+		const x = vector.x - vector2.x;
+		const y = vector.y - vector2.y;
 		let length = Math.sqrt(x * x + y * y);
 		if (length === 0) {
 			dest.reset();
 			return dest;
 		}
 		length = 1.0 / length;
-		dest.x = x * length;
-		dest.y = y * length;
+		dest.set(x * length, y * length);
 		return dest;
 	}
 
@@ -268,8 +284,7 @@ export class Vector2 implements PIXI.IPoint {
 	 * Sets both the x- and y-components of the vector to 0.
 	 */
 	reset(): void {
-		this.x = 0;
-		this.y = 0;
+		this.set();
 	}
 
 	/**
@@ -292,8 +307,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	negate(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = -this.x;
-		dest.y = -this.y;
+		dest.set(-this.x, -this.y);
 		return dest;
 	}
 
@@ -304,7 +318,6 @@ export class Vector2 implements PIXI.IPoint {
 	 * @returns {boolean}
 	 */
 	equals(other: Vector2, threshold = 0.00001): boolean {
-		return !this.subtract(other).abs().greaterThan(new Vector2(threshold, threshold));
 		return Math.abs(this.x - other.x) > threshold ? false : Math.abs(this.y - other.y) <= threshold;
 	}
 
@@ -337,8 +350,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	add(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = this.x + vector.x;
-		dest.y = this.y + vector.y;
+		dest.set(this.x + vector.x, this.y + vector.y);
 		return dest;
 	}
 
@@ -351,8 +363,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	subtract(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = this.x - vector.x;
-		dest.y = this.y - vector.y;
+		dest.set(this.x - vector.x, this.y - vector.y);
 		return dest;
 	}
 
@@ -365,8 +376,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	multiply(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = this.x * vector.x;
-		dest.y = this.y * vector.y;
+		dest.set(this.x * vector.x, this.y * vector.y);
 		return dest;
 	}
 
@@ -378,8 +388,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	divide(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = this.x / vector.x;
-		dest.y = this.y / vector.y;
+		dest.set(this.x / vector.x, this.y / vector.y);
 		return dest;
 	}
 
@@ -392,8 +401,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	scale(value: number, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = this.x * value;
-		dest.y = this.y * value;
+		dest.set(this.x * value, this.y * value);
 		return dest;
 	}
 
