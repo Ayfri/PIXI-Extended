@@ -8,9 +8,13 @@ export function uuidV4(): string {
 }
 
 export function bytesToUuid(bytes: number[] | Uint8Array): string {
-	const bits = [...bytes].map(bit => {
+	const bits = [...bytes].map((bit: number) => {
 		const s = bit.toString(16);
-		return bit < 0x10 ? '0' + s : s;
+		return bit < 0x10 ? `0${s}` : s;
 	});
 	return [...bits.slice(0, 4), '-', ...bits.slice(4, 6), '-', ...bits.slice(6, 8), '-', ...bits.slice(8, 10), '-', ...bits.slice(10, 16)].join('');
+}
+
+export function random<T>(array: T[]): T {
+	return array[Math.floor(Math.random() * array.length)];
 }
