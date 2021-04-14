@@ -14,9 +14,9 @@ export class Vector2 implements PIXI.IPoint {
 	 * @param {Vector2} src The source point.
 	 */
 	copyFrom(src: Vector2): this {
-        this.set(src.x, src.y);
-        return this;
-    }
+		this.set(src.x, src.y);
+		return this;
+	}
 
 	/**
 	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
@@ -24,11 +24,11 @@ export class Vector2 implements PIXI.IPoint {
 	 * @param {T} p The source point.
 	 * @returns {T}
 	 */
-    copyTo<T extends PIXI.IPoint>(p: T): T {
+	copyTo<T extends PIXI.IPoint>(p: T): T {
 		p.x = this.x;
 		p.y = this.y;
 		return p;
-    }
+	}
 
 	/**
 	 * Set the x and y values.
@@ -36,39 +36,39 @@ export class Vector2 implements PIXI.IPoint {
 	 * @param {number} y
 	 * @returns {this}
 	 */
-    set(x: number, y: number): this;
-    set(value?: number): this;
-    set(x: number = 0, y?: number): this {
-        this.xy = [x, y ?? x];
-        return this;
-    }
+	set(x: number, y: number): this;
+	set(value?: number): this;
+	set(x: number = 0, y?: number): this {
+		this.xy = [x, y ?? x];
+		return this;
+	}
 
 	/**
 	 * @returns {number} The x-component of the vector
 	 */
 	get x(): number {
-		return this._values[0]
+		return this._values[0];
 	}
 
 	/**
 	 * @returns {number} The y-component of the vector
 	 */
 	get y(): number {
-		return this._values[1]
+		return this._values[1];
 	}
 
 	/**
 	 * @param {number} value The new x-component of the vector
 	 */
 	set x(value: number) {
-		this._values[0] = value
+		this._values[0] = value;
 	}
 
 	/**
 	 * @param {number} value The new y-component of the vector
 	 */
 	set y(value: number) {
-		this._values[1] = value
+		this._values[1] = value;
 	}
 
 	/**
@@ -194,8 +194,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	static sum(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
-		dest.x = vector.x + vector2.x;
-		dest.y = vector.y + vector2.y;
+		dest.set(vector.x + vector2.x, vector.y + vector2.y);
 		return dest;
 	}
 
@@ -209,9 +208,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	static difference(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
-
-		dest.x = vector.x - vector2.x;
-		dest.y = vector.y - vector2.y;
+		dest.set(vector.x - vector2.x, vector.y - vector2.y);
 
 		return dest;
 	}
@@ -226,9 +223,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	static product(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
-
-		dest.x = vector.x * vector2.x;
-		dest.y = vector.y * vector2.y;
+		dest.set(vector.x * vector2.x, vector.y * vector2.y);
 
 		return dest;
 	}
@@ -243,17 +238,14 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	static quotient(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
-
-		dest.x = vector.x / vector2.x;
-		dest.y = vector.y / vector2.y;
+		dest.set(vector.x / vector2.x, vector.y / vector2.y);
 
 		return dest;
 	}
 
 	static getIntersect(planePosition: Vector2, planeNormal: Vector2, rayOrigin: Vector2, rayDirection: Vector2): Vector2 {
-		const planeDistance = planeNormal.x > 0 || planeNormal.y > 0
-		                      ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin)
-		                      : planePosition.subtract(rayOrigin, new Vector2());
+		const planeDistance =
+			planeNormal.x > 0 || planeNormal.y > 0 ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin) : planePosition.subtract(rayOrigin, new Vector2());
 		const t = Vector2.dot(planeNormal, planeDistance) / Vector2.dot(planeNormal, rayDirection);
 		const mul = rayDirection.multiply(new Vector2(t, t), planeDistance);
 		return rayOrigin.add(mul, mul);
@@ -266,8 +258,7 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	abs(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
-		dest.x = Math.abs(this.x);
-		dest.y = Math.abs(this.y);
+		dest.set(Math.abs(this.x), Math.abs(this.y));
 		return dest;
 	}
 
