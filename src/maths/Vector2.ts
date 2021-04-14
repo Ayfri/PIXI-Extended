@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 export class Vector2 implements PIXI.IPoint {
-	private _values = new Float32Array(2);
+	protected _values = new Float32Array(2);
 
 	constructor(x: number = 0, y: number = 0) {
 		this.xy = [x, y];
@@ -279,18 +279,6 @@ export class Vector2 implements PIXI.IPoint {
 	}
 
 	/**
-	 * Copies the x- and y-components from one vector to another.
-	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
-	 */
-	clone(dest?: Vector2): Vector2 {
-		if (!dest) dest = new Vector2();
-		dest.xy = this.xy;
-		return dest;
-	}
-
-	/**
 	 * Multiplies both the x- and y-components of a vector by -1.
 	 * If no dest vector is specified, the operation is performed in-place.
 	 * @param {Vector2} dest
@@ -420,4 +408,41 @@ export class Vector2 implements PIXI.IPoint {
 	toString(): string {
 		return `(${this.x}, ${this.y})`;
 	}
+}
+
+export class ObservableVector2<T = any> extends Vector2 {
+    cb: (this: T) => any;
+    scope: any;
+    _x: number;
+    _y: number;
+
+	public clone(cb = this.cb, scope = this.scope) {
+		return new ObservableVector2<T>(cb, scope, this._x, this._y);
+	}
+
+	constructor(cb: (this: T) => any, scope: T, x = 0, y = 0) {
+		super(x, y);
+		this._x = x;
+		this._y = y;
+		this.cb = cb;
+		this.scope = scope;
+	}
+
+    set y(value: number) {
+    	if(super.y !== value) {
+		    super.y = value;
+		    this.cb.call(this.scope);
+	    }
+    }
+
+    set x(value: number) {
+    	if(super.x !== value) {
+		    super.x = value;
+		    this.cb.call(this.scope);
+	    }
+    }
+
+    toVector(): Vector2 {
+		return new Vector2(this._x, this._y);
+    }
 }
