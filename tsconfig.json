@@ -3,10 +3,10 @@
 		"alwaysStrict": true,
 		"baseUrl": "./",
 		"esModuleInterop": true,
-		"module": "CommonJS",
+		"module": "ESNext",
 		"moduleResolution": "Node",
 		"noImplicitAny": true,
-		"outDir": "dist",
+		"outDir": "cache",
 		"paths": {
 			"mini-signals": [
 				"node_modules/resource-loader/typings/mini-signals.d.ts"
