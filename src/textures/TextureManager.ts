@@ -18,13 +18,13 @@ export async function loadTextures(texturesNamesAndPath: TextureNameAndPath[] | 
 	const textures: TextureNameAndPath[] = texturesNamesAndPath instanceof Array ? texturesNamesAndPath : Object.entries(texturesNamesAndPath);
 
 	await new Promise(resolve => {
-		textures.forEach(([name, path]) => PIXI.Loader.shared.add(name, path));
+		textures.forEach(t => PIXI.Loader.shared.add(t[0], t[1]));
 		PIXI.Loader.shared.load(resolve);
 	});
 	loadedTexturesNames.push(...textures.map(t => t[0]));
 
 	const result: TexturesAndName = {};
-	textures.forEach(([name]) => (result[name] = PIXI.Loader.shared.resources[name].texture!));
+	textures.forEach(t => (result[t[0]] = PIXI.Loader.shared.resources[t[0]].texture!));
 	return result;
 }
 
