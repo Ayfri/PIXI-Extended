@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Testing</title>
+	</head>
+	<body>
+		<p id="values"></p>
+		<script type="module">
+			import {random, Vector2} from './bundle.js';
+			function setValue(value) {
+				document.getElementById('values').innerText = String(value);
+			}
+			const a = new Vector2(5, -2);
+			const b = new Vector2();
+			setValue(random(a.xy));
+		</script>
+	</body>
+</html>
