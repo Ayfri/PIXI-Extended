@@ -5,21 +5,23 @@ const {exec} = require('child_process');
 function bundle() {
 	return gulp
 		.src('./src/index.ts')
-		.pipe(esbuild({
-			bundle: true,
-			format: 'esm',
-			keepNames: true,
-			loader: {
-				'.ts': 'ts',
-			},
-			minify: true,
-			minifyIdentifiers: true,
-			minifySyntax: true,
-			minifyWhitespace: true,
-			outfile: 'bundle.js',
-			sourcemap: 'both',
-			target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
-		}))
+		.pipe(
+			esbuild({
+				bundle: true,
+				format: 'esm',
+				keepNames: true,
+				loader: {
+					'.ts': 'ts',
+				},
+				minify: true,
+				minifyIdentifiers: true,
+				minifySyntax: true,
+				minifyWhitespace: true,
+				outfile: 'bundle.js',
+				sourcemap: 'both',
+				target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+			})
+		)
 		.pipe(gulp.dest('./dist/'));
 }
 

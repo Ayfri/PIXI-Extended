@@ -44,7 +44,7 @@
 	"scripts": {
 		"bundle": "npm run prettier && gulp bundle",
 		"watch": "npm run bundle && gulp watch",
-		"prettier": "prettier --write ./",
+		"prettier": "prettier --write src ./*.json README.md gulpfile.js",
 		"tests": "reload --dir=dist --port=5000"
 	},
 	"version": "1.0.0"
