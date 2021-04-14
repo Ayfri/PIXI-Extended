@@ -408,11 +408,15 @@ export class Vector2 implements PIXI.IPoint {
 	toString(): string {
 		return `(${this.x}, ${this.y})`;
 	}
+
+	toObservable<T = any>(callback: (this: T) => any, scope: T): ObservableVector2<T> {
+		return new ObservableVector2<T>(callback, scope, this.x, this.y);
+	}
 }
 
 export class ObservableVector2<T = any> extends Vector2 {
     cb: (this: T) => any;
-    scope: any;
+    scope: T;
     _x: number;
     _y: number;
 
