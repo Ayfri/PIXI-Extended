@@ -225,14 +225,6 @@ export class Vector2 implements PIXI.IPoint {
 		return dest;
 	}
 
-	static getIntersect(planePosition: Vector2, planeNormal: Vector2, rayOrigin: Vector2, rayDirection: Vector2): Vector2 {
-		const planeDistance =
-			planeNormal.x > 0 || planeNormal.y > 0 ? planePosition.add(planeNormal, new Vector2()).subtract(rayOrigin) : planePosition.subtract(rayOrigin, new Vector2());
-		const t = Vector2.dot(planeNormal, planeDistance) / Vector2.dot(planeNormal, rayDirection);
-		const mul = rayDirection.multiply(new Vector2(t, t), planeDistance);
-		return rayOrigin.add(mul, mul);
-	}
-
 	/**
 	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
 	 * @param {Vector2} src The source point.
@@ -261,9 +253,7 @@ export class Vector2 implements PIXI.IPoint {
 	 * @returns {this}
 	 */
 	set(x: number, y: number): this;
-
 	set(value?: number): this;
-
 	set(x: number = 0, y?: number): this {
 		this.xy = [x, y ?? x];
 		return this;

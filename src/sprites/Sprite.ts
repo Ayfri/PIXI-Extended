@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import {ObservableVector2} from '../maths/Vector2.js';
-import {getTextureOrThrow, TextureOrName} from '../textures/TextureManager.js';
+import {ObservableVector2} from '../maths';
+import {getTextureOrThrow, TextureOrName} from '../textures';
 
 export type SpriteEvents = {
 	added: [container: PIXI.Container];
@@ -31,9 +31,9 @@ export type SpriteEvents = {
 	touchendoutside: [event: PIXI.InteractionEvent];
 	touchmove: [event: PIXI.InteractionEvent];
 	touchstart: [event: PIXI.InteractionEvent];
-}
+};
 
-export default class Sprite extends PIXI.Sprite {
+export class Sprite extends PIXI.Sprite {
 	public constructor(texture: string);
 	public constructor(texture: PIXI.Texture);
 	public constructor(sprite: TextureOrName) {
