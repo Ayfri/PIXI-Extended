@@ -7,13 +7,16 @@
 	<body>
 		<p id="values"></p>
 		<script type="module">
-			import {random, Vector2} from './bundle.js';
+			import {random, Vector2, Sprite, PIXI} from './bundle.js';
 			function setValue(value) {
 				document.getElementById('values').innerText = String(value);
 			}
+
 			const a = new Vector2(5, -2);
-			const b = new Vector2();
-			setValue(random(a.xy));
+			const source = PIXI.Texture.WHITE;
+			const sprite = new Sprite(source);
+			sprite.show();
+			setValue(sprite);
 		</script>
 	</body>
 </html>

@@ -10,7 +10,7 @@ export class Vector2 implements PIXI.IPoint {
 		let xValue: number = 0;
 		let yValue: number = 0;
 
-		if(x) {
+		if (x) {
 			if (typeof x === 'number') {
 				xValue = x;
 				yValue = y ?? 0;
@@ -64,14 +64,14 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * @returns {number[]} An array containing the x-component and y-component of the vector
 	 */
-	get xy(): number[] {
+	get xy(): [x: number, y: number] {
 		return [this._values[0], this._values[1]];
 	}
 
 	/**
 	 * @param {number[]} values An array containing the new x-component and y-component of the vector
 	 */
-	set xy(values: number[]) {
+	set xy(values: [x: number, y: number]) {
 		this._values[0] = values[0];
 		this._values[1] = values[1];
 	}
