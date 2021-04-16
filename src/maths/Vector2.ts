@@ -3,44 +3,34 @@ import * as PIXI from 'pixi.js';
 export class Vector2 implements PIXI.IPoint {
 	protected _values = new Float32Array(2);
 
-	constructor(x: number = 0, y: number = 0) {
-		this.xy = [x, y];
-		this._values[0] = x;
-		this._values[1] = y;
+	constructor();
+	constructor(points: PIXI.IPointData);
+	constructor(x: number, y: number);
+	constructor(x?: number | PIXI.IPointData, y?: number) {
+		let xValue: number = 0;
+		let yValue: number = 0;
+
+		if(x) {
+			if (typeof x === 'number') {
+				xValue = x;
+				yValue = y ?? 0;
+			} else {
+				xValue = x.x;
+				yValue = x.y;
+			}
+		}
+
+		this.xy = [xValue, yValue];
+		this._values[0] = xValue;
+		this._values[1] = yValue;
 	}
 
 	/**
-	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
-	 * @param {Vector2} src The source point.
+	 * Retrieves a new instance of the vector (0, 0)
+	 * @returns {Vector2} The zero vector
 	 */
-	copyFrom(src: Vector2): this {
-		this.set(src.x, src.y);
-		return this;
-	}
-
-	/**
-	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
-	 * @typeParam T The type of your source, can also be a Vector2.
-	 * @param {T} p The source point.
-	 * @returns {T}
-	 */
-	copyTo<T extends PIXI.IPoint>(p: T): T {
-		p.x = this.x;
-		p.y = this.y;
-		return p;
-	}
-
-	/**
-	 * Set the x and y values.
-	 * @param {number} x
-	 * @param {number} y
-	 * @returns {this}
-	 */
-	set(x: number, y: number): this;
-	set(value?: number): this;
-	set(x: number = 0, y?: number): this {
-		this.xy = [x, y ?? x];
-		return this;
+	static get zero(): Vector2 {
+		return new Vector2(0, 0);
 	}
 
 	/**
@@ -51,13 +41,6 @@ export class Vector2 implements PIXI.IPoint {
 	}
 
 	/**
-	 * @returns {number} The y-component of the vector
-	 */
-	get y(): number {
-		return this._values[1];
-	}
-
-	/**
 	 * @param {number} value The new x-component of the vector
 	 */
 	set x(value: number) {
@@ -65,18 +48,17 @@ export class Vector2 implements PIXI.IPoint {
 	}
 
 	/**
+	 * @returns {number} The y-component of the vector
+	 */
+	get y(): number {
+		return this._values[1];
+	}
+
+	/**
 	 * @param {number} value The new y-component of the vector
 	 */
 	set y(value: number) {
 		this._values[1] = value;
-	}
-
-	/**
-	 * Retrieves a new instance of the vector (0, 0)
-	 * @returns {Vector2} The zero vector
-	 */
-	static get zero(): Vector2 {
-		return new Vector2(0, 0);
 	}
 
 	/**
@@ -252,6 +234,42 @@ export class Vector2 implements PIXI.IPoint {
 	}
 
 	/**
+	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
+	 * @param {Vector2} src The source point.
+	 */
+	copyFrom(src: PIXI.IPointData): this {
+		this.set(src.x, src.y);
+		return this;
+	}
+
+	/**
+	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
+	 * @typeParam T The type of your source, can also be a Vector2.
+	 * @param {T} p The source point.
+	 * @returns {T}
+	 */
+	copyTo<T extends PIXI.IPointData>(p: T): T {
+		p.x = this.x;
+		p.y = this.y;
+		return p;
+	}
+
+	/**
+	 * Set the x and y values.
+	 * @param {number} x
+	 * @param {number} y
+	 * @returns {this}
+	 */
+	set(x: number, y: number): this;
+
+	set(value?: number): this;
+
+	set(x: number = 0, y?: number): this {
+		this.xy = [x, y ?? x];
+		return this;
+	}
+
+	/**
 	 * Return the absolute values of X and Y.
 	 * @param {Vector2} dest
 	 * @returns {Vector2}
@@ -415,14 +433,8 @@ export class Vector2 implements PIXI.IPoint {
 }
 
 export class ObservableVector2<T = any> extends Vector2 {
-    cb: (this: T) => any;
-    scope: T;
-    _x: number;
-    _y: number;
-
-	public clone(cb = this.cb, scope = this.scope) {
-		return new ObservableVector2<T>(cb, scope, this._x, this._y);
-	}
+	cb: (this: T) => any;
+	scope: T;
 
 	constructor(cb: (this: T) => any, scope: T, x = 0, y = 0) {
 		super(x, y);
@@ -432,21 +444,29 @@ export class ObservableVector2<T = any> extends Vector2 {
 		this.scope = scope;
 	}
 
-    set y(value: number) {
-    	if(super.y !== value) {
-		    super.y = value;
-		    this.cb.call(this.scope);
-	    }
-    }
+	_x: number;
 
-    set x(value: number) {
-    	if(super.x !== value) {
-		    super.x = value;
-		    this.cb.call(this.scope);
-	    }
-    }
+	set x(value: number) {
+		if (super.x !== value) {
+			super.x = value;
+			this.cb.call(this.scope);
+		}
+	}
 
-    toVector(): Vector2 {
+	_y: number;
+
+	set y(value: number) {
+		if (super.y !== value) {
+			super.y = value;
+			this.cb.call(this.scope);
+		}
+	}
+
+	public clone(cb = this.cb, scope = this.scope) {
+		return new ObservableVector2<T>(cb, scope, this._x, this._y);
+	}
+
+	toVector(): Vector2 {
 		return new Vector2(this._x, this._y);
-    }
+	}
 }
