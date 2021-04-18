@@ -22,9 +22,9 @@ export function random<T>(arg: T[] | number, arg2?: number | boolean, toInt?: bo
 	if (arg instanceof Array) {
 		return randomArray(arg);
 	} else if (typeof arg2 === 'number') {
-		return toInt ? arg2 ? randomInt(arg, arg2) : randomInt(arg) : arg2 ? randomNumber(arg, arg2) : randomNumber(arg);
+		return toInt ? arg2 ? randomInt(arg, arg2) : randomInt(arg) : arg2 ? randomFloat(arg, arg2) : randomFloat(arg);
 	} else {
-		return arg2 ? randomInt(arg) : randomNumber(arg);
+		return arg2 ? randomInt(arg) : randomFloat(arg);
 	}
 }
 
@@ -32,14 +32,14 @@ export function randomArray<T>(array: T[]): T {
 	return array[randomInt(array.length - 1)];
 }
 
-export function randomNumber(max: number): number;
-export function randomNumber(min: number, max: number): number;
-export function randomNumber(min: number = 0, max?: number): number {
+export function randomFloat(max: number): number;
+export function randomFloat(min: number, max: number): number;
+export function randomFloat(min: number = 0, max?: number): number {
 	return !max ? Math.random() * min : Math.random() * (max - min) + min;
 }
 
 export function randomInt(max: number): number;
 export function randomInt(min: number, max: number): number;
 export function randomInt(min: number = 0, max?: number): number {
-	return Math.floor(max ? randomNumber(min, max + 1) : randomNumber(min + 1));
+	return Math.floor(max ? randomFloat(min, max + 1) : randomFloat(min + 1));
 }
