@@ -15,6 +15,31 @@ export function bytesToUuid(bytes: number[] | Uint8Array): string {
 	return [...bits.slice(0, 4), '-', ...bits.slice(4, 6), '-', ...bits.slice(6, 8), '-', ...bits.slice(8, 10), '-', ...bits.slice(10, 16)].join('');
 }
 
-export function random<T>(array: T[]): T {
-	return array[Math.floor(Math.random() * array.length)];
+export function random(max: number, toInt?: boolean): number;
+export function random(min: number, max: number, toInt?: boolean): number;
+export function random<T>(array: T[]): T;
+export function random<T>(arg: T[] | number, arg2?: number | boolean, toInt?: boolean): T | number {
+	if (arg instanceof Array) {
+		return randomArray(arg);
+	} else if (typeof arg2 === 'number') {
+		return toInt ? arg2 ? randomInt(arg, arg2) : randomInt(arg) : arg2 ? randomNumber(arg, arg2) : randomNumber(arg);
+	} else {
+		return arg2 ? randomInt(arg) : randomNumber(arg);
+	}
+}
+
+export function randomArray<T>(array: T[]): T {
+	return array[randomInt(array.length - 1)];
+}
+
+export function randomNumber(max: number): number;
+export function randomNumber(min: number, max: number): number;
+export function randomNumber(min: number = 0, max?: number): number {
+	return !max ? Math.random() * min : Math.random() * (max - min) + min;
+}
+
+export function randomInt(max: number): number;
+export function randomInt(min: number, max: number): number;
+export function randomInt(min: number = 0, max?: number): number {
+	return Math.floor(max ? randomNumber(min, max + 1) : randomNumber(min + 1));
 }
