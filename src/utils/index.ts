@@ -1,2 +1,3 @@
-export * from './random';
+export * from './Color';
 export * from './EventEmitter';
+export * from './random';
