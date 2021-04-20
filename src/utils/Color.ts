@@ -82,10 +82,10 @@ export class Color extends EventEmitter<ColorEvents> {
 
 	public fromHexString(hexString: string): Color {
 		if (/^#/.test(hexString)) hexString = hexString.substr(1, 1);
-		const bigint = Number.parseInt(hexString, 16);
-		const r = (bigint >> 16) & 255;
-		const g = (bigint >> 8) & 255;
-		const b = bigint & 255;
+		const color = Number.parseInt(hexString, 16);
+		const r = (color >> 16) & 255;
+		const g = (color >> 8) & 255;
+		const b = color & 255;
 
 		return new Color(r, g, b);
 	}

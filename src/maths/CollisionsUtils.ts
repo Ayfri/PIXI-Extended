@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import {Rectangle} from './Rectangle';
 import {Vector2} from './Vector2';
 
-export function collides(a: PIXI.Container, b: PIXI.Container) {
+export function collides(a: PIXI.Container, b: PIXI.Container): Hit | null {
 	return intersectBoxes(Rectangle.fromSprite(a), Rectangle.fromSprite(b));
 }
 
