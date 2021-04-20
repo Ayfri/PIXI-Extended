@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import {ObservableVector2} from '../maths';
 import {getTextureOrThrow, TextureOrName} from '../textures';
+import {EventEmitter} from '../utils';
 
 export type SpriteEvents = {
 	added: [container: PIXI.Container];
@@ -33,11 +34,17 @@ export type SpriteEvents = {
 	touchstart: [event: PIXI.InteractionEvent];
 };
 
+export interface Sprite {
+	emit: EventEmitter.Emit<SpriteEvents>;
+	on: EventEmitter.On<SpriteEvents, this>;
+	once: EventEmitter.Once<SpriteEvents, this>;
+}
+
 export class Sprite extends PIXI.Sprite {
 	public constructor(texture: string);
 	public constructor(texture: PIXI.Texture);
-	public constructor(sprite: TextureOrName) {
-		super(typeof sprite === 'string' ? getTextureOrThrow(sprite) : sprite);
+	public constructor(texture: TextureOrName) {
+		super(typeof texture === 'string' ? getTextureOrThrow(texture) : texture);
 	}
 
 	get position(): ObservableVector2 {
@@ -62,17 +69,5 @@ export class Sprite extends PIXI.Sprite {
 
 	public removeFromApplication(application: PIXI.Application) {
 		application.stage.removeChild(this);
-	}
-
-	public emit<K extends keyof SpriteEvents & string>(event: K, ...args: SpriteEvents[K]): boolean {
-		return super.emit(event, ...args);
-	}
-
-	public on<K extends keyof SpriteEvents & string>(event: K, fn: (...params: SpriteEvents[K]) => void, context?: any): this {
-		return super.on(event, fn as (...args: any[]) => void, context);
-	}
-
-	public once<K extends keyof SpriteEvents & string>(event: K, fn: (...params: SpriteEvents[K]) => void, context?: any): this {
-		return super.once(event, fn as (...args: any[]) => void, context);
 	}
 }
