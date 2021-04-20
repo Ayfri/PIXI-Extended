@@ -41,10 +41,11 @@ export interface Sprite {
 }
 
 export class Sprite extends PIXI.Sprite {
-	public constructor(texture: string);
-	public constructor(texture: PIXI.Texture);
 	public constructor(texture: TextureOrName) {
-		super(typeof texture === 'string' ? getTextureOrThrow(texture) : texture);
+		if (typeof texture === 'string') {
+			texture = getTextureOrThrow(texture);
+		}
+		super(texture);
 	}
 
 	get position(): ObservableVector2 {

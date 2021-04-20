@@ -1,7 +1,8 @@
 import * as PIXI from 'pixi.js';
 import {ObservableVector2} from '../maths';
+import {TextureOrName} from '../textures';
 import {EventEmitter} from '../utils';
-import {SpriteEvents} from './Sprite';
+import {Sprite, SpriteEvents} from './Sprite';
 
 export type ContainerEvents = SpriteEvents & {
 	childAdded: [child: PIXI.DisplayObject, container: PIXI.Container, index: number]
@@ -14,8 +15,14 @@ export interface Container {
 }
 
 export class Container extends PIXI.Container {
-	public constructor() {
+	public background?: Sprite;
+
+	public constructor(background?: TextureOrName) {
 		super();
+		if (background) {
+			this.background = new Sprite(background);
+			this.addChild(this.background);
+		}
 	}
 
 	get position(): ObservableVector2 {
