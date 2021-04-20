@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import {ObservableVector2} from '../maths';
 import {getTextureOrThrow, TextureOrName} from '../textures';
-import {EventEmitter} from '../utils';
+import {Color, EventEmitter} from '../utils';
 
 export type SpriteEvents = {
 	added: [container: PIXI.Container];
@@ -46,6 +46,14 @@ export class Sprite extends PIXI.Sprite {
 			texture = getTextureOrThrow(texture);
 		}
 		super(texture);
+	}
+
+	public get color(): Color {
+		return Color.fromHex(this.tint);
+	}
+
+	public set color(value: Color) {
+		this.tint = value.toHex();
 	}
 
 	get position(): ObservableVector2 {
