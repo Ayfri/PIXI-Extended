@@ -4,19 +4,20 @@
 		<meta charset="UTF-8" />
 		<title>Testing</title>
 	</head>
+	<script type='module' src='./bundle.js'></script>
 	<body>
 		<p id="values"></p>
 		<script type="module">
-			import {random, Vector2, Sprite, PIXI} from './bundle.js';
-			function setValue(value) {
-				document.getElementById('values').innerText = String(value);
-			}
-
-			const a = new Vector2(5, -2);
-			const source = PIXI.Texture.WHITE;
-			const sprite = new Sprite(source);
-			sprite.show();
-			setValue(sprite);
+			import {PIXI, FPSCounter} from './bundle.js';
+			const app = new PIXI.Application({
+				antialias: true,
+				resizeTo: window,
+				backgroundColor: 0xaaaaaa,
+			});
+			document.body.appendChild(app.view);
+			
+			const a = new FPSCounter();
+			a.addToApplication(app);
 		</script>
 	</body>
 </html>
