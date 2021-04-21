@@ -15,15 +15,15 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	private lastTime: number = Date.now();
 	private timeValues: number[] = [];
 
-	public constructor(options: FPSCounterOptions) {
+	public constructor(options?: FPSCounterOptions) {
 		super({
 			text: 'FPS: 60',
 		});
 		this.ticker = new PIXI.Ticker();
-		this.autoStart = options.autoStart ?? true;
-		this.priority = options.priority ?? PIXI.UPDATE_PRIORITY.LOW;
+		this.autoStart = options?.autoStart ?? true;
+		this.priority = options?.priority ?? PIXI.UPDATE_PRIORITY.LOW;
 		this.ticker.autoStart = this.autoStart;
-		this.ticker.add(this.update, undefined, this.priority);
+		this.ticker.add(this.update, this, this.priority);
 	}
 
 	public get approximate(): number {
