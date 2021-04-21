@@ -7,9 +7,11 @@ import {Sprite} from './Sprite';
 export interface TextOptions {
 	text?: string;
 	background?: TextureOrName;
-	whiteBackground?: boolean;
 	style?: PIXI.TextStyle;
+	whiteBackground?: boolean;
 }
+
+export type TextColor = Color | Color[];
 
 export class Text extends Container {
 	public textObject: PIXI.Text;
@@ -21,12 +23,22 @@ export class Text extends Container {
 		this.textObject = new PIXI.Text(options.text ?? '', options.style);
 	}
 
-	public get color(): Color {
-		return Color.fromHex(this.textObject.tint);
+	public get color(): TextColor | CanvasGradient | CanvasPattern {
+		let result: TextColor | CanvasGradient | CanvasPattern;
+		const color: PIXI.TextStyleFill = this.textObject.style.fill!;
+		if (color instanceof Array) {
+			result = color.map((c: string | number) => (typeof c === 'string' ? Color.fromHexString(c) : Color.fromHex(c)));
+		} else if (color instanceof CanvasGradient || color instanceof CanvasPattern) {
+			result = color;
+		} else {
+			result = typeof color === 'string' ? Color.fromHexString(color) : Color.fromHex(color);
+		}
+
+		return result;
 	}
 
-	public set color(value: Color) {
-		this.textObject.tint = value.toHex();
+	public set color(color: TextColor | CanvasGradient | CanvasPattern) {
+		this.textObject.style.fill = color instanceof Array ? color.map(c => c.toHex()) : color instanceof Color ? color.toHex() : color;
 	}
 
 	public get backgroundColor(): Color {
