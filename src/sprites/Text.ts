@@ -21,6 +21,7 @@ export class Text extends Container {
 		super();
 		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
 		this.textObject = new PIXI.Text(options.text ?? '', options.style);
+		this.addChild(this.textObject);
 	}
 
 	public get color(): TextColor | CanvasGradient | CanvasPattern {
