@@ -22,7 +22,7 @@ export function random<T>(arg: T[] | number, arg2?: number | boolean, toInt?: bo
 	if (arg instanceof Array) {
 		return randomArray(arg);
 	} else if (typeof arg2 === 'number') {
-		return toInt ? arg2 ? randomInt(arg, arg2) : randomInt(arg) : arg2 ? randomFloat(arg, arg2) : randomFloat(arg);
+		return toInt ? (arg2 ? randomInt(arg, arg2) : randomInt(arg)) : arg2 ? randomFloat(arg, arg2) : randomFloat(arg);
 	} else {
 		return arg2 ? randomInt(arg) : randomFloat(arg);
 	}

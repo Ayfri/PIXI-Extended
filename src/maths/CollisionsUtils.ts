@@ -40,11 +40,11 @@ export class Hit {
 
 export function intersectBoxes(box1: Rectangle, box2: Rectangle): Hit | null {
 	const dx = box2.x - box1.x;
-	const px = (box2.halfX + box1.halfX) - Math.abs(dx);
+	const px = box2.halfX + box1.halfX - Math.abs(dx);
 	if (px <= 0) return null;
 
 	const dy = box2.y - box1.y;
-	const py = (box2.halfY + box1.halfY) - Math.abs(dy);
+	const py = box2.halfY + box1.halfY - Math.abs(dy);
 	if (py <= 0) return null;
 
 	const hit = new Hit(box1);
@@ -52,14 +52,14 @@ export function intersectBoxes(box1: Rectangle, box2: Rectangle): Hit | null {
 		const sx = Math.sign(dx);
 		hit.delta.x = px * sx;
 		hit.normal.x = sx;
-		hit.position.x = box1.x + (box1.halfX * sx);
+		hit.position.x = box1.x + box1.halfX * sx;
 		hit.position.y = box2.y;
 	} else {
 		const sy = Math.sign(dy);
 		hit.delta.y = py * sy;
 		hit.normal.y = sy;
 		hit.position.x = box2.x;
-		hit.position.y = box1.y + (box1.halfY * sy);
+		hit.position.y = box1.y + box1.halfY * sy;
 	}
 	return hit;
 }

@@ -5,7 +5,7 @@ import {EventEmitter} from '../utils';
 import {Sprite, SpriteEvents} from './Sprite';
 
 export type ContainerEvents = SpriteEvents & {
-	childAdded: [child: PIXI.DisplayObject, container: PIXI.Container, index: number]
+	childAdded: [child: PIXI.DisplayObject, container: PIXI.Container, index: number];
 };
 
 export interface Container {

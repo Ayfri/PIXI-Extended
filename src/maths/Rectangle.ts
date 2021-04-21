@@ -54,11 +54,11 @@ export class Rectangle extends PIXI.Rectangle {
 
 	public collidesWith(other: Rectangle): boolean {
 		const dx = other.x - this.x;
-		const px = (other.halfX + this.halfX) - Math.abs(dx);
+		const px = other.halfX + this.halfX - Math.abs(dx);
 		if (px <= 0) return false;
 
 		const dy = other.y - this.y;
-		const py = (other.halfY + this.halfY) - Math.abs(dy);
+		const py = other.halfY + this.halfY - Math.abs(dy);
 		return py > 0;
 	}
 
