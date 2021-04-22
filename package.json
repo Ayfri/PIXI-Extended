@@ -11,9 +11,7 @@
 	},
 	"description": "The documentation for the PIXI-Utils library.",
 	"homepage": "https://github.com/Ayfri/PIXI-Utils/tree/docs#readme",
-	"keywords": [],
 	"license": "GNU",
-	"main": "index.js",
 	"name": "pixi-utils-docs",
 	"private": true,
 	"repository": {
