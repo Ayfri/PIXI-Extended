@@ -9,10 +9,10 @@
 	"description": "A framework as a npm library to help you develop with PIXI 2d games.",
 	"devDependencies": {
 		"@types/gulp": "^4.0.8",
-		"@types/node": "^14.14.37",
-		"esbuild": "^0.11.10",
+		"@types/node": "^14.14.41",
+		"esbuild": "^0.11.12",
 		"gulp": "^4.0.2",
-		"gulp-esbuild": "^0.7.3",
+		"gulp-esbuild": "^0.7.4",
 		"prettier": "^2.2.1",
 		"reload": "^3.1.1",
 		"typescript": "^4.2.4"
