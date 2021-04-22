@@ -80,18 +80,18 @@ export class Color extends EventEmitter<ColorEvents> {
 		return `#${color.toHex().toString(16)}`;
 	}
 
-	public static fromHexString(hexString: string): Color {
+	public static fromHexString(hexString: string, alpha?: number): Color {
 		if (/^#/.test(hexString)) hexString = hexString.substr(1, 1);
 		const color = Number.parseInt(hexString, 16);
 		const r = (color >> 16) & 255;
 		const g = (color >> 8) & 255;
 		const b = color & 255;
 
-		return new Color(r, g, b);
+		return new Color(r, g, b, alpha);
 	}
 
-	public static fromHex(hex: number): Color {
-		return Color.fromHexString(`#${hex}`);
+	public static fromHex(hex: number, alpha?: number): Color {
+		return Color.fromHexString(`#${hex}`, alpha);
 	}
 
 	public toHexString(): string {
