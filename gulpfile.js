@@ -13,13 +13,11 @@ function bundle() {
 				loader: {
 					'.ts': 'ts',
 				},
-				minify: true,
-				minifyIdentifiers: true,
 				minifySyntax: true,
 				minifyWhitespace: true,
 				outfile: 'bundle.js',
-				sourcemap: 'both',
-				target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+				sourcemap: 'external',
+				target: ['chrome61', 'firefox79', 'safari11', 'edge18'],
 			})
 		)
 		.pipe(gulp.dest('./dist/'));
