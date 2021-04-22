@@ -22,7 +22,7 @@ export class Rectangle extends PIXI.Rectangle {
 			x = x.x;
 		}
 
-		super(x, y, width, height);
+		super(x as number | undefined, y, width, height);
 	}
 
 	public get halfX(): number {
