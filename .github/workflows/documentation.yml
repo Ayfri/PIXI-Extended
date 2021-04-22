@@ -1,6 +1,12 @@
 name: Generate Documentation
 
-on: [ workflow_dispatch, repository_dispatch ]
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.ts'
+    branches:
+      - master
 
 jobs:
   genDocs:
