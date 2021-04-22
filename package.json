@@ -20,6 +20,9 @@
 		"type": "git",
 		"url": "git+https://github.com/Ayfri/PIXI-Utils.git"
 	},
-	"scripts": {},
+	"scripts": {
+		"generate": "typedoc --sourcefile-url-map mappings.json",
+		"watch": "npm run generate -- --watch"
+	},
 	"version": "1.0.0"
 }
