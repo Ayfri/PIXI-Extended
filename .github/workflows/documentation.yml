@@ -29,6 +29,11 @@ jobs:
         run: |
           npm i
 
+      - name: Install Library Dependencies
+        run: |
+          cd source
+          npm i --production
+
       - name: Generate Documentation
         run: npm run generate
 
