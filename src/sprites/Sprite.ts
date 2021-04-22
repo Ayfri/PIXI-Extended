@@ -49,11 +49,12 @@ export class Sprite extends PIXI.Sprite {
 	}
 
 	public get color(): Color {
-		return Color.fromHex(this.tint);
+		return Color.fromHex(this.tint, this.alpha);
 	}
 
 	public set color(value: Color) {
 		this.tint = value.toHex();
+		this.alpha = value.alpha;
 	}
 
 	get position(): ObservableVector2 {
