@@ -8,6 +8,9 @@ export type ColorEvents = {
 	alphaChange: [value: number];
 };
 
+export type RGB = [red: number, green: number, blue: number];
+export type RGBA = [red: number, green: number, blue: number, alpha: number];
+
 export class Color extends EventEmitter<ColorEvents> {
 	public static readonly WHITE: Color = new Color(255, 255, 255);
 	public static readonly BLACK: Color = new Color();
@@ -18,6 +21,22 @@ export class Color extends EventEmitter<ColorEvents> {
 		this._blue = blue;
 		this._green = green;
 		this._red = red;
+	}
+
+	public get rgba(): RGBA {
+		return [...this.rgb, this.alpha];
+	}
+
+	public set rgba(value: RGBA) {
+		this.set(...value);
+	}
+
+	public get rgb(): RGB {
+		return [this._red, this._green, this._blue];
+	}
+
+	public set rgb(value: RGB) {
+		this.set(...value);
 	}
 
 	private _red: number = 0;
