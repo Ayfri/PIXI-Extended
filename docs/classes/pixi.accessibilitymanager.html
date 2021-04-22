@@ -1,0 +1,927 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AccessibilityManager
+	| PIXI-Utils - v0.1.0</title>
+	<meta name="description" content="Documentation for PIXI-Utils - v0.1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">PIXI-Utils - v0.1.0</a>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">PIXI-Utils - v0.1.0</a>
+				</li>
+				<li>
+					<a href="../modules/pixi.html">PIXI</a>
+				</li>
+				<li>
+					<a href="pixi.accessibilitymanager.html">AccessibilityManager</a>
+				</li>
+			</ul>
+			<h1>Class AccessibilityManager</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The Accessibility manager recreates the ability to tab and have content read by screen readers.
+						This is very important as it can possibly help people with disabilities access PixiJS content.</p>
+					</div>
+					<p>A DisplayObject can be made accessible just like it can be made interactive. This manager will map the
+					events as if the mouse was being used, minimizing the effort required to implement.</p>
+					<p>An instance of this class is automatically created by default, and can be found at <code>renderer.plugins.accessibility</code></p>
+					<dl class="tsd-comment-tags">
+						<dt>memberof</dt>
+						<dd><p>PIXI</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">AccessibilityManager</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#constructor"
+								class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_hookdiv"
+								class="tsd-kind-icon">_hook<wbr>Div</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_isactive"
+								class="tsd-kind-icon">_is<wbr>Active</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_ismobileaccessibility"
+								class="tsd-kind-icon">_is<wbr>Mobile<wbr>Accessibility</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_onclick"
+								class="tsd-kind-icon">_on<wbr>Click</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_onfocus"
+								class="tsd-kind-icon">_on<wbr>Focus</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_onfocusout"
+								class="tsd-kind-icon">_on<wbr>Focus<wbr>Out</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_onkeydown"
+								class="tsd-kind-icon">_on<wbr>Key<wbr>Down</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#_onmousemove"
+								class="tsd-kind-icon">_on<wbr>Mouse<wbr>Move</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#activate"
+								class="tsd-kind-icon">activate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#addchild"
+								class="tsd-kind-icon">add<wbr>Child</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#androidupdatecount"
+								class="tsd-kind-icon">android<wbr>Update<wbr>Count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#androidupdatefrequency"
+								class="tsd-kind-icon">android<wbr>Update<wbr>Frequency</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#children"
+								class="tsd-kind-icon">children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#createtouchhook"
+								class="tsd-kind-icon">create<wbr>Touch<wbr>Hook</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#deactivate"
+								class="tsd-kind-icon">deactivate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#debug"
+								class="tsd-kind-icon">debug</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#destroytouchhook"
+								class="tsd-kind-icon">destroy<wbr>Touch<wbr>Hook</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#div"
+								class="tsd-kind-icon">div</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#pool"
+								class="tsd-kind-icon">pool</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#renderid"
+								class="tsd-kind-icon">render<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#renderer"
+								class="tsd-kind-icon">renderer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#update"
+								class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.accessibilitymanager.html#updateaccessibleobjects"
+								class="tsd-kind-icon">update<wbr>Accessible<wbr>Objects</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#isactive"
+								class="tsd-kind-icon">is<wbr>Active</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#ismobileaccessibility"
+								class="tsd-kind-icon">is<wbr>Mobile<wbr>Accessibility</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#caphitarea"
+								class="tsd-kind-icon">cap<wbr>Hit<wbr>Area</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#destroy"
+								class="tsd-kind-icon">destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.accessibilitymanager.html#updatedebughtml"
+								class="tsd-kind-icon">update<wbr>DebugHTML</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Accessibility<wbr>Manager<span class="tsd-signature-symbol">(</span>renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderer</span><span class="tsd-signature-symbol"> | </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.accessibilitymanager.html" class="tsd-signature-type" data-tsd-kind="Class">AccessibilityManager</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:46</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>renderer: <span class="tsd-signature-type">CanvasRenderer</span><span class="tsd-signature-symbol"> | </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A reference to the current renderer</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.accessibilitymanager.html" class="tsd-signature-type" data-tsd-kind="Class">AccessibilityManager</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_hookdiv" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _hook<wbr>Div</h3>
+					<div class="tsd-signature tsd-kind-icon">_hook<wbr>Div<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:34</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Button element for handling touch hooks.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_isactive" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Active</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:30</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Internal variable, see isActive getter.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_ismobileaccessibility" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Mobile<wbr>Accessibility</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Mobile<wbr>Accessibility<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:32</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Internal variable, see isMobileAccessibility getter.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_onclick" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Click</h3>
+					<div class="tsd-signature tsd-kind-icon">_on<wbr>Click<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:128</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Maps the div button press to pixi&#39;s InteractionManager (click)</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The click event.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_onfocus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Focus</h3>
+					<div class="tsd-signature tsd-kind-icon">_on<wbr>Focus<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:135</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Maps the div focus events to pixi&#39;s InteractionManager (mouseover)</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The focus event.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_onfocusout" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Focus<wbr>Out</h3>
+					<div class="tsd-signature tsd-kind-icon">_on<wbr>Focus<wbr>Out<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:142</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Maps the div focus events to pixi&#39;s InteractionManager (mouseout)</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The focusout event.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_onkeydown" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Key<wbr>Down</h3>
+					<div class="tsd-signature tsd-kind-icon">_on<wbr>Key<wbr>Down<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:149</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Is called when a key is pressed</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The keydown event.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_onmousemove" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Mouse<wbr>Move</h3>
+					<div class="tsd-signature tsd-kind-icon">_on<wbr>Mouse<wbr>Move<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:156</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Is called when the mouse moves across the renderer element</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The mouse event.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="activate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> activate</h3>
+					<div class="tsd-signature tsd-kind-icon">activate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:81</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Activating will cause the Accessibility layer to be shown.
+							This is called when a user presses the tab key.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="addchild" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> add<wbr>Child</h3>
+					<div class="tsd-signature tsd-kind-icon">add<wbr>Child<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:121</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Adds a DisplayObject to the accessibility manager</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The child to make accessible.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="androidupdatecount" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> android<wbr>Update<wbr>Count</h3>
+					<div class="tsd-signature tsd-kind-icon">android<wbr>Update<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:44</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Count to throttle div updates on android devices.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="androidupdatefrequency" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> android<wbr>Update<wbr>Frequency</h3>
+					<div class="tsd-signature tsd-kind-icon">android<wbr>Update<wbr>Frequency<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:46</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The frequency to update the div elements.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="children" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> children</h3>
+					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:42</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The array of currently active accessible items.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="createtouchhook" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Touch<wbr>Hook</h3>
+					<div class="tsd-signature tsd-kind-icon">create<wbr>Touch<wbr>Hook<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:68</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Creates the touch hooks.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="deactivate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> deactivate</h3>
+					<div class="tsd-signature tsd-kind-icon">deactivate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:88</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Deactivating will cause the Accessibility layer to be hidden.
+							This is called when a user moves the mouse.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="debug" class="tsd-anchor"></a>
+					<h3>debug</h3>
+					<div class="tsd-signature tsd-kind-icon">debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:22</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Setting this to true will visually show the divs.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="destroytouchhook" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> destroy<wbr>Touch<wbr>Hook</h3>
+					<div class="tsd-signature tsd-kind-icon">destroy<wbr>Touch<wbr>Hook<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:74</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Destroys the touch hooks.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="div" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> div</h3>
+					<div class="tsd-signature tsd-kind-icon">div<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:36</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This is the dom element that will sit over the PixiJS element. This is where the div overlays will go.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="pool" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> pool</h3>
+					<div class="tsd-signature tsd-kind-icon">pool<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:38</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A simple pool for storing divs.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="renderid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> render<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">render<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:40</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This is a tick used to check if an object is no longer being rendered.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3>renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderer</span><span class="tsd-signature-symbol"> | </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:28</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The renderer this accessibility manager works for.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="update" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> update</h3>
+					<div class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:101</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Before each render this function will ensure that all divs are mapped correctly to their DisplayObjects.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="updateaccessibleobjects" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> update<wbr>Accessible<wbr>Objects</h3>
+					<div class="tsd-signature tsd-kind-icon">update<wbr>Accessible<wbr>Objects<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:95</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This recursive function will run through the scene graph and add any new accessible objects to the DOM layer.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The DisplayObject to check.</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+					<a name="isactive" class="tsd-anchor"></a>
+					<h3>is<wbr>Active</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isActive<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:56</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Value of <code>true</code> if accessibility is currently active and accessibility layers are showing.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>member</dt>
+									<dd><p>{boolean}</p>
+									</dd>
+									<dt>readonly</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+					<a name="ismobileaccessibility" class="tsd-anchor"></a>
+					<h3>is<wbr>Mobile<wbr>Accessibility</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isMobileAccessibility<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:62</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Value of <code>true</code> if accessibility is enabled for touch devices.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>member</dt>
+									<dd><p>{boolean}</p>
+									</dd>
+									<dt>readonly</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="caphitarea" class="tsd-anchor"></a>
+					<h3>cap<wbr>Hit<wbr>Area</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">cap<wbr>Hit<wbr>Area<span class="tsd-signature-symbol">(</span>hitArea<span class="tsd-signature-symbol">: </span><a href="pixi.rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:114</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adjust the hit area based on the bounds of a display object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>hitArea: <a href="pixi.rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Bounds of the child</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:161</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Destroys the accessibility manager</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="updatedebughtml" class="tsd-anchor"></a>
+					<h3>update<wbr>DebugHTML</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>DebugHTML<span class="tsd-signature-symbol">(</span>div<span class="tsd-signature-symbol">: </span><a href="../interfaces/pixi.iaccessiblehtmlelement.html" class="tsd-signature-type" data-tsd-kind="Interface">IAccessibleHTMLElement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/accessibility/index.d.ts:108</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>private function that will visually add the information to the
+									accessability div</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>div: <a href="../interfaces/pixi.iaccessiblehtmlelement.html" class="tsd-signature-type" data-tsd-kind="Interface">IAccessibleHTMLElement</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/eventemitter.html">Event<wbr>Emitter</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class="current tsd-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.html">PIXI</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.html">PIXI.utils</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.eventemitter.html">PIXI.utils.<wbr>Event<wbr>Emitter</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-namespace tsd-is-external">
+						<a href="pixi.accessibilitymanager.html" class="tsd-kind-icon">Accessibility<wbr>Manager</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_hookdiv" class="tsd-kind-icon">_hook<wbr>Div</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_isactive" class="tsd-kind-icon">_is<wbr>Active</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_ismobileaccessibility" class="tsd-kind-icon">_is<wbr>Mobile<wbr>Accessibility</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_onclick" class="tsd-kind-icon">_on<wbr>Click</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_onfocus" class="tsd-kind-icon">_on<wbr>Focus</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_onfocusout" class="tsd-kind-icon">_on<wbr>Focus<wbr>Out</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_onkeydown" class="tsd-kind-icon">_on<wbr>Key<wbr>Down</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#_onmousemove" class="tsd-kind-icon">_on<wbr>Mouse<wbr>Move</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#activate" class="tsd-kind-icon">activate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#addchild" class="tsd-kind-icon">add<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#androidupdatecount" class="tsd-kind-icon">android<wbr>Update<wbr>Count</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#androidupdatefrequency" class="tsd-kind-icon">android<wbr>Update<wbr>Frequency</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#children" class="tsd-kind-icon">children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#createtouchhook" class="tsd-kind-icon">create<wbr>Touch<wbr>Hook</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#deactivate" class="tsd-kind-icon">deactivate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#debug" class="tsd-kind-icon">debug</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#destroytouchhook" class="tsd-kind-icon">destroy<wbr>Touch<wbr>Hook</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#div" class="tsd-kind-icon">div</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#pool" class="tsd-kind-icon">pool</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#renderid" class="tsd-kind-icon">render<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#renderer" class="tsd-kind-icon">renderer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#updateaccessibleobjects" class="tsd-kind-icon">update<wbr>Accessible<wbr>Objects</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#isactive" class="tsd-kind-icon">is<wbr>Active</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#ismobileaccessibility" class="tsd-kind-icon">is<wbr>Mobile<wbr>Accessibility</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#caphitarea" class="tsd-kind-icon">cap<wbr>Hit<wbr>Area</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.accessibilitymanager.html#updatedebughtml" class="tsd-kind-icon">update<wbr>DebugHTML</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span
+				class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span
+				class="tsd-kind-icon">Protected property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

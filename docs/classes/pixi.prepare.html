@@ -1,0 +1,645 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prepare
+	| PIXI-Utils - v0.1.0</title>
+	<meta name="description" content="Documentation for PIXI-Utils - v0.1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">PIXI-Utils - v0.1.0</a>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">PIXI-Utils - v0.1.0</a>
+				</li>
+				<li>
+					<a href="../modules/pixi.html">PIXI</a>
+				</li>
+				<li>
+					<a href="pixi.prepare.html">Prepare</a>
+				</li>
+			</ul>
+			<h1>Class Prepare</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The prepare plugin provides renderer-specific plugins for pre-rendering DisplayObjects. These plugins are useful for
+						asynchronously preparing and uploading to the GPU assets, textures, graphics waiting to be displayed.</p>
+					</div>
+					<p>Do not instantiate this plugin directly. It is available from the <code>renderer.plugins</code> property.
+					See {@link PIXI.CanvasRenderer#plugins} or {@link PIXI.Renderer#plugins}.</p>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>// Create a new application
+								const app = new PIXI.Application();
+							document.body.appendChild(app.view);</p>
+							<p>// Don&#39;t start rendering right away
+							app.stop();</p>
+							<p>// create a display object
+								const rect = new PIXI.Graphics()
+								.beginFill(0x00ff00)
+							.drawRect(40, 40, 200, 200);</p>
+							<p>// Add to the stage
+							app.stage.addChild(rect);</p>
+							<p>// Don&#39;t start rendering until the graphic is uploaded to the GPU
+								app.renderer.plugins.prepare.upload(app.stage, () =&gt; {
+								app.start();
+							});</p>
+						</dd>
+						<dt>memberof</dt>
+						<dd><p>PIXI</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="pixi.baseprepare.html" class="tsd-signature-type" data-tsd-kind="Class">BasePrepare</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">Prepare</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="pixi.prepare.html#constructor"
+								class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#addhooks"
+								class="tsd-kind-icon">add<wbr>Hooks</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#completes"
+								class="tsd-kind-icon">completes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.prepare.html#queue"
+								class="tsd-kind-icon">queue</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.prepare.html#renderer"
+								class="tsd-kind-icon">renderer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#ticking"
+								class="tsd-kind-icon">ticking</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.prepare.html#uploadhookhelper"
+								class="tsd-kind-icon">upload<wbr>Hook<wbr>Helper</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#uploadhooks"
+								class="tsd-kind-icon">upload<wbr>Hooks</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#add"
+								class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#destroy"
+								class="tsd-kind-icon">destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external"><a href="pixi.prepare.html#prepareitems"
+								class="tsd-kind-icon">prepare<wbr>Items</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#registerfindhook"
+								class="tsd-kind-icon">register<wbr>Find<wbr>Hook</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#registeruploadhook"
+								class="tsd-kind-icon">register<wbr>Upload<wbr>Hook</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external"><a href="pixi.prepare.html#tick"
+								class="tsd-kind-icon">tick</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.prepare.html#upload"
+								class="tsd-kind-icon">upload</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Prepare<span class="tsd-signature-symbol">(</span>renderer<span class="tsd-signature-symbol">: </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:167</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>renderer: <a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A reference to the current renderer</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="addhooks" class="tsd-anchor"></a>
+					<h3>add<wbr>Hooks</h3>
+					<div class="tsd-signature tsd-kind-icon">add<wbr>Hooks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#addhooks">addHooks</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:35</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="completes" class="tsd-anchor"></a>
+					<h3>completes</h3>
+					<div class="tsd-signature tsd-kind-icon">completes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#completes">completes</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:37</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="queue" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> queue</h3>
+					<div class="tsd-signature tsd-kind-icon">queue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#queue">queue</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:34</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <a href="pixi.abstractrenderer.html" class="tsd-signature-type" data-tsd-kind="Class">AbstractRenderer</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#renderer">renderer</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:32</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="ticking" class="tsd-anchor"></a>
+					<h3>ticking</h3>
+					<div class="tsd-signature tsd-kind-icon">ticking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#ticking">ticking</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:38</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="uploadhookhelper" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> upload<wbr>Hook<wbr>Helper</h3>
+					<div class="tsd-signature tsd-kind-icon">upload<wbr>Hook<wbr>Helper<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#uploadhookhelper">uploadHookHelper</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:33</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="uploadhooks" class="tsd-anchor"></a>
+					<h3>upload<wbr>Hooks</h3>
+					<div class="tsd-signature tsd-kind-icon">upload<wbr>Hooks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#uploadhooks">uploadHooks</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:36</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/pixi.idisplayobjectextended.html" class="tsd-signature-type" data-tsd-kind="Interface">IDisplayObjectExtended</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IUploadHook</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IFindHook</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#add">add</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:89</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Manually add an item to the uploading queue.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>item: <a href="../interfaces/pixi.idisplayobjectextended.html" class="tsd-signature-type" data-tsd-kind="Interface">IDisplayObjectExtended</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IUploadHook</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IFindHook</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Object to
+										add to the queue</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></h4>
+							<p>Instance of plugin for chaining.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#destroy">destroy</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:94</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Destroys the plugin, don&#39;t use after this.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external">
+					<a name="prepareitems" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> prepare<wbr>Items</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">prepare<wbr>Items<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#prepareitems">prepareItems</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:65</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Actually prepare items. This is handled outside of the tick because it will take a while
+									and we do NOT want to block the current animation frame from rendering.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="registerfindhook" class="tsd-anchor"></a>
+					<h3>register<wbr>Find<wbr>Hook</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Find<wbr>Hook<span class="tsd-signature-symbol">(</span>addHook<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IFindHook</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#registerfindhook">registerFindHook</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:73</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds hooks for finding items.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>addHook: <span class="tsd-signature-type">IFindHook</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Function call that takes two parameters: <code>item:*, queue:Array</code>
+										function must return <code>true</code> if it was able to add item to the queue.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></h4>
+							<p>Instance of plugin for chaining.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="registeruploadhook" class="tsd-anchor"></a>
+					<h3>register<wbr>Upload<wbr>Hook</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Upload<wbr>Hook<span class="tsd-signature-symbol">(</span>uploadHook<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IUploadHook</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#registeruploadhook">registerUploadHook</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:81</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds hooks for uploading items.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uploadHook: <span class="tsd-signature-type">IUploadHook</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Function call that takes two parameters: <code>prepare:CanvasPrepare, item:*</code> and
+										function must return <code>true</code> if it was able to handle upload of item.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.prepare.html" class="tsd-signature-type" data-tsd-kind="Class">Prepare</a></h4>
+							<p>Instance of plugin for chaining.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external">
+					<a name="tick" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> tick</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">tick<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#tick">tick</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:58</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handle tick update</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="upload" class="tsd-anchor"></a>
+					<h3>upload</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">upload<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/pixi.idisplayobjectextended.html" class="tsd-signature-type" data-tsd-kind="Interface">IDisplayObjectExtended</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IUploadHook</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IFindHook</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, done<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.baseprepare.html">BasePrepare</a>.<a href="pixi.baseprepare.html#upload">upload</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/prepare/index.d.ts:52</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Upload all the textures and graphics to the GPU.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>item: <a href="../interfaces/pixi.idisplayobjectextended.html" class="tsd-signature-type" data-tsd-kind="Interface">IDisplayObjectExtended</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IUploadHook</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IFindHook</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>-
+											Either the container or display object to search for items to upload, the items to upload themselves,
+										or the callback function, if items have been added using <code>prepare.add</code>.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> done: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-external">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/eventemitter.html">Event<wbr>Emitter</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class="current tsd-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.html">PIXI</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.html">PIXI.utils</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.eventemitter.html">PIXI.utils.<wbr>Event<wbr>Emitter</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-namespace tsd-is-external">
+						<a href="pixi.prepare.html" class="tsd-kind-icon">Prepare</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="pixi.prepare.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#addhooks" class="tsd-kind-icon">add<wbr>Hooks</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#completes" class="tsd-kind-icon">completes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.prepare.html#queue" class="tsd-kind-icon">queue</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.prepare.html#renderer" class="tsd-kind-icon">renderer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#ticking" class="tsd-kind-icon">ticking</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.prepare.html#uploadhookhelper" class="tsd-kind-icon">upload<wbr>Hook<wbr>Helper</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#uploadhooks" class="tsd-kind-icon">upload<wbr>Hooks</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#add" class="tsd-kind-icon">add</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external">
+								<a href="pixi.prepare.html#prepareitems" class="tsd-kind-icon">prepare<wbr>Items</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#registerfindhook" class="tsd-kind-icon">register<wbr>Find<wbr>Hook</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#registeruploadhook" class="tsd-kind-icon">register<wbr>Upload<wbr>Hook</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-private tsd-is-external">
+								<a href="pixi.prepare.html#tick" class="tsd-kind-icon">tick</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.prepare.html#upload" class="tsd-kind-icon">upload</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span
+				class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span
+				class="tsd-kind-icon">Protected property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
