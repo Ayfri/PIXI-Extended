@@ -1,0 +1,7 @@
+### WebStorm template
+.idea
+
+### Node template
+node_modules
+package-lock.json
+dist
