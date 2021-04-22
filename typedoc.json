@@ -9,5 +9,5 @@
 	"out": "docs",
 	"readme": "https://github.com/Ayfri/PIXI-Utils/blob/master/README.md",
 	"theme": "./node_modules/typedoc-darker-theme/bin/default",
-	"tsconfig": "source/tsconfig.json"
+	"tsconfig": "./tsconfig.json"
 }
