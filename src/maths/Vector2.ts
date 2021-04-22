@@ -426,6 +426,10 @@ export class ObservableVector2<T = any> extends Vector2 {
 	cb: (this: T) => any;
 	scope: T;
 
+	public static fromPoint(point: PIXI.ObservablePoint): ObservableVector2 {
+		return new ObservableVector2(point.cb, point.scope, point.x, point.y);
+	}
+
 	constructor(cb: (this: T) => any, scope: T, x = 0, y = 0) {
 		super(x, y);
 		this._x = x;

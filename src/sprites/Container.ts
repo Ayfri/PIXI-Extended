@@ -26,7 +26,7 @@ export class Container extends PIXI.Container {
 	}
 
 	get position(): ObservableVector2 {
-		return new ObservableVector2(this.transform.position.cb, this.transform.position.scope, this.transform.position.x, this.transform.position.y);
+		return ObservableVector2.fromPoint(this.transform.position);
 	}
 
 	set position(value: ObservableVector2) {
