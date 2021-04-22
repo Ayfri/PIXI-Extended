@@ -7,19 +7,18 @@ jobs:
     name: Generate Documentation
     runs-on: ubuntu-latest
     steps:
+      - name: Download Documentation Code
+        uses: actions/checkout@v2
+        with:
+          ref: docs
+          repository: Ayfri/PIXI-Utils
+
       - name: Download Library
         uses: actions/checkout@v2
         with:
           ref: master
           repository: Ayfri/PIXI-Utils
           path: 'source'
-
-
-      - name: Download Documentation Code
-        uses: actions/checkout@v2
-        with:
-          ref: docs
-          repository: Ayfri/PIXI-Utils
 
       - name: Install Node.js
         uses: actions/setup-node@v1
