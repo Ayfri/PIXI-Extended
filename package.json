@@ -51,5 +51,5 @@
 		"tests": "reload --dir=dist --port=5000",
 		"watch": "npm run bundle && gulp watch"
 	},
-	"version": "1.0.0"
+	"version": "0.1.0"
 }
