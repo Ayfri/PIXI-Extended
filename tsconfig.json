@@ -7,9 +7,6 @@
 		"moduleResolution": "Node",
 		"noImplicitAny": true,
 		"outDir": "cache",
-		"paths": {
-			"mini-signals": ["node_modules/resource-loader/typings/mini-signals.d.ts"]
-		},
 		"pretty": true,
 		"sourceMap": true,
 		"strict": true,
