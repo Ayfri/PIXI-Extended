@@ -1,0 +1,1092 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CompressedTextureResource
+	| PIXI-Utils - v0.1.0</title>
+	<meta name="description" content="Documentation for PIXI-Utils - v0.1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">PIXI-Utils - v0.1.0</a>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">PIXI-Utils - v0.1.0</a>
+				</li>
+				<li>
+					<a href="../modules/pixi.html">PIXI</a>
+				</li>
+				<li>
+					<a href="pixi.compressedtextureresource.html">CompressedTextureResource</a>
+				</li>
+			</ul>
+			<h1>Class CompressedTextureResource</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Resource for compressed texture formats, as follows: S3TC/DXTn (&amp; their sRGB formats), ATC, ASTC, ETC 1/2, PVRTC.</p>
+					</div>
+					<p>Compressed textures improve performance when rendering is texture-bound. The texture data stays compressed in
+						graphics memory, increasing memory locality and speeding up texture fetches. These formats can also be used to store
+					more detail in the same amount of memory.</p>
+					<p>For most developers, container file formats are a better abstraction instead of directly handling raw texture
+					data. PixiJS provides native support for the following texture file formats (via <a href="pixi.loader.html">PIXI.Loader</a>):</p>
+					<ul>
+						<li><strong>.dds</strong> - the DirectDraw Surface file format stores DXTn (DXT-1,3,5) data. See <a href="pixi.ddsloader.html">PIXI.DDSLoader</a></li>
+						<li><strong>.ktx</strong> - the Khronos Texture Container file format supports storing all the supported WebGL compression formats.
+						See <a href="pixi.ktxloader.html">PIXI.KTXLoader</a>.</li>
+						<li><strong>.basis</strong> - the BASIS supercompressed file format stores texture data in an internal format that is transcoded
+							to the compression format supported on the device at <em>runtime</em>. It also supports transcoding into a uncompressed
+							format as a fallback; you must install the <code>@pixi/basis-loader</code>, <code>@pixi/basis-transcoder</code> packages separately to
+						use these files. See {@link PIXI.BasisLoader}.</li>
+					</ul>
+					<p>The loaders for the aforementioned formats use <code>CompressedTextureResource</code> internally. It is strongly suggested that
+					they be used instead.</p>
+					<a href="#working-directly-with-compressedtextureresource" id="working-directly-with-compressedtextureresource" style="color: inherit; text-decoration: none;">
+						<h2>Working directly with CompressedTextureResource</h2>
+					</a>
+					<p>Since <code>CompressedTextureResource</code> inherits <code>BlobResource</code>, you can provide it a URL pointing to a file containing
+					the raw texture data (with no file headers!):</p>
+					<pre><code class="language-js"><span style="color: #6A737D">// The resource backing the texture data for your textures.</span>
+<span style="color: #6A737D">// NOTE: You can also provide a ArrayBufferView instead of a URL. This is used when loading data from a container file</span>
+<span style="color: #6A737D">//   format such as KTX, DDS, or BASIS.</span>
+<span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">compressedResource</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">CompressedTextureResource</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">&quot;bunny.dxt5&quot;</span><span style="color: #E1E4E8">, {</span>
+<span style="color: #E1E4E8">  format: </span><span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">INTERNAL_FORMATS</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">COMPRESSED_RGBA_S3TC_DXT5_EXT</span><span style="color: #E1E4E8">,</span>
+<span style="color: #E1E4E8">  width: </span><span style="color: #79B8FF">256</span><span style="color: #E1E4E8">,</span>
+<span style="color: #E1E4E8">  height: </span><span style="color: #79B8FF">256</span>
+<span style="color: #E1E4E8">});</span>
+
+<span style="color: #6A737D">// You can create a base-texture to the cache, so that future `Texture`s can be created using the `Texture.from` API.</span>
+<span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">baseTexture</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">BaseTexture</span><span style="color: #E1E4E8">(compressedResource, { pmaMode: </span><span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">ALPHA_MODES</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">NPM</span><span style="color: #E1E4E8"> });</span>
+
+<span style="color: #6A737D">// Create a Texture to add to the TextureCache</span>
+<span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">texture</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">Texture</span><span style="color: #E1E4E8">(baseTexture);</span>
+
+<span style="color: #6A737D">// Add baseTexture &amp; texture to the global texture cache</span>
+<span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.BaseTexture.</span><span style="color: #B392F0">addToCache</span><span style="color: #E1E4E8">(baseTexture, </span><span style="color: #9ECBFF">&quot;bunny.dxt5&quot;</span><span style="color: #E1E4E8">);</span>
+<span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.Texture.</span><span style="color: #B392F0">addToCache</span><span style="color: #E1E4E8">(texture, </span><span style="color: #9ECBFF">&quot;bunny.dxt5&quot;</span><span style="color: #E1E4E8">);</span>
+</code></pre>
+					<dl class="tsd-comment-tags">
+						<dt>memberof</dt>
+						<dd><p>PIXI</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="pixi.blobresource.html" class="tsd-signature-type" data-tsd-kind="Class">BlobResource</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">CompressedTextureResource</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="pixi.compressedtextureresource.html#constructor"
+								class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.compressedtextureresource.html#_extension"
+								class="tsd-kind-icon">_extension</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#_height"
+								class="tsd-kind-icon">_height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.compressedtextureresource.html#_levelbuffers"
+								class="tsd-kind-icon">_level<wbr>Buffers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#_width"
+								class="tsd-kind-icon">_width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#buffer"
+								class="tsd-kind-icon">buffer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#data"
+								class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#destroyed"
+								class="tsd-kind-icon">destroyed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.compressedtextureresource.html#format"
+								class="tsd-kind-icon">format</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#internal"
+								class="tsd-kind-icon">internal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.compressedtextureresource.html#levels"
+								class="tsd-kind-icon">levels</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#loaded"
+								class="tsd-kind-icon">loaded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#onerror"
+								class="tsd-kind-icon">on<wbr>Error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#onresize"
+								class="tsd-kind-icon">on<wbr>Resize</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#onupdate"
+								class="tsd-kind-icon">on<wbr>Update</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#origin"
+								class="tsd-kind-icon">origin</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external"><a href="pixi.compressedtextureresource.html#_createlevelbuffers"
+								class="tsd-kind-icon">_create<wbr>Level<wbr>Buffers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external"><a href="pixi.compressedtextureresource.html#_formattoextension"
+								class="tsd-kind-icon">_format<wbr>ToExtension</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#height"
+								class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#valid"
+								class="tsd-kind-icon">valid</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#width"
+								class="tsd-kind-icon">width</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#bind"
+								class="tsd-kind-icon">bind</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#destroy"
+								class="tsd-kind-icon">destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#dispose"
+								class="tsd-kind-icon">dispose</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#load"
+								class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected tsd-is-external"><a href="pixi.compressedtextureresource.html#onblobloaded"
+								class="tsd-kind-icon">on<wbr>Blob<wbr>Loaded</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#resize"
+								class="tsd-kind-icon">resize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#style"
+								class="tsd-kind-icon">style</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#unbind"
+								class="tsd-kind-icon">unbind</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.compressedtextureresource.html#update"
+								class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="pixi.compressedtextureresource.html#upload"
+								class="tsd-kind-icon">upload</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external"><a href="pixi.compressedtextureresource.html#test"
+								class="tsd-kind-icon">test</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Compressed<wbr>Texture<wbr>Resource<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICompressedTextureResourceOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.compressedtextureresource.html" class="tsd-signature-type" data-tsd-kind="Class">CompressedTextureResource</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:171</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the buffer/URL holding the compressed texture data</p>
+									</div>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">ICompressedTextureResourceOptions</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.compressedtextureresource.html" class="tsd-signature-type" data-tsd-kind="Class">CompressedTextureResource</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_extension" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _extension</h3>
+					<div class="tsd-signature tsd-kind-icon">_extension<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:170</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="_height" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _height</h3>
+					<div class="tsd-signature tsd-kind-icon">_height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#_height">_height</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3341</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_levelbuffers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _level<wbr>Buffers</h3>
+					<div class="tsd-signature tsd-kind-icon">_level<wbr>Buffers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:171</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="_width" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _width</h3>
+					<div class="tsd-signature tsd-kind-icon">_width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#_width">_width</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3340</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="buffer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> buffer</h3>
+					<div class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">:</span> <a href="pixi.viewablebuffer.html" class="tsd-signature-type" data-tsd-kind="Class">ViewableBuffer</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#buffer">buffer</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:18</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="data" class="tsd-anchor"></a>
+					<h3>data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Uint16Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#data">data</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1117</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="destroyed" class="tsd-anchor"></a>
+					<h3>destroyed</h3>
+					<div class="tsd-signature tsd-kind-icon">destroyed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#destroyed">destroyed</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3338</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="format" class="tsd-anchor"></a>
+					<h3>format</h3>
+					<div class="tsd-signature tsd-kind-icon">format<span class="tsd-signature-symbol">:</span> <a href="../enums/pixi.internal_formats.html" class="tsd-signature-type" data-tsd-kind="Enumeration">INTERNAL_FORMATS</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:168</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="internal" class="tsd-anchor"></a>
+					<h3>internal</h3>
+					<div class="tsd-signature tsd-kind-icon">internal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#internal">internal</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3339</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="levels" class="tsd-anchor"></a>
+					<h3>levels</h3>
+					<div class="tsd-signature tsd-kind-icon">levels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:169</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="loaded" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> loaded</h3>
+					<div class="tsd-signature tsd-kind-icon">loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#loaded">loaded</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:19</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="onerror" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Error</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Error<span class="tsd-signature-symbol">:</span> <a href="pixi.runner.html" class="tsd-signature-type" data-tsd-kind="Class">Runner</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#onerror">onError</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3344</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="onresize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Resize</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Resize<span class="tsd-signature-symbol">:</span> <a href="pixi.runner.html" class="tsd-signature-type" data-tsd-kind="Class">Runner</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#onresize">onResize</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3342</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="onupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Update</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Update<span class="tsd-signature-symbol">:</span> <a href="pixi.runner.html" class="tsd-signature-type" data-tsd-kind="Class">Runner</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#onupdate">onUpdate</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3343</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+					<a name="origin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> origin</h3>
+					<div class="tsd-signature tsd-kind-icon">origin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#origin">origin</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:17</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external">
+					<a name="_createlevelbuffers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _create<wbr>Level<wbr>Buffers</h3>
+					<div class="tsd-signature tsd-kind-icon">_create<wbr>Level<wbr>Buffers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:214</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Pre-creates buffer views for each mipmap level</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd></dd>
+							<dt>param</dt>
+							<dd></dd>
+							<dt>param</dt>
+							<dd></dd>
+							<dt>param</dt>
+							<dd></dd>
+							<dt>param</dt>
+							<dd></dd>
+							<dt>param</dt>
+							<dd></dd>
+							<dt>param</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external">
+					<a name="_formattoextension" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _format<wbr>ToExtension</h3>
+					<div class="tsd-signature tsd-kind-icon">_format<wbr>ToExtension<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:201</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Returns the key (to ContextSystem#extensions) for the WebGL extension supporting the compression format</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd></dd>
+							<dt>returns</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="height" class="tsd-anchor"></a>
+					<h3>height</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> height<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3398</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The height of the resource.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>member</dt>
+									<dd><p>{number}</p>
+									</dd>
+									<dt>readonly</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="valid" class="tsd-anchor"></a>
+					<h3>valid</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> valid<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3373</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Has been validated</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>readonly</dt>
+									<dd></dd>
+									<dt>member</dt>
+									<dd><p>{boolean}</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="width" class="tsd-anchor"></a>
+					<h3>width</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> width<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3391</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The width of the resource.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>member</dt>
+									<dd><p>{number}</p>
+									</dd>
+									<dt>readonly</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="bind" class="tsd-anchor"></a>
+					<h3>bind</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">bind<span class="tsd-signature-symbol">(</span>baseTexture<span class="tsd-signature-symbol">: </span><a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#bind">bind</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3355</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Bind to a parent BaseTexture</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>baseTexture: <a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Parent texture</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#destroy">destroy</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3428</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Call when destroying resource, unbind any BaseTexture object
+										before calling this method, as reference counts are maintained
+									internally.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="dispose" class="tsd-anchor"></a>
+					<h3>dispose</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">dispose<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#dispose">dispose</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1137</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Destroy and don&#39;t use after this</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>override</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="load" class="tsd-anchor"></a>
+					<h3>load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#load">load</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:30</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Loads the blob</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected tsd-is-external">
+					<a name="onblobloaded" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Blob<wbr>Loaded</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Blob<wbr>Loaded<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#onblobloaded">onBlobLoaded</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:193</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="resize" class="tsd-anchor"></a>
+					<h3>resize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">resize<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#resize">resize</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3367</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Trigger a resize event</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>X dimension</p>
+									</div>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Y dimension</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="style" class="tsd-anchor"></a>
+					<h3>style</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">(</span>_renderer<span class="tsd-signature-symbol">: </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a>, _baseTexture<span class="tsd-signature-symbol">: </span><a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span>, _glTexture<span class="tsd-signature-symbol">: </span><a href="pixi.gltexture.html" class="tsd-signature-type" data-tsd-kind="Class">GLTexture</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#style">style</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3416</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the style, optional to override</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_renderer: <a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></h5>
+								</li>
+								<li>
+									<h5>_baseTexture: <a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>_glTexture: <a href="pixi.gltexture.html" class="tsd-signature-type" data-tsd-kind="Class">GLTexture</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> is success</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="unbind" class="tsd-anchor"></a>
+					<h3>unbind</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">unbind<span class="tsd-signature-symbol">(</span>baseTexture<span class="tsd-signature-symbol">: </span><a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#unbind">unbind</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3361</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unbind to a parent BaseTexture</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>baseTexture: <a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Parent texture</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#update">update</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:3377</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Has been updated trigger event</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="upload" class="tsd-anchor"></a>
+					<h3>upload</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">upload<span class="tsd-signature-symbol">(</span>renderer<span class="tsd-signature-symbol">: </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a>, _texture<span class="tsd-signature-symbol">: </span><a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span>, _glTexture<span class="tsd-signature-symbol">: </span><a href="pixi.gltexture.html" class="tsd-signature-type" data-tsd-kind="Class">GLTexture</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#upload">upload</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/compressed-textures/index.d.ts:189</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>override</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>renderer: <a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></h5>
+								</li>
+								<li>
+									<h5>_texture: <a href="pixi.basetexture.html" class="tsd-signature-type" data-tsd-kind="Class">BaseTexture</a><span class="tsd-signature-symbol">&lt;</span><a href="pixi.resource.html" class="tsd-signature-type" data-tsd-kind="Class">Resource</a><span class="tsd-signature-symbol">, </span><a href="../modules/pixi.html#iautodetectoptions" class="tsd-signature-type" data-tsd-kind="Type alias">IAutoDetectOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>_glTexture: <a href="pixi.gltexture.html" class="tsd-signature-type" data-tsd-kind="Class">GLTexture</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external">
+					<a name="test" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> test</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">test<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">source</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">Uint32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="pixi.blobresource.html">BlobResource</a>.<a href="pixi.blobresource.html#test">test</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1145</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Used to auto-detect the type of resource.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>static</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <span class="tsd-signature-type">unknown</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The source object</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">source</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">Uint32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></h4>
+							<p><code>true</code> if <canvas></p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/eventemitter.html">Event<wbr>Emitter</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class="current tsd-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.html">PIXI</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.html">PIXI.utils</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.eventemitter.html">PIXI.utils.<wbr>Event<wbr>Emitter</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-namespace tsd-is-external">
+						<a href="pixi.compressedtextureresource.html" class="tsd-kind-icon">Compressed<wbr>Texture<wbr>Resource</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#_extension" class="tsd-kind-icon">_extension</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#_height" class="tsd-kind-icon">_height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#_levelbuffers" class="tsd-kind-icon">_level<wbr>Buffers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#_width" class="tsd-kind-icon">_width</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#buffer" class="tsd-kind-icon">buffer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#destroyed" class="tsd-kind-icon">destroyed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#format" class="tsd-kind-icon">format</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#internal" class="tsd-kind-icon">internal</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#levels" class="tsd-kind-icon">levels</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#loaded" class="tsd-kind-icon">loaded</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#onerror" class="tsd-kind-icon">on<wbr>Error</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#onupdate" class="tsd-kind-icon">on<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#origin" class="tsd-kind-icon">origin</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#_createlevelbuffers" class="tsd-kind-icon">_create<wbr>Level<wbr>Buffers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#_formattoextension" class="tsd-kind-icon">_format<wbr>ToExtension</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#height" class="tsd-kind-icon">height</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#valid" class="tsd-kind-icon">valid</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#bind" class="tsd-kind-icon">bind</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#dispose" class="tsd-kind-icon">dispose</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#load" class="tsd-kind-icon">load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#onblobloaded" class="tsd-kind-icon">on<wbr>Blob<wbr>Loaded</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#resize" class="tsd-kind-icon">resize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#style" class="tsd-kind-icon">style</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#unbind" class="tsd-kind-icon">unbind</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#upload" class="tsd-kind-icon">upload</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external">
+								<a href="pixi.compressedtextureresource.html#test" class="tsd-kind-icon">test</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span
+				class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span
+				class="tsd-kind-icon">Protected property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

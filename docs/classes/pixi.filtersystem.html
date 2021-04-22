@@ -1,0 +1,889 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FilterSystem
+	| PIXI-Utils - v0.1.0</title>
+	<meta name="description" content="Documentation for PIXI-Utils - v0.1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">PIXI-Utils - v0.1.0</a>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">PIXI-Utils - v0.1.0</a>
+				</li>
+				<li>
+					<a href="../modules/pixi.html">PIXI</a>
+				</li>
+				<li>
+					<a href="pixi.filtersystem.html">FilterSystem</a>
+				</li>
+			</ul>
+			<h1>Class FilterSystem</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>System plugin to the renderer to manage filters.</p>
+					</div>
+					<a href="#pipeline" id="pipeline" style="color: inherit; text-decoration: none;">
+						<h2>Pipeline</h2>
+					</a>
+					<p>The FilterSystem executes the filtering pipeline by rendering the display-object into a texture, applying its
+					<a href="pixi.filter.html">filters</a> in series, and the last filter outputs into the final render-target.</p>
+					<p>The filter-frame is the rectangle in world space being filtered, and those contents are mapped into
+						<code>(0, 0, filterFrame.width, filterFrame.height)</code> into the filter render-texture. The filter-frame is also called
+						the source-frame, as it is used to bind the filter render-textures. The last filter outputs to the <code>filterFrame</code>
+					in the final render-target.</p>
+					<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+						<h2>Usage</h2>
+					</a>
+					<p>{@link PIXI.Container#renderAdvanced} is an example of how to use the filter system. It is a 3 step process:</p>
+					<ul>
+						<li><strong>push</strong>: Use {@link PIXI.FilterSystem#push} to push the set of filters to be applied on a filter-target.</li>
+						<li><strong>render</strong>: Render the contents to be filtered using the renderer. The filter-system will only capture the contents
+							inside the bounds of the filter-target. NOTE: Using {@link PIXI.Renderer#render} is
+						illegal during an existing render cycle, and it may reset the filter system.</li>
+						<li><strong>pop</strong>: Use {@link PIXI.FilterSystem#pop} to pop &amp; execute the filters you initially pushed. It will apply them
+						serially and output to the bounds of the filter-target.</li>
+					</ul>
+					<dl class="tsd-comment-tags">
+						<dt>memberof</dt>
+						<dd><p>PIXI</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="pixi.system.html" class="tsd-signature-type" data-tsd-kind="Class">System</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">FilterSystem</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="pixi.filtersystem.html#constructor"
+								class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="pixi.filtersystem.html#activestate"
+								class="tsd-kind-icon">active<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#defaultfilterstack"
+								class="tsd-kind-icon">default<wbr>Filter<wbr>Stack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#forceclear"
+								class="tsd-kind-icon">force<wbr>Clear</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="pixi.filtersystem.html#globaluniforms"
+								class="tsd-kind-icon">global<wbr>Uniforms</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="pixi.filtersystem.html#quad"
+								class="tsd-kind-icon">quad</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="pixi.filtersystem.html#quaduv"
+								class="tsd-kind-icon">quad<wbr>Uv</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="pixi.filtersystem.html#renderer"
+								class="tsd-kind-icon">renderer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.filtersystem.html#roundframe"
+								class="tsd-kind-icon">round<wbr>Frame</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#statepool"
+								class="tsd-kind-icon">state<wbr>Pool</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.filtersystem.html#temprect"
+								class="tsd-kind-icon">temp<wbr>Rect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#texturepool"
+								class="tsd-kind-icon">texture<wbr>Pool</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="pixi.filtersystem.html#transformaabb"
+								class="tsd-kind-icon">transformAABB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#usemaxpadding"
+								class="tsd-kind-icon">use<wbr>Max<wbr>Padding</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#applyfilter"
+								class="tsd-kind-icon">apply<wbr>Filter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#bindandclear"
+								class="tsd-kind-icon">bind<wbr>And<wbr>Clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#calculatespritematrix"
+								class="tsd-kind-icon">calculate<wbr>Sprite<wbr>Matrix</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="pixi.filtersystem.html#destroy"
+								class="tsd-kind-icon">destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#emptypool"
+								class="tsd-kind-icon">empty<wbr>Pool</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#getfiltertexture"
+								class="tsd-kind-icon">get<wbr>Filter<wbr>Texture</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="pixi.filtersystem.html#getoptimalfiltertexture"
+								class="tsd-kind-icon">get<wbr>Optimal<wbr>Filter<wbr>Texture</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#pop"
+								class="tsd-kind-icon">pop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#push"
+								class="tsd-kind-icon">push</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#resize"
+								class="tsd-kind-icon">resize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="pixi.filtersystem.html#returnfiltertexture"
+								class="tsd-kind-icon">return<wbr>Filter<wbr>Texture</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Filter<wbr>System<span class="tsd-signature-symbol">(</span>renderer<span class="tsd-signature-symbol">: </span><a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.filtersystem.html" class="tsd-signature-type" data-tsd-kind="Class">FilterSystem</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="pixi.system.html">System</a>.<a href="pixi.system.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1619</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>renderer: <a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The renderer this System works for.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.filtersystem.html" class="tsd-signature-type" data-tsd-kind="Class">FilterSystem</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<a name="activestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> active<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">active<wbr>State<span class="tsd-signature-symbol">:</span> <a href="pixi.filterstate.html" class="tsd-signature-type" data-tsd-kind="Class">FilterState</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1617</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="defaultfilterstack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> default<wbr>Filter<wbr>Stack</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Filter<wbr>Stack<span class="tsd-signature-symbol">:</span> <a href="pixi.filterstate.html" class="tsd-signature-type" data-tsd-kind="Class">FilterState</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1610</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="forceclear" class="tsd-anchor"></a>
+					<h3>force<wbr>Clear</h3>
+					<div class="tsd-signature tsd-kind-icon">force<wbr>Clear<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1613</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<a name="globaluniforms" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> global<wbr>Uniforms</h3>
+					<div class="tsd-signature tsd-kind-icon">global<wbr>Uniforms<span class="tsd-signature-symbol">:</span> <a href="pixi.uniformgroup.html" class="tsd-signature-type" data-tsd-kind="Class">UniformGroup</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1618</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<a name="quad" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> quad</h3>
+					<div class="tsd-signature tsd-kind-icon">quad<span class="tsd-signature-symbol">:</span> <a href="pixi.quad.html" class="tsd-signature-type" data-tsd-kind="Class">Quad</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1615</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<a name="quaduv" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> quad<wbr>Uv</h3>
+					<div class="tsd-signature tsd-kind-icon">quad<wbr>Uv<span class="tsd-signature-symbol">:</span> <a href="pixi.quaduv.html" class="tsd-signature-type" data-tsd-kind="Class">QuadUv</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1616</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3>renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <a href="pixi.renderer.html" class="tsd-signature-type" data-tsd-kind="Class">Renderer</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="pixi.system.html">System</a>.<a href="pixi.system.html#renderer">renderer</a></p>
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:3942</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="roundframe" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> round<wbr>Frame</h3>
+					<div class="tsd-signature tsd-kind-icon">round<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1704</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="statepool" class="tsd-anchor"></a>
+					<h3>state<wbr>Pool</h3>
+					<div class="tsd-signature tsd-kind-icon">state<wbr>Pool<span class="tsd-signature-symbol">:</span> <a href="pixi.filterstate.html" class="tsd-signature-type" data-tsd-kind="Class">FilterState</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1611</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="temprect" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> temp<wbr>Rect</h3>
+					<div class="tsd-signature tsd-kind-icon">temp<wbr>Rect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1619</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="texturepool" class="tsd-anchor"></a>
+					<h3>texture<wbr>Pool</h3>
+					<div class="tsd-signature tsd-kind-icon">texture<wbr>Pool<span class="tsd-signature-symbol">:</span> <a href="pixi.rendertexturepool.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexturePool</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1612</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="transformaabb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> transformAABB</h3>
+					<div class="tsd-signature tsd-kind-icon">transformAABB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1703</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>first param</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>second param</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="usemaxpadding" class="tsd-anchor"></a>
+					<h3>use<wbr>Max<wbr>Padding</h3>
+					<div class="tsd-signature tsd-kind-icon">use<wbr>Max<wbr>Padding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in source/node_modules/@pixi/core/index.d.ts:1614</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="applyfilter" class="tsd-anchor"></a>
+					<h3>apply<wbr>Filter</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Filter<span class="tsd-signature-symbol">(</span>filter<span class="tsd-signature-symbol">: </span><a href="pixi.filter.html" class="tsd-signature-type" data-tsd-kind="Class">Filter</a>, input<span class="tsd-signature-symbol">: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a>, output<span class="tsd-signature-symbol">: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a>, clearMode<span class="tsd-signature-symbol">?: </span><a href="../enums/pixi.clear_modes.html" class="tsd-signature-type" data-tsd-kind="Enumeration">CLEAR_MODES</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1651</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draws a filter.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>filter: <a href="pixi.filter.html" class="tsd-signature-type" data-tsd-kind="Class">Filter</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The filter to draw.</p>
+									</div>
+								</li>
+								<li>
+									<h5>input: <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The input render target.</p>
+									</div>
+								</li>
+								<li>
+									<h5>output: <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The target to output to.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> clearMode: <a href="../enums/pixi.clear_modes.html" class="tsd-signature-type" data-tsd-kind="Enumeration">CLEAR_MODES</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="bindandclear" class="tsd-anchor"></a>
+					<h3>bind<wbr>And<wbr>Clear</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">bind<wbr>And<wbr>Clear<span class="tsd-signature-symbol">(</span>filterTexture<span class="tsd-signature-symbol">: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a>, clearMode<span class="tsd-signature-symbol">?: </span><a href="../enums/pixi.clear_modes.html" class="tsd-signature-type" data-tsd-kind="Enumeration">CLEAR_MODES</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1642</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Binds a renderTexture with corresponding <code>filterFrame</code>, clears it if mode corresponds.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>filterTexture: <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>renderTexture to bind, should belong to filter pool or filter stack</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> clearMode: <a href="../enums/pixi.clear_modes.html" class="tsd-signature-type" data-tsd-kind="Enumeration">CLEAR_MODES</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="calculatespritematrix" class="tsd-anchor"></a>
+					<h3>calculate<wbr>Sprite<wbr>Matrix</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">calculate<wbr>Sprite<wbr>Matrix<span class="tsd-signature-symbol">(</span>outputMatrix<span class="tsd-signature-symbol">: </span><a href="pixi.matrix.html" class="tsd-signature-type" data-tsd-kind="Class">Matrix</a>, sprite<span class="tsd-signature-symbol">: </span><a href="../interfaces/pixi.ispritemasktarget.html" class="tsd-signature-type" data-tsd-kind="Interface">ISpriteMaskTarget</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.matrix.html" class="tsd-signature-type" data-tsd-kind="Class">Matrix</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1661</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Multiply <em>input normalized coordinates</em> to this matrix to get <em>sprite texture normalized coordinates</em>.</p>
+								</div>
+								<p>Use <code>outputMatrix * vTextureCoord</code> in the shader.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>outputMatrix: <a href="pixi.matrix.html" class="tsd-signature-type" data-tsd-kind="Class">Matrix</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The matrix to output to.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sprite: <a href="../interfaces/pixi.ispritemasktarget.html" class="tsd-signature-type" data-tsd-kind="Interface">ISpriteMaskTarget</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The sprite to map to.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.matrix.html" class="tsd-signature-type" data-tsd-kind="Class">Matrix</a></h4>
+							<p>The mapped matrix.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="pixi.system.html">System</a>.<a href="pixi.system.html#destroy">destroy</a></p>
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1665</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Destroys this Filter System.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="emptypool" class="tsd-anchor"></a>
+					<h3>empty<wbr>Pool</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">empty<wbr>Pool<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1694</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Empties the texture pool.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getfiltertexture" class="tsd-anchor"></a>
+					<h3>get<wbr>Filter<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Filter<wbr>Texture<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">?: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a>, resolution<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1684</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets extra render texture to use inside current filter
+									To be compliant with older filters, you can use params in any order</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> input: <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> resolution: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<a name="getoptimalfiltertexture" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Optimal<wbr>Filter<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Optimal<wbr>Filter<wbr>Texture<span class="tsd-signature-symbol">(</span>minWidth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minHeight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, resolution<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1675</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a Power-of-Two render texture or fullScreen texture</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>minWidth: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The minimum width of the render texture in real pixels.</p>
+									</div>
+								</li>
+								<li>
+									<h5>minHeight: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The minimum height of the render texture in real pixels.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> resolution: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h4>
+							<p>The new render texture.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="pop" class="tsd-anchor"></a>
+					<h3>pop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">pop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1635</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pops off the filter and applies it.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="push" class="tsd-anchor"></a>
+					<h3>push</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="../interfaces/pixi.ifiltertarget.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterTarget</a>, filters<span class="tsd-signature-symbol">: </span><a href="pixi.filter.html" class="tsd-signature-type" data-tsd-kind="Class">Filter</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1631</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pushes a set of filters to be applied later to the system. This will redirect further rendering into an
+									input render-texture for the rest of the filtering pipeline.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <a href="../interfaces/pixi.ifiltertarget.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterTarget</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The target of the filter to render.</p>
+									</div>
+								</li>
+								<li>
+									<h5>filters: <a href="pixi.filter.html" class="tsd-signature-type" data-tsd-kind="Class">Filter</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The filters to apply.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="resize" class="tsd-anchor"></a>
+					<h3>resize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">resize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1698</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>calls <code>texturePool.resize()</code>, affects fullScreen renderTextures</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="returnfiltertexture" class="tsd-anchor"></a>
+					<h3>return<wbr>Filter<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">return<wbr>Filter<wbr>Texture<span class="tsd-signature-symbol">(</span>renderTexture<span class="tsd-signature-symbol">: </span><a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in source/node_modules/@pixi/core/index.d.ts:1690</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Frees a render texture back into the pool.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>renderTexture: <a href="pixi.rendertexture.html" class="tsd-signature-type" data-tsd-kind="Class">RenderTexture</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The renderTarget to free</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/eventemitter.html">Event<wbr>Emitter</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class="current tsd-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.html">PIXI</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.html">PIXI.utils</a>
+					</li>
+					<li class=" tsd-kind-namespace tsd-parent-kind-namespace tsd-is-external">
+						<a href="../modules/pixi.utils.eventemitter.html">PIXI.utils.<wbr>Event<wbr>Emitter</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-namespace tsd-is-external">
+						<a href="pixi.filtersystem.html" class="tsd-kind-icon">Filter<wbr>System</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="pixi.filtersystem.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+								<a href="pixi.filtersystem.html#activestate" class="tsd-kind-icon">active<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#defaultfilterstack" class="tsd-kind-icon">default<wbr>Filter<wbr>Stack</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#forceclear" class="tsd-kind-icon">force<wbr>Clear</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+								<a href="pixi.filtersystem.html#globaluniforms" class="tsd-kind-icon">global<wbr>Uniforms</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+								<a href="pixi.filtersystem.html#quad" class="tsd-kind-icon">quad</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+								<a href="pixi.filtersystem.html#quaduv" class="tsd-kind-icon">quad<wbr>Uv</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+								<a href="pixi.filtersystem.html#renderer" class="tsd-kind-icon">renderer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.filtersystem.html#roundframe" class="tsd-kind-icon">round<wbr>Frame</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#statepool" class="tsd-kind-icon">state<wbr>Pool</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.filtersystem.html#temprect" class="tsd-kind-icon">temp<wbr>Rect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#texturepool" class="tsd-kind-icon">texture<wbr>Pool</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="pixi.filtersystem.html#transformaabb" class="tsd-kind-icon">transformAABB</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#usemaxpadding" class="tsd-kind-icon">use<wbr>Max<wbr>Padding</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#applyfilter" class="tsd-kind-icon">apply<wbr>Filter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#bindandclear" class="tsd-kind-icon">bind<wbr>And<wbr>Clear</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#calculatespritematrix" class="tsd-kind-icon">calculate<wbr>Sprite<wbr>Matrix</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="pixi.filtersystem.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#emptypool" class="tsd-kind-icon">empty<wbr>Pool</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#getfiltertexture" class="tsd-kind-icon">get<wbr>Filter<wbr>Texture</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+								<a href="pixi.filtersystem.html#getoptimalfiltertexture" class="tsd-kind-icon">get<wbr>Optimal<wbr>Filter<wbr>Texture</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#pop" class="tsd-kind-icon">pop</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#push" class="tsd-kind-icon">push</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#resize" class="tsd-kind-icon">resize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="pixi.filtersystem.html#returnfiltertexture" class="tsd-kind-icon">return<wbr>Filter<wbr>Texture</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span
+				class="tsd-kind-icon">Accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span
+				class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span
+				class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span
+				class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span
+				class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span
+				class="tsd-kind-icon">Protected property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
