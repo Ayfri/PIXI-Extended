@@ -38,6 +38,7 @@
 		"trailingComma": "es5",
 		"useTabs": true
 	},
+	"types": "dist/typings.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Ayfri/PIXI-utils.git"
