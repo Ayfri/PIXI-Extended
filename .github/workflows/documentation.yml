@@ -29,17 +29,6 @@ jobs:
         run: |
           npm i
 
-      - name: Install source Dependencies
-        run: |
-          cd source
-          npm i
-
-      - name: Format & Lint
-        run: |
-          cd source
-          npm run prettier
-          npm run lint
-
       - name: Generate Documentation
         run: npm run generate
 
