@@ -87,6 +87,12 @@ export class Color extends EventEmitter<ColorEvents> {
 		this.emit('change', this._red, this._blue, this._green, this._alpha);
 	}
 
+	public static random(): Color;
+	public static random(alpha: boolean): Color;
+	public static random(alpha: boolean = false): Color {
+		return new Color(Math.random(), Math.random(), Math.random(), alpha ? Math.random() : 1);
+	}
+
 	public static invert(color: Color): Color {
 		return new Color(-color._red + 1, -color._green + 1, -color._blue + 1, color._alpha);
 	}
