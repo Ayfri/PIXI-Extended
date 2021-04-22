@@ -1,0 +1,7 @@
+[
+	{
+		"pattern": "^source/src",
+		"replace": "https://github.com/Ayfri/PIXI-Utils/tree/master/src"
+	}
+]
+
