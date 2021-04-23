@@ -1,6 +1,6 @@
 # Node
 dist/*.js*
-dist/typings.d.ts
+types
 node_modules
 package-lock.json
 

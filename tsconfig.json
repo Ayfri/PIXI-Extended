@@ -8,6 +8,7 @@
 		"noImplicitAny": true,
 		"outDir": "cache",
 		"pretty": true,
+		"rootDir": "src",
 		"sourceMap": true,
 		"strict": true,
 		"target": "ESNext"
