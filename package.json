@@ -27,7 +27,7 @@
 		"games"
 	],
 	"license": "GNU",
-	"main": "dist/index.js",
+	"main": "dist/bundle.js",
 	"name": "pixi-utils",
 	"prettier": {
 		"arrowParens": "avoid",
