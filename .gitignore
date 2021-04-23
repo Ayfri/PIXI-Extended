@@ -1,5 +1,5 @@
 # Node
-dist/bundle*
+dist/*.js*
 dist/typings.d.ts
 node_modules
 package-lock.json
