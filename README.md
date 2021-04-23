@@ -12,6 +12,14 @@ A framework as a npm library to help you develop with PIXI 2d games.
 
 `npm i -s pixi-extended`
 
+## Features
+
+- Enhanced classes that extends default PIXI ones to better use them.
+- Enhanced event handling strictly typed.
+- Some utility collisions/maths classes and functions.
+- Mouse/Keyboard support with a class & functions.
+- Other utility classes/objets for PIXI.
+
 ## Basic Usage
 ```js
 import {Color, loadTexture, PIXI, Sprite} from 'pixi-extended';
