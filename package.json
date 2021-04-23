@@ -1,7 +1,7 @@
 {
 	"author": "Ayfri",
 	"bugs": {
-		"url": "https://github.com/Ayfri/PIXI-utils/issues"
+		"url": "https://github.com/Ayfri/PIXI-Extended/issues"
 	},
 	"dependencies": {
 		"pixi.js": "^6.0.2"
@@ -18,9 +18,10 @@
 		"reload": "^3.1.1",
 		"typescript": "^4.2.4"
 	},
-	"homepage": "https://github.com/Ayfri/PIXI-utils#readme",
+	"homepage": "https://github.com/Ayfri/PIXI-Extended#readme",
 	"keywords": [
 		"pixi",
+		"pixi-extended",
 		"pixi-utils",
 		"utils",
 		"2d",
@@ -28,7 +29,7 @@
 	],
 	"license": "GNU",
 	"main": "dist/bundle.js",
-	"name": "pixi-utils",
+	"name": "pixi-extended",
 	"prettier": {
 		"arrowParens": "avoid",
 		"bracketSpacing": false,
@@ -41,7 +42,7 @@
 	"types": "dist/typings.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Ayfri/PIXI-utils.git"
+		"url": "git+https://github.com/Ayfri/PIXI-Extended.git"
 	},
 	"scripts": {
 		"bundle": "npm run prettier && gulp bundle",
