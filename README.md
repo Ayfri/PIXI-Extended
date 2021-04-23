@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/dt/pixi-extended?style=flat-square)
+[![npm](https://img.shields.io/npm/dt/pixi-extended?style=flat-square)](https://www.npmjs.com/package/pixi-extended)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/pixi-extended?style=flat-square)
 
 # PIXI-Extended
@@ -9,7 +9,8 @@ A framework as a npm library to help you develop with PIXI 2d games.<br>
 
 ## Installation
 
-`npm i -s pixi-extended`
+[`npm i -s pixi-extended`](https://www.npmjs.com/package/pixi-extended) <br>
+You can use this package with TypeScript.
 
 ## Features
 
