@@ -2,12 +2,12 @@
 	"entryPoints": [
 		"source/src/index.ts"
 	],
-	"gitRemote": "https://github.com/Ayfri/PIXI-Utils",
+	"gitRemote": "https://github.com/Ayfri/PIXI-Extended",
 	"highlightTheme": "github-dark",
 	"includeVersion": true,
-	"name": "PIXI-Utils",
+	"name": "PIXI-Extended",
 	"out": "docs",
-	"readme": "https://github.com/Ayfri/PIXI-Utils/blob/master/README.md",
+	"readme": "https://github.com/Ayfri/PIXI-Extended/blob/master/README.md",
 	"theme": "./node_modules/typedoc-darker-theme/bin/default",
 	"tsconfig": "./tsconfig.json"
 }

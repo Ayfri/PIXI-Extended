@@ -1,7 +1,7 @@
 {
 	"author": "Ayfri",
 	"bugs": {
-		"url": "https://github.com/Ayfri/PIXI-Utils/issues"
+		"url": "https://github.com/Ayfri/PIXI-Extended/issues"
 	},
 	"dependencies": {
 		"typedoc": "^0.20.35",
@@ -9,14 +9,14 @@
 		"typedoc-plugin-sourcefile-url": "^1.0.6",
 		"typescript": "^4.2.4"
 	},
-	"description": "The documentation for the PIXI-Utils library.",
-	"homepage": "https://github.com/Ayfri/PIXI-Utils/tree/docs#readme",
+	"description": "The documentation for the PIXI-Extended library.",
+	"homepage": "https://github.com/Ayfri/PIXI-Extended/tree/docs#readme",
 	"license": "GNU",
-	"name": "pixi-utils-docs",
+	"name": "pixi-extended-docs",
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Ayfri/PIXI-Utils.git"
+		"url": "git+https://github.com/Ayfri/PIXI-Extended.git"
 	},
 	"scripts": {
 		"generate": "typedoc --sourcefile-url-map mappings.json",
