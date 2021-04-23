@@ -34,7 +34,7 @@ function watch() {
 }
 
 gulp.task('clean', () => {
-	return gulp.src('dist/typings.d.ts', {read: false, allowEmpty: true}).pipe(clean());
+	return gulp.src('types', {read: false, allowEmpty: true}).pipe(clean());
 });
 
 gulp.task('publish', () => {
