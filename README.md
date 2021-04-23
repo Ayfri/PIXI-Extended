@@ -3,9 +3,8 @@
 
 # PIXI-Extended
 
-A framework as a npm library to help you develop with PIXI 2d games.
-
-> Note:
+A framework as a npm library to help you develop with PIXI 2d games.<br>
+> Note:<br>
 > This package is bundled with PIXI `v6.0.2`, you don't have to install it.
 
 ## Installation
@@ -45,5 +44,5 @@ start();
 
 ## Documentation
 
-The documentation is automatically generated and updated from the code.
+The documentation is automatically generated and updated from the code.<br>
 [You can find it here.](https://ayfri.github.io/PIXI-Extended/index.html)
