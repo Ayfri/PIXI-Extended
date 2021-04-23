@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PIXI-Extended - v0.1.0</title>
-	<meta name="description" content="Documentation for PIXI-Extended - v0.1.0">
+	<title>PIXI-Extended - v0.1.3</title>
+	<meta name="description" content="Documentation for PIXI-Extended - v0.1.3">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<script async src="assets/js/search.js" id="search-script"></script>
@@ -24,7 +24,7 @@
 					<li class="state loading">Preparing search index...</li>
 					<li class="state failure">The search index is not available</li>
 				</ul>
-				<a href="index.html" class="title">PIXI-Extended - v0.1.0</a>
+				<a href="index.html" class="title">PIXI-Extended - v0.1.3</a>
 			</div>
 			<div class="table-cell" id="tsd-widgets">
 				<div id="tsd-filter">
@@ -51,7 +51,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<h1>Project PIXI-Extended - v0.1.0</h1>
+			<h1>Project PIXI-Extended - v0.1.3</h1>
 		</div>
 	</div>
 </header>
@@ -59,10 +59,58 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<p><img src="https://img.shields.io/npm/dt/pixi-extended?style=flat-square" alt="npm">
+				<img src="https://img.shields.io/bundlephobia/min/pixi-extended?style=flat-square" alt="npm bundle size"></p>
 				<a href="#pixi-extended" id="pixi-extended" style="color: inherit; text-decoration: none;">
 					<h1>PIXI-Extended</h1>
 				</a>
 				<p>A framework as a npm library to help you develop with PIXI 2d games.</p>
+				<blockquote>
+					<p>Note:
+					This package is bundled with PIXI <code>v6.0.2</code>, you don&#39;t have to install it.</p>
+				</blockquote>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p><code>npm i -s pixi-extended</code></p>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h2>Features</h2>
+				</a>
+				<ul>
+					<li>Enhanced classes that extends default PIXI ones to better use them.</li>
+					<li>Enhanced event handling strictly typed.</li>
+					<li>Some utility collisions/maths classes and functions.</li>
+					<li>Mouse/Keyboard support with a class &amp; functions.</li>
+					<li>Other utility classes/objets for PIXI.</li>
+				</ul>
+				<a href="#basic-usage" id="basic-usage" style="color: inherit; text-decoration: none;">
+					<h2>Basic Usage</h2>
+				</a>
+				<pre><code class="language-js"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> {Color, loadTexture, PIXI, Sprite} </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">&#039;pixi-extended&#039;</span><span style="color: #E1E4E8">;</span>
+
+<span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">app</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">PIXI</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">Application</span><span style="color: #E1E4E8">({</span>
+<span style="color: #E1E4E8">    backgroundColor: Color.</span><span style="color: #79B8FF">BLACK</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">toHex</span><span style="color: #E1E4E8">(),</span>
+<span style="color: #E1E4E8">});</span>
+
+<span style="color: #E1E4E8">document.body.</span><span style="color: #B392F0">appendChild</span><span style="color: #E1E4E8">(app.view);</span>
+
+<span style="color: #F97583">async</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">start</span><span style="color: #E1E4E8">() {</span>
+<span style="color: #E1E4E8">    </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">loadTexture</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">&quot;myTexture&quot;</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">&quot;textures/myTexture.png&quot;</span><span style="color: #E1E4E8">);</span>
+
+<span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">red</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Color</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8">);</span>
+<span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">sprite</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Sprite</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">&quot;myTexture&quot;</span><span style="color: #E1E4E8">);</span>
+<span style="color: #E1E4E8">    sprite.color </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> red;</span>
+
+<span style="color: #E1E4E8">    sprite.</span><span style="color: #B392F0">addToApplication</span><span style="color: #E1E4E8">(app);</span>
+<span style="color: #E1E4E8">}</span>
+
+<span style="color: #B392F0">start</span><span style="color: #E1E4E8">();</span>
+</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>The documentation is automatically generated and updated from the code.
+				<a href="https://ayfri.github.io/PIXI-Extended/index.html">You can find it here.</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
