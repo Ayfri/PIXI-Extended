@@ -19,13 +19,9 @@ export function random(max: number, toInt?: boolean): number;
 export function random(min: number, max: number, toInt?: boolean): number;
 export function random<T>(array: T[]): T;
 export function random<T>(arg: T[] | number, arg2?: number | boolean, toInt?: boolean): T | number {
-	if (arg instanceof Array) {
-		return randomArray(arg);
-	} else if (typeof arg2 === 'number') {
-		return toInt ? (arg2 ? randomInt(arg, arg2) : randomInt(arg)) : arg2 ? randomFloat(arg, arg2) : randomFloat(arg);
-	} else {
-		return arg2 ? randomInt(arg) : randomFloat(arg);
-	}
+	if (arg instanceof Array) return randomArray(arg);
+	if (typeof arg2 === 'number') return toInt ? (arg2 ? randomInt(arg, arg2) : randomInt(arg)) : arg2 ? randomFloat(arg, arg2) : randomFloat(arg);
+	return arg2 ? randomInt(arg) : randomFloat(arg);
 }
 
 export function randomArray<T>(array: T[]): T {

@@ -2,13 +2,8 @@ import * as PIXI from 'pixi.js';
 
 export type TextureOrName = string | PIXI.Texture;
 export type TextureNameAndPath = [name: string, path: string];
-export type TexturesNameAndPath = {
-	[n: string]: string;
-};
-
-export type TexturesAndName = {
-	[n: string]: PIXI.Texture;
-};
+export type TexturesNameAndPath = Record<string, string>;
+export type TexturesAndName = Record<string, PIXI.Texture>;
 
 export const loadedTexturesNames: string[] = [];
 
