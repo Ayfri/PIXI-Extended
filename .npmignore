@@ -6,6 +6,8 @@ node_modules
 package-lock.json
 
 ### Files
-src
+.github
 dist/index.html
 dist/bundle*
+gulpfile.js
+src
