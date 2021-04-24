@@ -4,5 +4,8 @@
 ### Node template
 node_modules
 package-lock.json
+
+### Files
+src
 dist/index.html
 dist/bundle*
