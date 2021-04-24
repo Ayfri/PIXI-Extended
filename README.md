@@ -18,7 +18,7 @@ You can use this package with TypeScript.
 - Enhanced event handling strictly typed.
 - Some utility collisions/maths classes and functions.
 - Mouse/Keyboard support with a class & functions.
-- Other utility classes/objets for PIXI.
+- Other utility classes/objects for PIXI.
 
 ## Basic Usage
 ```js
