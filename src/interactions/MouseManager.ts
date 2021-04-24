@@ -1,15 +1,43 @@
 import * as PIXI from 'pixi.js';
 import {EventEmitter} from '../utils';
 
+/**
+ * The set of buttons created.
+ */
 export const buttons = new Set<Button>();
+/**
+ * The events that can occurs on any Button.
+ */
 export type ButtonEvent = 'down' | 'up' | 'dblclick';
 
+/**
+ * The list of buttons that can exist.
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button#return_value}.
+ */
 export enum Buttons {
+	/**
+	 * Main button pressed, usually the left button or the un-initialized state.
+	 */
 	LeftButton = 0,
+	/**
+	 * Auxiliary button pressed, usually the wheel button or the middle button (if present).
+	 */
 	WheelButton = 1,
+	/**
+	 * Auxiliary button pressed, usually the wheel button or the middle button (if present).
+	 */
 	MiddleButton = 1,
+	/**
+	 * Secondary button pressed, usually the right button.
+	 */
 	RightButton = 2,
+	/**
+	 * Fourth button, typically the Browser Back button.
+	 */
 	BackButton = 3,
+	/**
+	 * Fifth button, typically the Browser Forward button.
+	 */
 	ForwardButton = 4,
 }
 
@@ -32,6 +60,9 @@ export class Button extends EventEmitter<Record<ButtonEvent, [event?: MouseEvent
 		return Date.now() - this._pressedAt;
 	}
 
+	/**
+	 * @internal
+	 */
 	handle(event: MouseEvent, action: ButtonEvent) {
 		this.emit(action, event, this.duration);
 		if (action === 'down') {
@@ -42,13 +73,25 @@ export class Button extends EventEmitter<Record<ButtonEvent, [event?: MouseEvent
 		}
 	}
 
+	/**
+	 * @internal
+	 */
 	isMineEvent(event: MouseEvent): boolean {
 		return event.button === this.id;
 	}
 }
 
+/**
+ * The LeftClick button handler, usually used.
+ */
 export const LeftClick = new Button(Buttons.LeftButton);
+/**
+ * The RightClick button handler, usually used.
+ */
 export const RightClick = new Button(Buttons.RightButton);
+/**
+ * The actual position of the mouse.
+ */
 export const mousePosition: PIXI.Point = new PIXI.Point();
 
 document.addEventListener('mousemove', (event: MouseEvent) => {
