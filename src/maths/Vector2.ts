@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import {ObservableVector2} from './ObservableVector2';
 
 export class Vector2 implements PIXI.IPoint {
 	protected _values = new Float32Array(2);
@@ -306,6 +307,11 @@ export class Vector2 implements PIXI.IPoint {
 		return Math.abs(this.x - other.x) > threshold ? false : Math.abs(this.y - other.y) <= threshold;
 	}
 
+	/**
+	 * Returns true if both X & Y are greater than the other Vector2.
+	 * @param {Vector2} other
+	 * @returns {boolean}
+	 */
 	greaterThan(other: Vector2): boolean {
 		return this.x > other.x && this.y > other.y;
 	}
@@ -423,62 +429,5 @@ export class Vector2 implements PIXI.IPoint {
 	 */
 	toObservable<T = any>(callback: (this: T) => any, scope: T): ObservableVector2<T> {
 		return new ObservableVector2<T>(callback, scope, this.x, this.y);
-	}
-}
-
-export class ObservableVector2<T = any> extends Vector2 {
-	/**
-	 * The callback to call whenever a value change.
-	 */
-	public cb: (this: T) => any;
-	public scope: T;
-
-	constructor(cb: (this: T) => any, scope: T, x = 0, y = 0) {
-		super(x, y);
-		this._x = x;
-		this._y = y;
-		this.cb = cb;
-		this.scope = scope;
-	}
-
-	public _x: number;
-
-	set x(value: number) {
-		if (super.x !== value) {
-			super.x = value;
-			this._x = value;
-			this.cb.call(this.scope);
-		}
-	}
-
-	public _y: number;
-
-	set y(value: number) {
-		if (super.y !== value) {
-			super.y = value;
-			this._y = value;
-			this.cb.call(this.scope);
-		}
-	}
-
-	/**
-	 * Create an ObservableVector2 from a PIXI.ObservablePoint.
-	 * @param point - The point.
-	 * @returns - The ObservableVector2.
-	 */
-	public static fromPoint(point: PIXI.ObservablePoint): ObservableVector2 {
-		return new ObservableVector2(point.cb, point.scope, point.x, point.y);
-	}
-
-	public clone(cb = this.cb, scope = this.scope) {
-		return new ObservableVector2<T>(cb, scope, this._x, this._y);
-	}
-
-	/**
-	 * Convert this to a Vector2.
-	 * @returns - The Vector2.
-	 */
-	toVector(): Vector2 {
-		return new Vector2(this._x, this._y);
 	}
 }
