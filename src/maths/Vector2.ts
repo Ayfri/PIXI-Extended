@@ -432,7 +432,7 @@ export class ObservableVector2<T = any> extends Vector2 {
 		this.scope = scope;
 	}
 
-	private _x: number;
+	public _x: number;
 
 	set x(value: number) {
 		if (super.x !== value) {
@@ -442,7 +442,7 @@ export class ObservableVector2<T = any> extends Vector2 {
 		}
 	}
 
-	private _y: number;
+	public _y: number;
 
 	set y(value: number) {
 		if (super.y !== value) {
