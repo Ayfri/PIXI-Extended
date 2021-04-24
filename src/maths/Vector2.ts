@@ -415,12 +415,21 @@ export class Vector2 implements PIXI.IPoint {
 		return `(${this.x}, ${this.y})`;
 	}
 
+	/**
+	 * Convert this Vector to an ObservableVector2.
+	 * @param callback - Callback of the observableVector2.
+	 * @param scope - Scope of the ObservableVector2.
+	 * @returns - An ObservableVector2.
+	 */
 	toObservable<T = any>(callback: (this: T) => any, scope: T): ObservableVector2<T> {
 		return new ObservableVector2<T>(callback, scope, this.x, this.y);
 	}
 }
 
 export class ObservableVector2<T = any> extends Vector2 {
+	/**
+	 * The callback to call whenever a value change.
+	 */
 	public cb: (this: T) => any;
 	public scope: T;
 
@@ -452,6 +461,11 @@ export class ObservableVector2<T = any> extends Vector2 {
 		}
 	}
 
+	/**
+	 * Create an ObservableVector2 from a PIXI.ObservablePoint.
+	 * @param point - The point.
+	 * @returns - The ObservableVector2.
+	 */
 	public static fromPoint(point: PIXI.ObservablePoint): ObservableVector2 {
 		return new ObservableVector2(point.cb, point.scope, point.x, point.y);
 	}
@@ -460,6 +474,10 @@ export class ObservableVector2<T = any> extends Vector2 {
 		return new ObservableVector2<T>(cb, scope, this._x, this._y);
 	}
 
+	/**
+	 * Convert this to a Vector2.
+	 * @returns - The Vector2.
+	 */
 	toVector(): Vector2 {
 		return new Vector2(this._x, this._y);
 	}
