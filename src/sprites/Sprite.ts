@@ -42,9 +42,7 @@ export interface Sprite {
 
 export class Sprite extends PIXI.Sprite {
 	public constructor(texture: TextureOrName) {
-		if (typeof texture === 'string') {
-			texture = getTextureOrThrow(texture);
-		}
+		if (typeof texture === 'string') texture = getTextureOrThrow(texture);
 		super(texture);
 	}
 
@@ -62,7 +60,7 @@ export class Sprite extends PIXI.Sprite {
 	}
 
 	set position(value: ObservableVector2) {
-		this.transform.position = value;
+		this.transform.position.copyFrom(value);
 	}
 
 	public hide() {

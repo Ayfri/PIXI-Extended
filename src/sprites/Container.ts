@@ -30,7 +30,7 @@ export class Container extends PIXI.Container {
 	}
 
 	set position(value: ObservableVector2) {
-		this.transform.position = value;
+		this.transform.position.copyFrom(value);
 	}
 
 	public addToApplication(application: PIXI.Application) {
