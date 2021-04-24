@@ -2,6 +2,12 @@ import * as PIXI from 'pixi.js';
 import {Rectangle} from './Rectangle';
 import {Vector2} from './Vector2';
 
+/**
+ * A function to test if two PIXI.Container or PIXI.Sprite or Sprite collides.
+ * @param a - The first object.
+ * @param b - The second object.
+ * @returns - The Hit result or `null` if not colliding.
+ */
 export function collides(a: PIXI.Container, b: PIXI.Container): Hit | null {
 	return intersectBoxes(Rectangle.fromSprite(a), Rectangle.fromSprite(b));
 }
@@ -28,16 +34,21 @@ export class Hit {
 	 * _(This is the **t** value for the line equation **L(t) = A + t(B - A)**)._
 	 * @type {number}
 	 */
-	public time: number;
+	public time: number = 0;
 
 	constructor(public collider: Rectangle) {
 		this.position = new Vector2();
 		this.delta = new Vector2();
 		this.normal = new Vector2();
-		this.time = 0;
 	}
 }
 
+/**
+ * A function to test if two Rectangles are intersecting.
+ * @param box1 - First rectangle.
+ * @param box2 - Second rectangle.
+ * @returns - The Hit result or `null` it not intersecting.
+ */
 export function intersectBoxes(box1: Rectangle, box2: Rectangle): Hit | null {
 	const dx = box2.x - box1.x;
 	const px = box2.halfX + box1.halfX - Math.abs(dx);
