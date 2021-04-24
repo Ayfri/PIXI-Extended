@@ -3,6 +3,9 @@
 	"bugs": {
 		"url": "https://github.com/Ayfri/PIXI-Extended/issues"
 	},
+	"bundledDependencies": [
+		"pixi.js"
+	],
 	"dependencies": {
 		"pixi.js": "^6.0.2"
 	},
@@ -21,6 +24,7 @@
 	"homepage": "https://github.com/Ayfri/PIXI-Extended#readme",
 	"keywords": [
 		"pixi",
+		"pixi.js",
 		"pixi-extended",
 		"pixi-utils",
 		"utils",
