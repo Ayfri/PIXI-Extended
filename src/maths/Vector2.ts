@@ -21,8 +21,6 @@ export class Vector2 implements PIXI.IPoint {
 		}
 
 		this.xy = [xValue, yValue];
-		this._values[0] = xValue;
-		this._values[1] = yValue;
 	}
 
 	/**
@@ -423,12 +421,8 @@ export class Vector2 implements PIXI.IPoint {
 }
 
 export class ObservableVector2<T = any> extends Vector2 {
-	cb: (this: T) => any;
-	scope: T;
-
-	public static fromPoint(point: PIXI.ObservablePoint): ObservableVector2 {
-		return new ObservableVector2(point.cb, point.scope, point.x, point.y);
-	}
+	public cb: (this: T) => any;
+	public scope: T;
 
 	constructor(cb: (this: T) => any, scope: T, x = 0, y = 0) {
 		super(x, y);
@@ -438,22 +432,28 @@ export class ObservableVector2<T = any> extends Vector2 {
 		this.scope = scope;
 	}
 
-	_x: number;
+	private _x: number;
 
 	set x(value: number) {
 		if (super.x !== value) {
 			super.x = value;
+			this._x = value;
 			this.cb.call(this.scope);
 		}
 	}
 
-	_y: number;
+	private _y: number;
 
 	set y(value: number) {
 		if (super.y !== value) {
 			super.y = value;
+			this._y = value;
 			this.cb.call(this.scope);
 		}
+	}
+
+	public static fromPoint(point: PIXI.ObservablePoint): ObservableVector2 {
+		return new ObservableVector2(point.cb, point.scope, point.x, point.y);
 	}
 
 	public clone(cb = this.cb, scope = this.scope) {
