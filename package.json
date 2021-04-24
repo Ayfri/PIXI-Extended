@@ -49,7 +49,6 @@
 		"declarations": "gulp clean && tsc --declaration --emitDeclarationOnly --outDir types --skipLibCheck",
 		"prepare": "gulp publish && npm run declarations",
 		"prettier": "prettier --write src ./*.json README.md gulpfile.js",
-		"tests": "reload --dir=dist --port=5000",
 		"watch": "npm run bundle && gulp watch"
 	},
 	"version": "0.1.3"
