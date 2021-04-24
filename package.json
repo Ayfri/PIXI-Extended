@@ -51,5 +51,5 @@
 		"prettier": "prettier --write src ./*.json README.md gulpfile.js",
 		"watch": "npm run bundle && gulp watch"
 	},
-	"version": "0.1.4"
+	"version": "0.1.5"
 }
