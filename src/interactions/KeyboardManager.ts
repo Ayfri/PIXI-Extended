@@ -9,7 +9,7 @@ export const pressed: Set<string> = new Set();
 
 export const events: EventEmitter<KeyboardEvents> = new EventEmitter();
 
-export function isPressed(key: string): boolean {
+export function isPressed(key: KeyboardEvent['key']): boolean {
 	return pressed.has(key);
 }
 
