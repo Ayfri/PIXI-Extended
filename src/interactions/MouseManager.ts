@@ -1,12 +1,22 @@
 import * as PIXI from 'pixi.js';
+import {EventEmitter} from '../utils';
 
 export const buttons = new Set<Button>();
 export type ButtonEvent = 'down' | 'up' | 'dblclick';
 
-export class Button extends PIXI.utils.EventEmitter {
+export enum Buttons {
+	LeftButton = 0,
+	WheelButton = 1,
+	MiddleButton = 1,
+	RightButton = 2,
+	BackButton = 3,
+	ForwardButton = 4,
+}
+
+export class Button extends EventEmitter<Record<ButtonEvent, [event?: MouseEvent, duration?: number]>> {
 	private _pressedAt: number = 0;
 
-	constructor(public readonly id: number) {
+	constructor(public readonly id: Buttons | MouseEvent['button']) {
 		super();
 		buttons.add(this);
 	}
@@ -35,20 +45,10 @@ export class Button extends PIXI.utils.EventEmitter {
 	isMineEvent(event: MouseEvent): boolean {
 		return event.button === this.id;
 	}
-
-	on(event: ButtonEvent, fn: (event?: KeyboardEvent, duration?: number) => unknown, context?: any): this {
-		super.on(event, fn, context);
-		return this;
-	}
-
-	once(event: ButtonEvent, fn: (eventN: KeyboardEvent, durationN: number) => unknown, context?: any): this {
-		super.once(event, fn, context);
-		return this;
-	}
 }
 
-export const LeftClick = new Button(0);
-export const RightClick = new Button(2);
+export const LeftClick = new Button(Buttons.LeftButton);
+export const RightClick = new Button(Buttons.RightButton);
 export const mousePosition: PIXI.Point = new PIXI.Point();
 
 document.addEventListener('mousemove', (event: MouseEvent) => {
