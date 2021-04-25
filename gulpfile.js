@@ -4,12 +4,11 @@ const clean = require('gulp-clean');
 const {exec} = require('child_process');
 
 /**
- *
  * @type {Omit<Options>}
  */
 const esbuildOptions = {
 	bundle: true,
-	format: 'cjs',
+	format: 'esm',
 	keepNames: true,
 	minifySyntax: true,
 	minifyWhitespace: true,
@@ -19,10 +18,7 @@ const esbuildOptions = {
 };
 
 function bundle() {
-	return gulp
-		.src('./src/index.ts')
-		.pipe(esbuild(esbuildOptions))
-		.pipe(gulp.dest('./dist/'));
+	return gulp.src('./src/index.ts').pipe(esbuild(esbuildOptions)).pipe(gulp.dest('./dist/'));
 }
 
 function watch() {
@@ -39,12 +35,10 @@ gulp.task('clean', () => {
 
 gulp.task('publish', () => {
 	esbuildOptions.target = 'node14';
+	esbuildOptions.format = 'cjs';
 	esbuildOptions.outfile = 'index.js';
 	esbuildOptions.sourcemap = false;
-	return gulp
-		.src('./src/index.ts')
-		.pipe(esbuild(esbuildOptions))
-		.pipe(gulp.dest('./dist/'));
+	return gulp.src('./src/index.ts').pipe(esbuild(esbuildOptions)).pipe(gulp.dest('./dist/'));
 });
 
 exports.bundle = bundle;
