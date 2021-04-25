@@ -8,13 +8,18 @@
 	<body>
 		<p id="values"></p>
 		<script type="module">
-			import {PIXI, FPSCounter} from './bundle.js';
+			import {PIXI, FPSCounter, Sprite} from './bundle.js';
 			const app = new PIXI.Application({
 				antialias: true,
 				resizeTo: window,
 				backgroundColor: 0xaaaaaa,
 			});
 			document.body.appendChild(app.view);
+			
+			const b = new Sprite();
+			b.position.set(50, 20);
+			b.position.negate();
+			console.log(b.position);
 			
 			const a = new FPSCounter();
 			a.addToApplication(app);
