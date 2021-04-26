@@ -12,9 +12,9 @@ interface RectangleOptions {
 }
 
 export class Rectangle extends PIXI.Rectangle {
-	constructor(options?: RectangleOptions);
-	constructor(x?: number, y?: number, width?: number, height?: number);
-	constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
+	public constructor(options?: RectangleOptions);
+	public constructor(x?: number, y?: number, width?: number, height?: number);
+	public constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
 		if (x && typeof x !== 'number') {
 			height = x.height;
 			width = x.width;

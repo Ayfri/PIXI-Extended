@@ -36,7 +36,7 @@ export class Hit {
 	 */
 	public time: number = 0;
 
-	constructor(public collider: Rectangle) {
+	public constructor(public collider: Rectangle) {
 		this.position = new Vector2();
 		this.delta = new Vector2();
 		this.normal = new Vector2();

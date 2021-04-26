@@ -55,11 +55,11 @@ export class Sprite extends PIXI.Sprite {
 		this.alpha = value.alpha;
 	}
 
-	get position(): ObservableVector2 {
+	public get position(): ObservableVector2 {
 		return ObservableVector2.fromPoint(this.transform.position);
 	}
 
-	set position(value: ObservableVector2) {
+	public set position(value: ObservableVector2) {
 		this.transform.position.copyFrom(value);
 	}
 

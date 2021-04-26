@@ -15,7 +15,7 @@ export class Color extends EventEmitter<ColorEvents> {
 	public static readonly WHITE: Color = new Color(255, 255, 255);
 	public static readonly BLACK: Color = new Color();
 
-	constructor(red: number = 0, green: number = 0, blue: number = 0, alpha: number = 1) {
+	public constructor(red: number = 0, green: number = 0, blue: number = 0, alpha: number = 1) {
 		super();
 		this._alpha = alpha;
 		this._blue = blue;
