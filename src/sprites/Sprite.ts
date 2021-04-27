@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import {ObservableVector2, Rectangle} from '../maths';
-import {getTextureOrThrow, TextureOrName} from '../textures';
+import {ObservableVector2, Rectangle, Vector2} from '../maths';
+import {getColoredTexture, getTextureOrThrow, TextureOrName} from '../textures';
 import {Color, EventEmitter} from '../utils';
 
 export type SpriteEvents = {
@@ -41,6 +41,14 @@ export interface Sprite {
 }
 
 export class Sprite extends PIXI.Sprite {
+	public static fromColor(color: Color, size?: Vector2) {
+		return new Sprite(getColoredTexture({
+			color,
+			width: size?.x,
+			height: size?.y
+		}));
+	}
+
 	public get hitBox(): Readonly<Rectangle> {
 		return Rectangle.fromSprite(this);
 	}
