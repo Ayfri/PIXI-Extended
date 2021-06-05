@@ -5,8 +5,7 @@
 
 A framework as a npm library to help you develop with PIXI 2d games.<br>
 
-> **Note:**<br>
-> **This package is bundled with PIXI `v6.0.2`, you don't have to install it.**
+> **Note:<br>This package is bundled with PIXI `v6.0.2`, you don't have to install it.**
 
 ## Installation
 

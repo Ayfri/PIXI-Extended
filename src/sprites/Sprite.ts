@@ -42,11 +42,13 @@ export interface Sprite {
 
 export class Sprite extends PIXI.Sprite {
 	public static fromColor(color: Color, size?: Vector2) {
-		return new Sprite(getColoredTexture({
-			color,
-			width: size?.x,
-			height: size?.y
-		}));
+		return new Sprite(
+			getColoredTexture({
+				color,
+				width: size?.x,
+				height: size?.y,
+			})
+		);
 	}
 
 	public get hitBox(): Readonly<Rectangle> {

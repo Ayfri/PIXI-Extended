@@ -17,6 +17,10 @@ export class Text extends Container {
 	public textObject: PIXI.Text;
 	public background!: Sprite;
 
+	public get metrics(): PIXI.TextMetrics {
+		return PIXI.TextMetrics.measureText(this.text, new PIXI.TextStyle(this.textObject.style));
+	}
+
 	public constructor(options: TextOptions) {
 		super();
 		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
