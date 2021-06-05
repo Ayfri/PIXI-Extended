@@ -7,9 +7,6 @@
 		"noImplicitAny": true,
 		"noImplicitOverride": true,
 		"outDir": "cache",
-		"paths": {
-			"mini-signals": ["node_modules/resource-loader/typings/mini-signals.d.ts"]
-		},
 		"rootDir": "src",
 		"sourceMap": true,
 		"strict": true,
