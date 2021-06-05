@@ -14,11 +14,11 @@ const esbuildOptions = {
 	minifyWhitespace: true,
 	outfile: 'bundle.js',
 	sourcemap: 'external',
-	target: ['chrome61', 'firefox79', 'safari11', 'edge18'],
+	target: ['chrome61', 'firefox57', 'safari11', 'edge18'],
 };
 
 function bundle() {
-	return gulp.src('./src/index.ts').pipe(esbuild(esbuildOptions)).pipe(gulp.dest('./dist/'));
+	return gulp.src('./src/index.ts').pipe(esbuild(esbuildOptions)).pipe(gulp.dest('dist'));
 }
 
 function watch() {
@@ -38,7 +38,7 @@ gulp.task('publish', () => {
 	esbuildOptions.format = 'cjs';
 	esbuildOptions.outfile = 'index.js';
 	esbuildOptions.sourcemap = false;
-	return gulp.src('./src/index.ts').pipe(esbuild(esbuildOptions)).pipe(gulp.dest('./dist/'));
+	return gulp.src('./src/index.ts').pipe(esbuild(esbuildOptions)).pipe(gulp.dest('dist'));
 });
 
 exports.bundle = bundle;
