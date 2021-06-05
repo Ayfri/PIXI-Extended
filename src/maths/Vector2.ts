@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
 import {ObservableVector2} from './ObservableVector2';
 
+export type XY = [x: number, y: number];
+
 export class Vector2 implements PIXI.IPoint {
 	protected _values = new Float32Array(2);
 
@@ -63,14 +65,14 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * @returns {number[]} An array containing the x-component and y-component of the vector
 	 */
-	public get xy(): [x: number, y: number] {
+	public get xy(): XY {
 		return [this._values[0], this._values[1]];
 	}
 
 	/**
 	 * @param {number[]} values An array containing the new x-component and y-component of the vector
 	 */
-	public set xy(values: [x: number, y: number]) {
+	public set xy(values: XY) {
 		this._values[0] = values[0];
 		this._values[1] = values[1];
 	}
@@ -414,6 +416,12 @@ export class Vector2 implements PIXI.IPoint {
 		length = 1.0 / length;
 		dest.x *= length;
 		dest.y *= length;
+		return dest;
+	}
+
+	public deepClone(dest?: Vector2): Vector2 {
+		if (!dest) dest = this;
+		dest.xy = this.xy.slice() as XY;
 		return dest;
 	}
 

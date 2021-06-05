@@ -281,6 +281,11 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 		return new ObservableVector2<T>(cb, scope, this._x, this._y, this.fromObject);
 	}
 
+	public deepClone() {
+		const xy = this.xy.slice();
+		return new ObservableVector2<T>(this.cb, this.scope, ...xy);
+	}
+
 	/**
 	 * Convert this to a ObservableVector2.
 	 * @returns - The ObservableVector2.
