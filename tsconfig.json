@@ -1,16 +1,15 @@
 {
 	"compilerOptions": {
-		"alwaysStrict": true,
 		"baseUrl": "./",
 		"esModuleInterop": true,
 		"module": "ESNext",
 		"moduleResolution": "Node",
 		"noImplicitAny": true,
+		"noImplicitOverride": true,
 		"outDir": "cache",
 		"paths": {
 			"mini-signals": ["node_modules/resource-loader/typings/mini-signals.d.ts"]
 		},
-		"pretty": true,
 		"rootDir": "src",
 		"sourceMap": true,
 		"strict": true,
