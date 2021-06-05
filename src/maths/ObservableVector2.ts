@@ -1,7 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {Vector2} from './Vector2';
-
-type XY = [x: number, y: number];
+import {Vector2, XY} from './Vector2';
 
 export class ObservableVector2<T = any> implements PIXI.IPoint {
 	/**
