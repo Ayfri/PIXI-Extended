@@ -15,7 +15,7 @@ export type TextColor = Color | Color[];
 
 export class Text extends Container {
 	public textObject: PIXI.Text;
-	public background!: Sprite;
+	public override background: Sprite;
 
 	public get metrics(): PIXI.TextMetrics {
 		return PIXI.TextMetrics.measureText(this.text, new PIXI.TextStyle(this.textObject.style));
