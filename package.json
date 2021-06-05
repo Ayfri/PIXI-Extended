@@ -7,7 +7,7 @@
 		"typedoc": "^0.20.36",
 		"typedoc-darker-theme": "^1.1.5",
 		"typedoc-plugin-sourcefile-url": "^1.0.6",
-		"typescript": "^4.2.4"
+		"typescript": "^4.3.2"
 	},
 	"description": "The documentation for the PIXI-Extended library.",
 	"homepage": "https://github.com/Ayfri/PIXI-Extended/tree/docs#readme",
