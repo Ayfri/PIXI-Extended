@@ -51,6 +51,10 @@ export class Sprite extends PIXI.Sprite {
 		);
 	}
 
+	public get destroyed(): boolean {
+		return this._destroyed;
+	}
+
 	public get hitBox(): Readonly<Rectangle> {
 		return Rectangle.fromSprite(this);
 	}
