@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import Application from '../core/Application';
 import {Sprite} from '../sprites';
 import {Color} from '../utils';
 
@@ -78,7 +77,7 @@ export interface ColoredTextureOptions {
  * @param options - The options of the colored texture.
  * @returns - The resulting texture.
  */
-export function getColoredTexture(application: Application, options: ColoredTextureOptions): PIXI.Texture {
+export function getColoredTexture(application: PIXI.Application, options: ColoredTextureOptions): PIXI.Texture {
 	const sprite = new Sprite(PIXI.Texture.WHITE);
 	sprite.width = options.width ?? 100;
 	sprite.height = options.height ?? 100;

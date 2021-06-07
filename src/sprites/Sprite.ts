@@ -41,6 +41,11 @@ export interface Sprite {
 }
 
 export class Sprite extends PIXI.Sprite {
+	public constructor(texture: TextureOrName) {
+		if (typeof texture === 'string') texture = getTextureOrThrow(texture);
+		super(texture);
+	}
+
 	public get destroyed(): boolean {
 		return this._destroyed;
 	}
@@ -66,14 +71,9 @@ export class Sprite extends PIXI.Sprite {
 		this.transform.position.copyFrom(value);
 	}
 
-	public constructor(texture: TextureOrName) {
-		if (typeof texture === 'string') texture = getTextureOrThrow(texture);
-		super(texture);
-	}
-
-	public static fromColor(color: Color, size?: Vector2) {
+	public static fromColor(application: PIXI.Application, color: Color, size?: Vector2) {
 		return new Sprite(
-			getColoredTexture({
+			getColoredTexture(application, {
 				color,
 				width: size?.x,
 				height: size?.y,

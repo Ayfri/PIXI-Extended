@@ -15,6 +15,14 @@ export class Color extends EventEmitter<ColorEvents> {
 	public static readonly BLACK: Color = new Color();
 	public static readonly WHITE: Color = new Color(255, 255, 255);
 
+	public constructor(red: number = 0, green: number = 0, blue: number = 0, alpha: number = 1) {
+		super();
+		this._alpha = alpha;
+		this._blue = blue;
+		this._green = green;
+		this._red = red;
+	}
+
 	public get rgba(): RGBA {
 		return [...this.rgb, this.alpha];
 	}
@@ -77,14 +85,6 @@ export class Color extends EventEmitter<ColorEvents> {
 		this._alpha = value;
 		this.emit('alphaChange', value);
 		this.emit('change', this._red, this._blue, this._green, this._alpha);
-	}
-
-	public constructor(red: number = 0, green: number = 0, blue: number = 0, alpha: number = 1) {
-		super();
-		this._alpha = alpha;
-		this._blue = blue;
-		this._green = green;
-		this._red = red;
 	}
 
 	public static random(): Color;

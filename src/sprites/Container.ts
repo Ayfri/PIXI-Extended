@@ -17,20 +17,20 @@ export interface Container {
 export class Container extends PIXI.Container {
 	public background?: Sprite;
 
-	public override get position(): ObservableVector2 {
-		return ObservableVector2.fromPoint(this.transform.position);
-	}
-
-	public override set position(value: ObservableVector2) {
-		this.transform.position.copyFrom(value);
-	}
-
 	public constructor(background?: TextureOrName) {
 		super();
 		if (background) {
 			this.background = new Sprite(background);
 			this.addChild(this.background);
 		}
+	}
+
+	public override get position(): ObservableVector2 {
+		return ObservableVector2.fromPoint(this.transform.position);
+	}
+
+	public override set position(value: ObservableVector2) {
+		this.transform.position.copyFrom(value);
 	}
 
 	public addToApplication(application: PIXI.Application) {

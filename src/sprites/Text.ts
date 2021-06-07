@@ -17,6 +17,13 @@ export class Text extends Container {
 	public override background: Sprite;
 	public textObject: PIXI.Text;
 
+	public constructor(options: TextOptions) {
+		super();
+		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
+		this.textObject = new PIXI.Text(options.text ?? '', options.style);
+		this.addChild(this.textObject);
+	}
+
 	public get metrics(): PIXI.TextMetrics {
 		return PIXI.TextMetrics.measureText(this.text, new PIXI.TextStyle(this.textObject.style));
 	}
@@ -53,12 +60,5 @@ export class Text extends Container {
 
 	public set text(text: string) {
 		this.textObject.text = text;
-	}
-
-	public constructor(options: TextOptions) {
-		super();
-		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
-		this.textObject = new PIXI.Text(options.text ?? '', options.style);
-		this.addChild(this.textObject);
 	}
 }
