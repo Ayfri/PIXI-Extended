@@ -6,26 +6,6 @@ export type XY = [x: number, y: number];
 export class Vector2 implements PIXI.IPoint {
 	protected _values = new Float32Array(2);
 
-	public constructor();
-	public constructor(points: PIXI.IPointData);
-	public constructor(x: number, y: number);
-	public constructor(x?: number | PIXI.IPointData, y?: number) {
-		let xValue: number = 0;
-		let yValue: number = 0;
-
-		if (x) {
-			if (typeof x === 'number') {
-				xValue = x;
-				yValue = y ?? 0;
-			} else {
-				xValue = x.x;
-				yValue = x.y;
-			}
-		}
-
-		this.xy = [xValue, yValue];
-	}
-
 	/**
 	 * Retrieves a new instance of the vector (0, 0)
 	 * @returns {Vector2} The zero vector
@@ -75,6 +55,26 @@ export class Vector2 implements PIXI.IPoint {
 	public set xy(values: XY) {
 		this._values[0] = values[0];
 		this._values[1] = values[1];
+	}
+
+	public constructor();
+	public constructor(points: PIXI.IPointData);
+	public constructor(x: number, y: number);
+	public constructor(x?: number | PIXI.IPointData, y?: number) {
+		let xValue: number = 0;
+		let yValue: number = 0;
+
+		if (x) {
+			if (typeof x === 'number') {
+				xValue = x;
+				yValue = y ?? 0;
+			} else {
+				xValue = x.x;
+				yValue = x.y;
+			}
+		}
+
+		this.xy = [xValue, yValue];
 	}
 
 	/**

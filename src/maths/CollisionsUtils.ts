@@ -14,11 +14,6 @@ export function collides(a: PIXI.Container, b: PIXI.Container): Hit | null {
 
 export class Hit {
 	/**
-	 * The point of contact between the two objects (or an estimation of it, in some sweep tests).
-	 * @type {Vector2}
-	 */
-	public position: Vector2;
-	/**
 	 * The overlap between the two objects, and is a vector that can be added to the colliding object’s position to move it back to a non-colliding state.
 	 * @type {Vector2}
 	 */
@@ -28,6 +23,11 @@ export class Hit {
 	 * @type {Vector2}
 	 */
 	public normal: Vector2;
+	/**
+	 * The point of contact between the two objects (or an estimation of it, in some sweep tests).
+	 * @type {Vector2}
+	 */
+	public position: Vector2;
 	/**
 	 * Only defined for segment and sweep intersections, and is a fraction from 0 to 1 indicating how far along the line the collision occurred.
 	 *

@@ -1,30 +1,16 @@
 import * as PIXI from 'pixi.js';
-import {Sprite} from '../sprites';
 import {Hit, intersectBoxes} from './CollisionsUtils';
 import {clamp} from './utils';
 import {Vector2} from './Vector2';
 
 interface RectangleOptions {
+	height?: number;
+	width?: number;
 	x?: number;
 	y?: number;
-	width?: number;
-	height?: number;
 }
 
 export class Rectangle extends PIXI.Rectangle {
-	public constructor(options?: RectangleOptions);
-	public constructor(x?: number, y?: number, width?: number, height?: number);
-	public constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
-		if (x && typeof x !== 'number') {
-			height = x.height;
-			width = x.width;
-			y = x.y;
-			x = x.x;
-		}
-
-		super(x as number | undefined, y, width, height);
-	}
-
 	/**
 	 * Returns the center of this Rectangle on the X axis.
 	 * @returns - Half of the width.
@@ -39,6 +25,19 @@ export class Rectangle extends PIXI.Rectangle {
 	 */
 	public get halfY(): number {
 		return this.height / 2;
+	}
+
+	public constructor(options?: RectangleOptions);
+	public constructor(x?: number, y?: number, width?: number, height?: number);
+	public constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
+		if (x && typeof x !== 'number') {
+			height = x.height;
+			width = x.width;
+			y = x.y;
+			x = x.x;
+		}
+
+		super(x as number | undefined, y, width, height);
 	}
 
 	public static fromSprite(sprite: PIXI.Sprite): Rectangle;

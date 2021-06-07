@@ -13,9 +13,7 @@ export const loadedTexturesNames: string[] = [];
 export async function loadTextures(texturesNamesAndPath: TexturesNameAndPath): Promise<TexturesAndName>;
 export async function loadTextures(texturesNamesAndPath: TextureNameAndPath[]): Promise<TexturesAndName>;
 export async function loadTextures(texturesNamesAndPath: TextureNameAndPath[] | TexturesNameAndPath): Promise<TexturesAndName> {
-	const textures: TextureNameAndPath[] = texturesNamesAndPath instanceof Array
-	                                       ? texturesNamesAndPath
-	                                       : Object.entries(texturesNamesAndPath);
+	const textures: TextureNameAndPath[] = texturesNamesAndPath instanceof Array ? texturesNamesAndPath : Object.entries(texturesNamesAndPath);
 
 	await new Promise(resolve => {
 		textures.forEach(([name, path]) => PIXI.Loader.shared.add(name, path));
@@ -34,7 +32,7 @@ export async function loadTexture(texture: TextureNameAndPath | string, path?: s
 	const name = texture instanceof Array ? texture[0] : texture;
 	path ??= texture[1];
 
-	await new Promise((resolve) => {
+	await new Promise(resolve => {
 		PIXI.Loader.shared.add(name, path!);
 		PIXI.Loader.shared.load(resolve);
 	});

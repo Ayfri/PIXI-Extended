@@ -41,16 +41,6 @@ export interface Sprite {
 }
 
 export class Sprite extends PIXI.Sprite {
-	public static fromColor(color: Color, size?: Vector2) {
-		return new Sprite(
-			getColoredTexture({
-				color,
-				width: size?.x,
-				height: size?.y,
-			})
-		);
-	}
-
 	public get destroyed(): boolean {
 		return this._destroyed;
 	}
@@ -79,6 +69,16 @@ export class Sprite extends PIXI.Sprite {
 	public constructor(texture: TextureOrName) {
 		if (typeof texture === 'string') texture = getTextureOrThrow(texture);
 		super(texture);
+	}
+
+	public static fromColor(color: Color, size?: Vector2) {
+		return new Sprite(
+			getColoredTexture({
+				color,
+				width: size?.x,
+				height: size?.y,
+			})
+		);
 	}
 
 	public hide() {

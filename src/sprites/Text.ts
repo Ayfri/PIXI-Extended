@@ -5,27 +5,20 @@ import {Container} from './Container';
 import {Sprite} from './Sprite';
 
 export interface TextOptions {
-	text?: string;
 	background?: TextureOrName;
 	style?: PIXI.TextStyle;
+	text?: string;
 	whiteBackground?: boolean;
 }
 
 export type TextColor = Color | Color[];
 
 export class Text extends Container {
-	public textObject: PIXI.Text;
 	public override background: Sprite;
+	public textObject: PIXI.Text;
 
 	public get metrics(): PIXI.TextMetrics {
 		return PIXI.TextMetrics.measureText(this.text, new PIXI.TextStyle(this.textObject.style));
-	}
-
-	public constructor(options: TextOptions) {
-		super();
-		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
-		this.textObject = new PIXI.Text(options.text ?? '', options.style);
-		this.addChild(this.textObject);
 	}
 
 	public get color(): TextColor | CanvasGradient | CanvasPattern {
@@ -60,5 +53,12 @@ export class Text extends Container {
 
 	public set text(text: string) {
 		this.textObject.text = text;
+	}
+
+	public constructor(options: TextOptions) {
+		super();
+		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
+		this.textObject = new PIXI.Text(options.text ?? '', options.style);
+		this.addChild(this.textObject);
 	}
 }

@@ -44,11 +44,6 @@ export enum Buttons {
 export class Button extends EventEmitter<Record<ButtonEvent, [event?: MouseEvent, duration?: number]>> {
 	private _pressedAt: number = 0;
 
-	public constructor(public readonly id: Buttons | MouseEvent['button']) {
-		super();
-		buttons.add(this);
-	}
-
 	private _isPressed: boolean = false;
 
 	public get isPressed(): boolean {
@@ -58,6 +53,11 @@ export class Button extends EventEmitter<Record<ButtonEvent, [event?: MouseEvent
 	public get duration(): number {
 		if (!this._isPressed) return 0;
 		return Date.now() - this._pressedAt;
+	}
+
+	public constructor(public readonly id: Buttons | MouseEvent['button']) {
+		super();
+		buttons.add(this);
 	}
 
 	/**

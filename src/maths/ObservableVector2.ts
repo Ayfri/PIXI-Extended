@@ -3,21 +3,8 @@ import {Vector2, XY} from './Vector2';
 
 export class ObservableVector2<T = any> implements PIXI.IPoint {
 	/**
-	 * Creates a new ObservableVector2.
-	 * @param cb - The callback to call whenever a value change.
-	 * @param scope - Owner of callback
-	 * @param x - Position of the vector on the X axis.
-	 * @param y - Position of the vector on the Y axis.
-	 * @param fromObject
-	 */
-	public constructor(public cb: (this: T) => any, public scope: T, x = 0, y = 0, private fromObject?: PIXI.ObservablePoint) {
-		this._x = x;
-		this._y = y;
-	}
-
-	/**
 	 * XY values.
-	 * @returns - An array containing the x-component and y-component of the vector
+	 * @returns - An array containing the x-component and y-component of the vector.
 	 */
 	public get xy(): XY {
 		return [this._x, this._y];
@@ -75,6 +62,19 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 			this.cb.call(this.scope);
 			if (this.fromObject) this.fromObject.y = value;
 		}
+	}
+
+	/**
+	 * Creates a new ObservableVector2.
+	 * @param cb - The callback to call whenever a value change.
+	 * @param scope - Owner of callback
+	 * @param x - Position of the vector on the X axis.
+	 * @param y - Position of the vector on the Y axis.
+	 * @param fromObject
+	 */
+	public constructor(public cb: (this: T) => any, public scope: T, x = 0, y = 0, private fromObject?: PIXI.ObservablePoint) {
+		this._x = x;
+		this._y = y;
 	}
 
 	/**
