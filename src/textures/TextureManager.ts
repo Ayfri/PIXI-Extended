@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import Application from '../core/Application';
 import {Sprite} from '../sprites';
 import {Color} from '../utils';
 
@@ -12,7 +13,9 @@ export const loadedTexturesNames: string[] = [];
 export async function loadTextures(texturesNamesAndPath: TexturesNameAndPath): Promise<TexturesAndName>;
 export async function loadTextures(texturesNamesAndPath: TextureNameAndPath[]): Promise<TexturesAndName>;
 export async function loadTextures(texturesNamesAndPath: TextureNameAndPath[] | TexturesNameAndPath): Promise<TexturesAndName> {
-	const textures: TextureNameAndPath[] = texturesNamesAndPath instanceof Array ? texturesNamesAndPath : Object.entries(texturesNamesAndPath);
+	const textures: TextureNameAndPath[] = texturesNamesAndPath instanceof Array
+	                                       ? texturesNamesAndPath
+	                                       : Object.entries(texturesNamesAndPath);
 
 	await new Promise(resolve => {
 		textures.forEach(([name, path]) => PIXI.Loader.shared.add(name, path));
@@ -29,12 +32,13 @@ export async function loadTexture(name: string, path: string): Promise<PIXI.Text
 export async function loadTexture(texturesNameAndPath: TextureNameAndPath): Promise<PIXI.Texture>;
 export async function loadTexture(texture: TextureNameAndPath | string, path?: string): Promise<PIXI.Texture> {
 	const name = texture instanceof Array ? texture[0] : texture;
+	path ??= texture[1];
 
-	await new Promise(resolve => {
-		PIXI.Loader.shared.add(name, texture[1] ?? path);
-		loadedTexturesNames.push(name);
+	await new Promise((resolve) => {
+		PIXI.Loader.shared.add(name, path!);
 		PIXI.Loader.shared.load(resolve);
 	});
+	loadedTexturesNames.push(name);
 
 	return PIXI.Loader.shared.resources[name].texture!;
 }
@@ -48,16 +52,39 @@ export function getTextureOrThrow(name: string): PIXI.Texture {
 	else throw new Error(`Texture '${name}' not found.`);
 }
 
+/**
+ * The options for a colored texture.
+ */
 export interface ColoredTextureOptions {
+	/**
+	 * The color of the texture.
+	 * @default {@link Color.WHITE}
+	 */
 	color?: Color;
+	/**
+	 * The height of the texture.
+	 * @default 100
+	 */
 	height?: number;
+	/**
+	 * The width of the texture.
+	 * @default 100
+	 */
 	width?: number;
 }
 
-export function getColoredTexture(options: ColoredTextureOptions): PIXI.Texture {
+/**
+ * Generate a texture from the Application renderer and options.
+ *
+ * @param application - The application, needed to get the renderer.
+ * @param options - The options of the colored texture.
+ * @returns - The resulting texture.
+ */
+export function getColoredTexture(application: Application, options: ColoredTextureOptions): PIXI.Texture {
 	const sprite = new Sprite(PIXI.Texture.WHITE);
 	sprite.width = options.width ?? 100;
 	sprite.height = options.height ?? 100;
 	sprite.color = options.color ?? Color.WHITE;
-	return sprite.texture;
+
+	return application.renderer.generateTexture(sprite);
 }
