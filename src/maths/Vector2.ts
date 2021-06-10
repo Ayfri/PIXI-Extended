@@ -7,11 +7,8 @@ export class Vector2 implements PIXI.IPoint {
 	protected _values = new Float32Array(2);
 
 	public constructor();
-
 	public constructor(points: PIXI.IPointData);
-
 	public constructor(x: number, y: number);
-
 	public constructor(x?: number | PIXI.IPointData, y?: number) {
 		let xValue: number = 0;
 		let yValue: number = 0;

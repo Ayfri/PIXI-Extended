@@ -83,5 +83,5 @@ export function getColoredTexture(application: PIXI.Application, options: Colore
 	sprite.height = options.height ?? 100;
 	sprite.color = options.color ?? Color.WHITE;
 
-	return application.renderer.generateTexture(sprite);
+	return application.renderer.generateTexture(sprite, PIXI.SCALE_MODES.LINEAR, 1, sprite.hitBox);
 }
