@@ -2,13 +2,27 @@ import * as PIXI from 'pixi.js';
 import {Text} from '../sprites';
 
 interface FPSCounterOptions {
+	/**
+	 * @default true
+	 */
 	autoStart?: boolean;
+	/**
+	 * What the counter will show.
+	 *
+	 * @default 'FPS: ${count}'
+	 */
 	presentation?: string;
+	/**
+	 * @default PIXI.UPDATE_PRIORITY.LOW
+	 */
 	priority?: PIXI.UPDATE_PRIORITY;
 }
 
 export class FPSCounter extends Text implements FPSCounterOptions {
 	public autoStart: boolean;
+	/**
+	 * What the counter will show.
+	 */
 	public presentation: string = 'FPS: ${count}';
 	public priority: PIXI.UPDATE_PRIORITY;
 	public ticker: PIXI.Ticker;
