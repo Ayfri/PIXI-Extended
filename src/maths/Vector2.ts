@@ -9,7 +9,8 @@ export class Vector2 implements PIXI.IPoint {
 	public constructor();
 	public constructor(points: PIXI.IPointData);
 	public constructor(x: number, y: number);
-	public constructor(x?: number | PIXI.IPointData, y?: number) {
+	public constructor(xy: XY);
+	public constructor(x?: number | PIXI.IPointData | XY, y?: number) {
 		let xValue: number = 0;
 		let yValue: number = 0;
 
@@ -17,6 +18,8 @@ export class Vector2 implements PIXI.IPoint {
 			if (typeof x === 'number') {
 				xValue = x;
 				yValue = y ?? 0;
+			} else if (x instanceof Array) {
+				[xValue, yValue] = x;
 			} else {
 				xValue = x.x;
 				yValue = x.y;
