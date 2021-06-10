@@ -31,49 +31,49 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Retrieves a new instance of the vector (0, 0)
-	 * @returns {Vector2} The zero vector
+	 * @returns - The zero vector
 	 */
 	public static get zero(): Vector2 {
 		return new Vector2(0, 0);
 	}
 
 	/**
-	 * @returns {number} The x-component of the vector
+	 * @returns - The x-component of the vector
 	 */
 	public get x(): number {
 		return this._values[0];
 	}
 
 	/**
-	 * @param {number} value The new x-component of the vector
+	 * @param value - The new x-component of the vector
 	 */
 	public set x(value: number) {
 		this._values[0] = value;
 	}
 
 	/**
-	 * @returns {number} The y-component of the vector
+	 * @returns - The y-component of the vector
 	 */
 	public get y(): number {
 		return this._values[1];
 	}
 
 	/**
-	 * @param {number} value The new y-component of the vector
+	 * @param value - The new y-component of the vector
 	 */
 	public set y(value: number) {
 		this._values[1] = value;
 	}
 
 	/**
-	 * @returns {number[]} An array containing the x-component and y-component of the vector
+	 * @returns - An array containing the x-component and y-component of the vector
 	 */
 	public get xy(): XY {
 		return [this._values[0], this._values[1]];
 	}
 
 	/**
-	 * @param {number[]} values An array containing the new x-component and y-component of the vector
+	 * @param values - An array containing the new x-component and y-component of the vector
 	 */
 	public set xy(values: XY) {
 		this._values[0] = values[0];
@@ -82,9 +82,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Retrieves the maximum vector values between two or more vectors.
-	 * @param {Vector2} vector
-	 * @param {Vector2[]} vectors
-	 * @returns {Vector2} The result of the maximum vector values.
+	 * @param vector
+	 * @param vectors
+	 * @returns - The result of the maximum vector values.
 	 */
 	public static max(vector: Vector2, ...vectors: Vector2[]): Vector2 {
 		return new Vector2(Math.max(vector.x, ...vectors.map(v => v.x)), Math.max(vector.y, ...vectors.map(v => v.y)));
@@ -92,9 +92,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Retrieves the minimum vector values between two or more vectors.
-	 * @param {Vector2} vector
-	 * @param {Vector2[]} vectors
-	 * @returns {Vector2} The result of the minimum vector values.
+	 * @param vector
+	 * @param vectors
+	 * @returns - The result of the minimum vector values.
 	 */
 	public static min(vector: Vector2, ...vectors: Vector2[]): Vector2 {
 		return new Vector2(Math.min(vector.x, ...vectors.map(v => v.x)), Math.min(vector.y, ...vectors.map(v => v.y)));
@@ -102,9 +102,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Calculates the dot product of two vectors.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @returns {number} The dot product of the two vectors.
+	 * @param vector
+	 * @param vector2
+	 * @returns - The dot product of the two vectors.
 	 */
 	public static dot(vector: Vector2, vector2: Vector2): number {
 		return vector.x * vector2.x + vector.y * vector2.y;
@@ -112,9 +112,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Calculates the distance between two vectors.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @returns {number} The distance between the two vectors.
+	 * @param vector
+	 * @param vector2
+	 * @returns - The distance between the two vectors.
 	 */
 	public static distance(vector: Vector2, vector2: PIXI.IPointData): number {
 		return Math.sqrt(Vector2.squaredDistance(vector, vector2));
@@ -122,9 +122,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Calculates the distance between two vectors squared.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @returns {number} The distance between the two vectors.
+	 * @param vector
+	 * @param vector2
+	 * @returns - The distance between the two vectors.
 	 */
 	public static squaredDistance(vector: Vector2, vector2: PIXI.IPointData) {
 		const x = vector2.x - vector.x;
@@ -135,10 +135,10 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Calculates a normalized vector representing the direction from one vector to another.
 	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param vector2
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public static direction(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
@@ -157,11 +157,11 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Performs a linear interpolation over two vectors.
 	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} a
-	 * @param {Vector2} b
-	 * @param {number} t
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param a
+	 * @param b
+	 * @param t
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public static lerp(a: Vector2, b: Vector2, t: number, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
@@ -173,10 +173,10 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Adds two vectors.
 	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param vector2
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public static sum(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
@@ -187,10 +187,10 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Subtracts two vectors.
 	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param vector2
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public static difference(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
@@ -202,10 +202,10 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Multiplies two vectors piecewise.
 	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param vector2
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public static product(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
@@ -217,10 +217,10 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Divides two vectors piecewise.
 	 * If no dest vector is specified, a new vector is instantiated.
-	 * @param {Vector2} vector
-	 * @param {Vector2} vector2
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param vector2
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public static quotient(vector: Vector2, vector2: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = new Vector2();
@@ -231,7 +231,7 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
-	 * @param {Vector2} src The source point.
+	 * @param src - The source point.
 	 */
 	public copyFrom(src: PIXI.IPointData): this {
 		this.set(src.x, src.y);
@@ -241,8 +241,8 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Copies the x and y components from the source to the destination. The source and destination must be of the same type.
 	 * @typeParam T The type of your source, can also be a Vector2.
-	 * @param {T} p The source point.
-	 * @returns {T}
+	 * @param p The source point.
+	 * @returns
 	 */
 	public copyTo<T extends PIXI.IPointData>(p: T): T {
 		p.x = this.x;
@@ -252,9 +252,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Set the x and y values.
-	 * @param {number} x
-	 * @param {number} y
-	 * @returns {this}
+	 * @param x
+	 * @param y
+	 * @returns
 	 */
 	public set(x: number, y: number): this;
 	public set(value?: number): this;
@@ -265,8 +265,8 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Return the absolute values of X and Y.
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public abs(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -276,8 +276,8 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Retrieves the x-component or y-component of the vector.
-	 * @param {number} index
-	 * @returns {number}
+	 * @param index
+	 * @returns
 	 */
 	public at(index: number): number {
 		return this._values[index];
@@ -293,8 +293,8 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Multiplies both the x- and y-components of a vector by -1.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public negate(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -304,9 +304,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Checks if two vectors are equal, using a threshold to avoid floating-point precision errors.
-	 * @param {Vector2} other
-	 * @param {number} threshold
-	 * @returns {boolean}
+	 * @param other
+	 * @param threshold
+	 * @returns
 	 */
 	public equals(other: Vector2, threshold = 0.00001): boolean {
 		return Math.abs(this.x - other.x) > threshold ? false : Math.abs(this.y - other.y) <= threshold;
@@ -314,8 +314,8 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Returns true if both X & Y are greater than the other Vector2.
-	 * @param {Vector2} other
-	 * @returns {boolean}
+	 * @param other
+	 * @returns
 	 */
 	public greaterThan(other: Vector2): boolean {
 		return this.x > other.x && this.y > other.y;
@@ -323,7 +323,7 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Returns the distance from the vector to the origin.
-	 * @returns {number}
+	 * @returns
 	 */
 	public length(): number {
 		return Math.sqrt(this.squaredLength());
@@ -331,7 +331,7 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Returns the distance from the vector to the origin, squared.
-	 * @returns {number}
+	 * @returns
 	 */
 	public squaredLength(): number {
 		return this.x ** 2 + this.y ** 2;
@@ -340,9 +340,9 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Adds two vectors together.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {Vector2} vector
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public add(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -353,9 +353,9 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Subtracts one vector from another.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {Vector2} vector
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public subtract(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -366,9 +366,9 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Multiplies two vectors together piecewise.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {Vector2} vector
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public multiply(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -378,9 +378,9 @@ export class Vector2 implements PIXI.IPoint {
 
 	/**
 	 * Divides two vectors piecewise.
-	 * @param {Vector2} vector
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param vector
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public divide(vector: Vector2, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -391,9 +391,9 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Scales a vector by a scalar parameter.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {number} value
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param value
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public scale(value: number, dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -404,8 +404,8 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Normalizes a vector.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param dest - An optional destination Vector2.
+	 * @returns
 	 */
 	public normalize(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
@@ -425,8 +425,8 @@ export class Vector2 implements PIXI.IPoint {
 	/**
 	 * Returns a deep clone this Vector.
 	 * If no dest vector is specified, the operation is performed in-place.
-	 * @param {Vector2} dest
-	 * @returns {Vector2}
+	 * @param dest - An optional destination Vector2.
+	 * @returns - The resulting deep clone.
 	 */
 	public deepClone(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
