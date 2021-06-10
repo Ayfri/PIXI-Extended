@@ -422,6 +422,12 @@ export class Vector2 implements PIXI.IPoint {
 		return dest;
 	}
 
+	/**
+	 * Returns a deep clone this Vector.
+	 * If no dest vector is specified, the operation is performed in-place.
+	 * @param {Vector2} dest
+	 * @returns {Vector2}
+	 */
 	public deepClone(dest?: Vector2): Vector2 {
 		if (!dest) dest = this;
 		dest.xy = this.xy.slice() as XY;
