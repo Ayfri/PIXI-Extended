@@ -98,7 +98,7 @@ export class Color extends EventEmitter<ColorEvents> {
 	}
 
 	public static toHex(color: Color): number {
-		return ((color.red * 255) << 16) + ((color.green * 255) << 8) + color.blue * 255;
+		return (color.red << 16) | (color.green << 8) | color.blue;
 	}
 
 	public static toHexString(color: Color): string {
