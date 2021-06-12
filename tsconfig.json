@@ -1,11 +1,11 @@
 {
 	"compilerOptions": {
         "esModuleInterop": true,
+		"noImplicitOverride": true,
 		"moduleResolution": "Node",
         "skipLibCheck": true,
-        "sourceMap": true,
-        "sourceRoot": "src",
-        "target": "ESNext"
+		"strict": true,
+		"target": "ESNext"
     },
 	"exclude": [
 		"node_modules"
