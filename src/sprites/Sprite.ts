@@ -43,6 +43,7 @@ export interface Sprite {
 export class Sprite extends PIXI.Sprite {
 	public constructor(texture: TextureOrName) {
 		if (typeof texture === 'string') texture = getTextureOrThrow(texture);
+		if (!texture) throw new ReferenceError('texture not specified');
 		super(texture);
 	}
 
