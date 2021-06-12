@@ -14,12 +14,12 @@ You can use this package with TypeScript.
 
 ## Features
 
-- Enhanced classes that extends default PIXI ones to better use them.
-- Enhanced event handling strictly typed.
-- Fully typed in TypeScript, with strict events using custom EventEmitter class.
-- Some utility collisions/maths classes and functions.
-- Mouse/Keyboard support with a class & functions.
-- Other utility classes/objects for PIXI.
+-   Enhanced classes that extends default PIXI ones to better use them.
+-   Enhanced event handling strictly typed.
+-   Fully typed in TypeScript, with strict events using custom EventEmitter class.
+-   Some utility collisions/maths classes and functions.
+-   Mouse/Keyboard support with a class & functions.
+-   Other utility classes/objects for PIXI.
 
 ## Examples
 
@@ -35,13 +35,13 @@ document.body.appendChild(app.view);
 async function start() {
 	await loadTexture('myTexture', 'textures/myTexture.png');
 
-	const red = new Color(1, 0, 0);
+	const red = Color.RED;
 	const sprite = new Sprite('myTexture');
 	sprite.color = red;
-	
+
 	const fpsCounter = new FPSCounter();
 	fpsCounter.addToApplication(app);
-	
+
 	sprite.addToApplication(app);
 }
 

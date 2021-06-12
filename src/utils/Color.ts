@@ -13,6 +13,9 @@ export type RGBA = [red: number, green: number, blue: number, alpha: number];
 
 export class Color extends EventEmitter<ColorEvents> {
 	public static readonly BLACK: Color = new Color();
+	public static readonly RED: Color = new Color(1, 0, 0);
+	public static readonly GREEN: Color = new Color(0, 1, 0);
+	public static readonly BLUE: Color = new Color(0, 0, 1);
 	public static readonly WHITE: Color = new Color(1, 1, 1);
 
 	public constructor(red: number = 0, green: number = 0, blue: number = 0, alpha: number = 1) {
@@ -101,21 +104,21 @@ export class Color extends EventEmitter<ColorEvents> {
 		return ((color.red * 255) << 16) | ((color.green * 255) << 8) | (color.blue * 255);
 	}
 
-	public static toHexString(color: Color): `#${number}` {
-		return `#${color.toHex().toString(16)}` as `#${number}`;
+	public static toHexString(color: Color): `#${string}` {
+		return `#${color.toHex().toString(16)}`;
 	}
 
-	public static fromHexString(hexString: `#${number}`, alpha?: number): Color {
+	public static fromHexString(hexString: `#${string}`, alpha?: number): Color {
 		const color = Number.parseInt(hexString.replace(/^#/, ''), 16);
-		const r = (color >> 16) & 255;
-		const g = (color >> 8) & 255;
-		const b = color & 255;
+		const r = ((color >> 16) & 0xff) / 255;
+		const g = ((color >> 8) & 0xff) / 255;
+		const b = (color & 0xff) / 255;
 
 		return new Color(r, g, b, alpha);
 	}
 
 	public static fromHex(hex: number, alpha?: number): Color {
-		return Color.fromHexString(`#${hex}`, alpha);
+		return Color.fromHexString(`#${hex.toString(16)}`, alpha);
 	}
 
 	public toHexString(): string {
