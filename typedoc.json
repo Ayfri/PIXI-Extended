@@ -8,6 +8,5 @@
 	"name": "PIXI-Extended",
 	"out": "docs",
 	"readme": "https://github.com/Ayfri/PIXI-Extended/blob/master/README.md",
-	"theme": "./node_modules/typedoc-darker-theme/bin/default",
-	"tsconfig": "./tsconfig.json"
+	"theme": "./node_modules/typedoc-darker-theme/bin/default"
 }
