@@ -35,7 +35,7 @@ document.body.appendChild(app.view);
 async function start() {
 	await loadTexture('myTexture', 'textures/myTexture.png');
 
-	const red = new Color(255, 0, 0);
+	const red = new Color(1, 0, 0);
 	const sprite = new Sprite('myTexture');
 	sprite.color = red;
 	

@@ -13,7 +13,7 @@ export type RGBA = [red: number, green: number, blue: number, alpha: number];
 
 export class Color extends EventEmitter<ColorEvents> {
 	public static readonly BLACK: Color = new Color();
-	public static readonly WHITE: Color = new Color(255, 255, 255);
+	public static readonly WHITE: Color = new Color(1, 1, 1);
 
 	public constructor(red: number = 0, green: number = 0, blue: number = 0, alpha: number = 1) {
 		super();
@@ -98,16 +98,15 @@ export class Color extends EventEmitter<ColorEvents> {
 	}
 
 	public static toHex(color: Color): number {
-		return (color.red << 16) | (color.green << 8) | color.blue;
+		return ((color.red * 255) << 16) | ((color.green * 255) << 8) | (color.blue * 255);
 	}
 
-	public static toHexString(color: Color): string {
-		return `#${color.toHex().toString(16)}`;
+	public static toHexString(color: Color): `#${number}` {
+		return `#${color.toHex().toString(16)}` as `#${number}`;
 	}
 
-	public static fromHexString(hexString: string, alpha?: number): Color {
-		if (/^#/.test(hexString)) hexString = hexString.substr(1, 1);
-		const color = Number.parseInt(hexString, 16);
+	public static fromHexString(hexString: `#${number}`, alpha?: number): Color {
+		const color = Number.parseInt(hexString.replace(/^#/, ''), 16);
 		const r = (color >> 16) & 255;
 		const g = (color >> 8) & 255;
 		const b = color & 255;
