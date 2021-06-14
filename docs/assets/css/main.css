@@ -1,3 +1,26 @@
+:root {
+  --color-background: #1e1e1e;
+  --color-text: #ececec;
+  --color-text-aside: #585858;
+  --color-link: #4da6ff;
+  --color-menu-divider: #e6e6e6;
+  --color-menu-divider-focus: #fff;
+  --color-menu-label: #5f5f5f;
+  --color-panel: #171717;
+  --color-panel-divider: #414141;
+  --color-sources: #ababab;
+  --color-comment-tag: #282828;
+  --color-comment-tag-text: #e6e6e6;
+  --color-code-background: #151515;
+  --color-ts: #be60ff;
+  --color-ts-interface: #c9ff39;
+  --color-ts-enum: #ffbf00;
+  --color-ts-class: #4da6ff;
+  --color-ts-private: #808080;
+  --toolbar-color: #1e1e1e;
+  --toolbar-text-color: #d0d0d0;
+}
+
 /*! normalize.css v1.1.3 | MIT License | git.io/normalize */
 /* ==========================================================================
  * * HTML5 display definitions
@@ -1614,6 +1637,12 @@ pre code {
   padding: 0;
   font-size: 100%;
   background-color: transparent;
+}
+
+blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 4px solid gray;
 }
 
 .tsd-typography {
