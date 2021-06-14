@@ -30,7 +30,8 @@ export class Text extends Container {
 
 	public get color(): TextColor | CanvasGradient | CanvasPattern {
 		let result: TextColor | CanvasGradient | CanvasPattern;
-		const color: PIXI.TextStyleFill = this.textObject.style.fill!;
+		const color = this.textObject.style.fill!;
+
 		if (color instanceof Array) {
 			result = color.map((c: string | number) => (typeof c === 'string' ? Color.fromHexString(c) : Color.fromHex(c)));
 		} else if (color instanceof CanvasGradient || color instanceof CanvasPattern) {
