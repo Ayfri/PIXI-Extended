@@ -41,6 +41,13 @@ export interface Sprite {
 }
 
 export class Sprite extends PIXI.Sprite {
+	/**
+	 * Creates a new Sprite.
+	 *
+	 * @remarks If a string is passed for the texture argument, it will search in the {@link loadedTexturesNames} and throw an error if not found.
+	 *
+	 * @param texture - The texture of the sprite, can be its name or itself.
+	 */
 	public constructor(texture: TextureOrName) {
 		if (typeof texture === 'string') texture = getTextureOrThrow(texture);
 		if (!texture) throw new ReferenceError('texture not specified');
@@ -51,6 +58,11 @@ export class Sprite extends PIXI.Sprite {
 		return this._destroyed;
 	}
 
+	/**
+	 * Returns a readonly Rectangle with the coordinates of the sprite and the width/height of the sprite.
+	 *
+	 * @returns - The resulting rectangle.
+	 */
 	public get hitBox(): Readonly<Rectangle> {
 		return Rectangle.fromSprite(this);
 	}
