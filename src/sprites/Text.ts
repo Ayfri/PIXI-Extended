@@ -43,10 +43,20 @@ export class Text extends Container {
 		this.addChild(this.textObject);
 	}
 
+	/**
+	 * Get the metrics of the text.
+	 * @see http://pixijs.download/dev-fix-utils-docs/docs/PIXI.TextMetrics.html
+	 *
+	 * @returns {PIXI.TextMetrics}
+	 */
 	public get metrics(): PIXI.TextMetrics {
 		return PIXI.TextMetrics.measureText(this.text, new PIXI.TextStyle(this.textObject.style));
 	}
 
+	/**
+	 * Get the color of the text, as a Color, an array of Color, or a CanvasGradiant/CanvasPattern.
+	 * @returns - The resulting color.
+	 */
 	public get color(): TextColor | CanvasGradient | CanvasPattern {
 		let result: TextColor | CanvasGradient | CanvasPattern;
 		const color = this.textObject.style.fill!;
@@ -62,6 +72,10 @@ export class Text extends Container {
 		return result;
 	}
 
+	/**
+	 * Sets the color of the text, as a Color, an array of Color, or a CanvasGradiant/CanvasPattern.
+	 * @param color - The new color to set.
+	 */
 	public set color(color: TextColor | CanvasGradient | CanvasPattern) {
 		this.textObject.style.fill = color instanceof Array ? color.map(c => c.toHex()) : color instanceof Color ? color.toHex() : color;
 	}
