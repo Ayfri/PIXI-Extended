@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Color
-	| PIXI-Extended - v0.2.0</title>
-	<meta name="description" content="Documentation for PIXI-Extended - v0.2.0">
+	| PIXI-Extended - v0.2.1</title>
+	<meta name="description" content="Documentation for PIXI-Extended - v0.2.1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -25,7 +25,7 @@
 					<li class="state loading">Preparing search index...</li>
 					<li class="state failure">The search index is not available</li>
 				</ul>
-				<a href="../index.html" class="title">PIXI-Extended - v0.2.0</a>
+				<a href="../index.html" class="title">PIXI-Extended - v0.2.1</a>
 			</div>
 			<div class="table-cell" id="tsd-widgets">
 				<div id="tsd-filter">
@@ -54,7 +54,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">PIXI-Extended - v0.2.0</a>
+					<a href="../modules.html">PIXI-Extended - v0.2.1</a>
 				</li>
 				<li>
 					<a href="color.html">Color</a>
@@ -104,6 +104,12 @@
 								class="tsd-kind-icon">_red</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="color.html#black"
 								class="tsd-kind-icon">BLACK</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="color.html#blue"
+								class="tsd-kind-icon">BLUE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="color.html#green"
+								class="tsd-kind-icon">GREEN</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="color.html#red"
+								class="tsd-kind-icon">RED</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="color.html#white"
 								class="tsd-kind-icon">WHITE</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external"><a href="color.html#prefixed"
@@ -115,11 +121,11 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#alpha"
 								class="tsd-kind-icon">alpha</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#blue"
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#blue-1"
 								class="tsd-kind-icon">blue</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#green"
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#green-1"
 								class="tsd-kind-icon">green</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#red"
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#red-1"
 								class="tsd-kind-icon">red</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="color.html#rgb"
 								class="tsd-kind-icon">rgb</a></li>
@@ -188,22 +194,44 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="eventemitter.html">EventEmitter</a>.<a href="eventemitter.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L16">source/src/utils/Color.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L26">source/src/utils/Color.ts:26</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new color.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Values can only go up to 1.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>red: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The red value of the color, from 0 to 1.</p>
+									</div>
 								</li>
 								<li>
 									<h5>green: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The green value of the color, from 0 to 1.</p>
+									</div>
 								</li>
 								<li>
 									<h5>blue: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The blue value of the color, from 0 to 1.</p>
+									</div>
 								</li>
 								<li>
 									<h5>alpha: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The alpha value of the color, from 0 to 1, default to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h4>
@@ -219,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">_alpha<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L78">source/src/utils/Color.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L148">source/src/utils/Color.ts:148</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -229,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">_blue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L66">source/src/utils/Color.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L126">source/src/utils/Color.ts:126</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">_green<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L54">source/src/utils/Color.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L104">source/src/utils/Color.ts:104</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -249,7 +277,7 @@
 					<div class="tsd-signature tsd-kind-icon">_red<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L42">source/src/utils/Color.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L82">source/src/utils/Color.ts:82</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +287,37 @@
 					<div class="tsd-signature tsd-kind-icon">BLACK<span class="tsd-signature-symbol">:</span> <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L15">source/src/utils/Color.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L22">source/src/utils/Color.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="blue" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> BLUE</h3>
+					<div class="tsd-signature tsd-kind-icon">BLUE<span class="tsd-signature-symbol">:</span> <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L25">source/src/utils/Color.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="green" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> GREEN</h3>
+					<div class="tsd-signature tsd-kind-icon">GREEN<span class="tsd-signature-symbol">:</span> <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L24">source/src/utils/Color.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="red" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> RED</h3>
+					<div class="tsd-signature tsd-kind-icon">RED<span class="tsd-signature-symbol">:</span> <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L23">source/src/utils/Color.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +327,7 @@
 					<div class="tsd-signature tsd-kind-icon">WHITE<span class="tsd-signature-symbol">:</span> <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L16">source/src/utils/Color.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L26">source/src/utils/Color.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -298,29 +356,58 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L80">source/src/utils/Color.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L157">source/src/utils/Color.ts:157</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the alpha value.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Alpha is the opacity, 1 means full visible, 0 means transparent.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L84">source/src/utils/Color.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L168">source/src/utils/Color.ts:168</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the alpha value, emit the &#39;alphaChange&#39; and &#39;change&#39; events for the color.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Alpha is the transparency.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value, can only be form 0 up to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="blue" class="tsd-anchor"></a>
+					<a name="blue-1" class="tsd-anchor"></a>
 					<h3>blue</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> blue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
@@ -330,29 +417,48 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L68">source/src/utils/Color.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L133">source/src/utils/Color.ts:133</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the blue value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L72">source/src/utils/Color.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L142">source/src/utils/Color.ts:142</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the blue value, emit the &#39;blueChange&#39; and &#39;change&#39; events for the color.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value, can only be form 0 up to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="green" class="tsd-anchor"></a>
+					<a name="green-1" class="tsd-anchor"></a>
 					<h3>green</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> green<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
@@ -362,29 +468,48 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L56">source/src/utils/Color.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L111">source/src/utils/Color.ts:111</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the green value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L60">source/src/utils/Color.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L120">source/src/utils/Color.ts:120</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the green value, emit the &#39;greenChange&#39; and &#39;change&#39; events for the color.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value, can only be form 0 up to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="red" class="tsd-anchor"></a>
+					<a name="red-1" class="tsd-anchor"></a>
 					<h3>red</h3>
 					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> red<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
@@ -394,24 +519,43 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L44">source/src/utils/Color.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L89">source/src/utils/Color.ts:89</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the red value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L48">source/src/utils/Color.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L98">source/src/utils/Color.ts:98</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the red value, emit the &#39;redChange&#39; and &#39;change&#39; events for the color.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value, can only be form 0 up to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<ul>
+								<li>The value, can only be from 0 up to 1.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -426,24 +570,43 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L34">source/src/utils/Color.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L69">source/src/utils/Color.ts:69</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an array containing the red, green and blue values.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../modules.html#rgb" class="tsd-signature-type" data-tsd-kind="Type alias">RGB</a></h4>
+							<ul>
+								<li>The array.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L38">source/src/utils/Color.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L78">source/src/utils/Color.ts:78</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the red, green and blue values from an array of these.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <a href="../modules.html#rgb" class="tsd-signature-type" data-tsd-kind="Type alias">RGB</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The array.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<ul>
+								<li>The array.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -458,24 +621,43 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L26">source/src/utils/Color.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L51">source/src/utils/Color.ts:51</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an array containing the red, green, blue and alpha values.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../modules.html#rgba" class="tsd-signature-type" data-tsd-kind="Type alias">RGBA</a></h4>
+							<ul>
+								<li>The array.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L30">source/src/utils/Color.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L60">source/src/utils/Color.ts:60</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the red, green, blue and alpha values from an array of these.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <a href="../modules.html#rgba" class="tsd-signature-type" data-tsd-kind="Type alias">RGBA</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The array.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<ul>
+								<li>The array.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -579,10 +761,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L137">source/src/utils/Color.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L305">source/src/utils/Color.ts:305</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Inverts the color returning its negative forme.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.WHITE.invert() === Color.BLACK;</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h4>
+							<ul>
+								<li>The resulting color.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -862,22 +1057,39 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L126">source/src/utils/Color.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L278">source/src/utils/Color.ts:278</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the values of the color.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> red: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The red value.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> green: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The green value.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blue: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The blue value.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alpha: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The alpha value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -894,10 +1106,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L133">source/src/utils/Color.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L293">source/src/utils/Color.ts:293</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transforms the color to its hexadecimal form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.RED.toHex() === 0xff0000</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The resulting hexadecimal number.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -911,10 +1136,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L122">source/src/utils/Color.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L266">source/src/utils/Color.ts:266</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transforms the color to its stringed hexadecimal form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.BLUE.toHexString() === &quot;#0000ff&quot;</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<ul>
+								<li>The resulting stringed hexadecimal form.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -928,19 +1166,38 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L118">source/src/utils/Color.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L254">source/src/utils/Color.ts:254</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a color from a hexadecimal form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.fromHex(0x000000) === Color.BLACK</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>hex: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The hexadecimal form of your color.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alpha: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The alpha value of the color, defaults to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h4>
+							<ul>
+								<li>The resulting color.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -948,25 +1205,44 @@
 					<a name="fromhexstring" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Hex<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Hex<wbr>String<span class="tsd-signature-symbol">(</span>hexString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, alpha<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Hex<wbr>String<span class="tsd-signature-symbol">(</span>hexString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">`</span><span class="tsd-signature-type">#</span><span class="tsd-signature-symbol">${</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">`</span>, alpha<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L108">source/src/utils/Color.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L235">source/src/utils/Color.ts:235</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a color from a stringed hexadecimal form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.fromHexString(&quot;#00ff00&quot;) === Color.GREEN</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>hexString: <span class="tsd-signature-type">string</span></h5>
+									<h5>hexString: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">`</span><span class="tsd-signature-type">#</span><span class="tsd-signature-symbol">${</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">`</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The stringed hexadecimal form of your color.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> alpha: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The alpha value of the color, defaults to 1.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h4>
+							<ul>
+								<li>The resulting color.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -980,16 +1256,32 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L96">source/src/utils/Color.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L195">source/src/utils/Color.ts:195</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Inverts a color returning its negative forme.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.invert(Color.WHITE) === Color.BLACK;</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>color: <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The color to invert.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h4>
+							<ul>
+								<li>The resulting color.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -1004,7 +1296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L90">source/src/utils/Color.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L174">source/src/utils/Color.ts:174</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h4>
@@ -1012,7 +1304,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L91">source/src/utils/Color.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L175">source/src/utils/Color.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1035,16 +1327,32 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L100">source/src/utils/Color.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L208">source/src/utils/Color.ts:208</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transforms a color to its hexadecimal form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.toHex(Color.RED) === 0xff0000</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>color: <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The color to get its hexadecimal form.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The resulting hexadecimal number.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -1052,22 +1360,38 @@
 					<a name="tohexstring-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Hex<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Hex<wbr>String<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Hex<wbr>String<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">`</span><span class="tsd-signature-type">#</span><span class="tsd-signature-symbol">${</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">`</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L104">source/src/utils/Color.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/Color.ts#L221">source/src/utils/Color.ts:221</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transforms a color to its stringed hexadecimal form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>Color.toHex(Color.BLUE) === &quot;#0000ff&quot;</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>color: <a href="color.html" class="tsd-signature-type" data-tsd-kind="Class">Color</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The color to get its stringed hexadecimal form.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">`</span><span class="tsd-signature-type">#</span><span class="tsd-signature-symbol">${</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">`</span></h4>
+							<ul>
+								<li>The resulting stringed hexadecimal form.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -1107,6 +1431,15 @@
 								<a href="color.html#black" class="tsd-kind-icon">BLACK</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="color.html#blue" class="tsd-kind-icon">BLUE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="color.html#green" class="tsd-kind-icon">GREEN</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="color.html#red" class="tsd-kind-icon">RED</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
 								<a href="color.html#white" class="tsd-kind-icon">WHITE</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external">
@@ -1116,13 +1449,13 @@
 								<a href="color.html#alpha" class="tsd-kind-icon">alpha</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="color.html#blue" class="tsd-kind-icon">blue</a>
+								<a href="color.html#blue-1" class="tsd-kind-icon">blue</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="color.html#green" class="tsd-kind-icon">green</a>
+								<a href="color.html#green-1" class="tsd-kind-icon">green</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="color.html#red" class="tsd-kind-icon">red</a>
+								<a href="color.html#red-1" class="tsd-kind-icon">red</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="color.html#rgb" class="tsd-kind-icon">rgb</a>
