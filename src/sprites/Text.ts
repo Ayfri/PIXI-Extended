@@ -17,10 +17,23 @@ export class Text extends Container {
 	public override background: Sprite;
 	public textObject: PIXI.Text;
 
-	public constructor(options: TextOptions) {
+	public constructor();
+	public constructor(options: TextOptions);
+	public constructor(text?: string, options?: Omit<TextOptions, 'text'>);
+	public constructor(text?: string | TextOptions, options?: Omit<TextOptions, 'text'>) {
 		super();
-		this.background = new Sprite(options.background ?? options.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY);
-		this.textObject = new PIXI.Text(options.text ?? '', options.style);
+		let content: string;
+		let background: PIXI.Texture;
+		if (typeof text !== 'string') {
+			content = text?.text ?? '';
+			background = text?.background ?? text?.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY;
+		} else {
+			content = text ?? '';
+			background = options?.background ?? options?.background ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY;
+		}
+
+		this.background = new Sprite(background);
+		this.textObject = new PIXI.Text(content, options?.style);
 		this.addChild(this.textObject);
 	}
 
