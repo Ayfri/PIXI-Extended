@@ -6,7 +6,8 @@ import {Sprite} from './Sprite';
 
 export interface TextOptions {
 	background?: TextureOrName;
-	style?: PIXI.TextStyle;
+	color?: Color;
+	style?: Partial<PIXI.TextStyle>;
 	text?: string;
 	whiteBackground?: boolean;
 }
@@ -22,18 +23,23 @@ export class Text extends Container {
 	public constructor(text?: string, options?: Omit<TextOptions, 'text'>);
 	public constructor(text?: string | TextOptions, options?: Omit<TextOptions, 'text'>) {
 		super();
+
 		let content: string;
 		let background: PIXI.Texture;
+		let color: Color | undefined;
 		if (typeof text !== 'string') {
 			content = text?.text ?? '';
 			background = text?.background ?? text?.whiteBackground ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY;
+			color = text?.color;
 		} else {
 			content = text ?? '';
 			background = options?.background ?? options?.background ? PIXI.Texture.WHITE : PIXI.Texture.EMPTY;
+			color = options?.color;
 		}
 
 		this.background = new Sprite(background);
 		this.textObject = new PIXI.Text(content, options?.style);
+		if (color) this.color = color;
 		this.addChild(this.textObject);
 	}
 
