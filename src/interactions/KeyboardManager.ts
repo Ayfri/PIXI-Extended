@@ -28,8 +28,8 @@ export const events: EventEmitter<KeyboardEvents> = new EventEmitter();
  * @params key - The key to test.
  * @returns - Is pressed.
  */
-export function isPressed(key: Key): boolean {
-	return pressed.has(key);
+export function isPressed(key: Key | Key[]): boolean {
+	return Array.isArray(key) ? key.every(k => pressed.has(k)) : pressed.has(key);
 }
 
 function onKeyDown(e: KeyboardEvent) {
