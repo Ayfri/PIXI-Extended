@@ -50,13 +50,13 @@ export class Hit {
  * @returns - The Hit result or `null` it not intersecting.
  */
 export function intersectBoxes(box1: Rectangle, box2: Rectangle): Hit | null {
+	if (box1.x > box2.x + box2.width || box1.x + box1.width < box2.x) return null;
+	if (box1.y > box2.y + box2.height || box1.y + box1.height < box2.y) return null;
+
 	const dx = box2.x - box1.x;
 	const px = box2.halfX + box1.halfX - Math.abs(dx);
-	if (px <= 0) return null;
-
 	const dy = box2.y - box1.y;
 	const py = box2.halfY + box1.halfY - Math.abs(dy);
-	if (py <= 0) return null;
 
 	const hit = new Hit(box1);
 	if (px < py) {

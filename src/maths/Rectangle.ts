@@ -11,6 +11,25 @@ interface RectangleOptions {
 }
 
 export class Rectangle extends PIXI.Rectangle {
+	public constructor(options?: RectangleOptions);
+
+	public constructor(x?: number, y?: number, width?: number, height?: number);
+
+	public constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
+		if (x && typeof x !== 'number') {
+			height = x.height;
+			width = x.width;
+			y = x.y;
+			x = x.x;
+		}
+
+		super(x as number | undefined, y, width, height);
+	}
+
+	public static get WINDOW() {
+		return new Rectangle(0, 0, window.innerWidth, window.innerHeight);
+	}
+
 	/**
 	 * Returns the center of this Rectangle on the X axis.
 	 * @returns - Half of the width.
@@ -27,21 +46,10 @@ export class Rectangle extends PIXI.Rectangle {
 		return this.height / 2;
 	}
 
-	public constructor(options?: RectangleOptions);
-	public constructor(x?: number, y?: number, width?: number, height?: number);
-	public constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
-		if (x && typeof x !== 'number') {
-			height = x.height;
-			width = x.width;
-			y = x.y;
-			x = x.x;
-		}
-
-		super(x as number | undefined, y, width, height);
-	}
-
 	public static fromSprite(sprite: PIXI.Sprite): Rectangle;
+
 	public static fromSprite(container: PIXI.Container): Rectangle;
+
 	/**
 	 * Create a rectangle from a Sprite or a Container.
 	 * @param object - The object to create a Rectangle from.
@@ -88,13 +96,7 @@ export class Rectangle extends PIXI.Rectangle {
 	 * @returns - If the rectangles collides.
 	 */
 	public collidesWith(other: Rectangle): boolean {
-		const dx = other.x - this.x;
-		const px = other.halfX + this.halfX - Math.abs(dx);
-		if (px <= 0) return false;
-
-		const dy = other.y - this.y;
-		const py = other.halfY + this.halfY - Math.abs(dy);
-		return py > 0;
+		return this.x <= other.x + other.width && this.x + this.width >= other.x && this.y <= other.y + other.height && this.y + this.height >= other.y;
 	}
 
 	/**
