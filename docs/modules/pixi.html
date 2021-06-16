@@ -1698,132 +1698,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>add<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rotationSecond<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span>, rotationFirst<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Composes the two D8 operations.</p>
-									</div>
-									<p>Taking <code>^</code> as reflection:</p>
-									<table>
-										<thead>
-											<tr>
-												<th></th>
-												<th>E=0</th>
-												<th>S=2</th>
-												<th>W=4</th>
-												<th>N=6</th>
-												<th>E^=8</th>
-												<th>S^=10</th>
-												<th>W^=12</th>
-												<th>N^=14</th>
-											</tr>
-										</thead>
-										<tbody><tr>
-												<td>E=0</td>
-												<td>E</td>
-												<td>S</td>
-												<td>W</td>
-												<td>N</td>
-												<td>E^</td>
-												<td>S^</td>
-												<td>W^</td>
-												<td>N^</td>
-											</tr>
-											<tr>
-												<td>S=2</td>
-												<td>S</td>
-												<td>W</td>
-												<td>N</td>
-												<td>E</td>
-												<td>S^</td>
-												<td>W^</td>
-												<td>N^</td>
-												<td>E^</td>
-											</tr>
-											<tr>
-												<td>W=4</td>
-												<td>W</td>
-												<td>N</td>
-												<td>E</td>
-												<td>S</td>
-												<td>W^</td>
-												<td>N^</td>
-												<td>E^</td>
-												<td>S^</td>
-											</tr>
-											<tr>
-												<td>N=6</td>
-												<td>N</td>
-												<td>E</td>
-												<td>S</td>
-												<td>W</td>
-												<td>N^</td>
-												<td>E^</td>
-												<td>S^</td>
-												<td>W^</td>
-											</tr>
-											<tr>
-												<td>E^=8</td>
-												<td>E^</td>
-												<td>N^</td>
-												<td>W^</td>
-												<td>S^</td>
-												<td>E</td>
-												<td>N</td>
-												<td>W</td>
-												<td>S</td>
-											</tr>
-											<tr>
-												<td>S^=10</td>
-												<td>S^</td>
-												<td>E^</td>
-												<td>N^</td>
-												<td>W^</td>
-												<td>S</td>
-												<td>E</td>
-												<td>N</td>
-												<td>W</td>
-											</tr>
-											<tr>
-												<td>W^=12</td>
-												<td>W^</td>
-												<td>S^</td>
-												<td>E^</td>
-												<td>N^</td>
-												<td>W</td>
-												<td>S</td>
-												<td>E</td>
-												<td>N</td>
-											</tr>
-											<tr>
-												<td>N^=14</td>
-												<td>N^</td>
-												<td>W^</td>
-												<td>S^</td>
-												<td>E^</td>
-												<td>N</td>
-												<td>W</td>
-												<td>S</td>
-												<td>E</td>
-											</tr>
-									</tbody></table>
-									<p><a href="https://en.wikipedia.org/wiki/Cayley_table" class="external">This is a Cayley table</a></p>
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>Second operation, which
-											is the row in the above cayley table.</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>First operation, which
-											is the column in the above cayley table.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>Composed operation</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -1831,16 +1705,139 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Composes the two D8 operations.</p>
+													</div>
+													<p>Taking <code>^</code> as reflection:</p>
+													<table>
+														<thead>
+															<tr>
+																<th></th>
+																<th>E=0</th>
+																<th>S=2</th>
+																<th>W=4</th>
+																<th>N=6</th>
+																<th>E^=8</th>
+																<th>S^=10</th>
+																<th>W^=12</th>
+																<th>N^=14</th>
+															</tr>
+														</thead>
+														<tbody><tr>
+																<td>E=0</td>
+																<td>E</td>
+																<td>S</td>
+																<td>W</td>
+																<td>N</td>
+																<td>E^</td>
+																<td>S^</td>
+																<td>W^</td>
+																<td>N^</td>
+															</tr>
+															<tr>
+																<td>S=2</td>
+																<td>S</td>
+																<td>W</td>
+																<td>N</td>
+																<td>E</td>
+																<td>S^</td>
+																<td>W^</td>
+																<td>N^</td>
+																<td>E^</td>
+															</tr>
+															<tr>
+																<td>W=4</td>
+																<td>W</td>
+																<td>N</td>
+																<td>E</td>
+																<td>S</td>
+																<td>W^</td>
+																<td>N^</td>
+																<td>E^</td>
+																<td>S^</td>
+															</tr>
+															<tr>
+																<td>N=6</td>
+																<td>N</td>
+																<td>E</td>
+																<td>S</td>
+																<td>W</td>
+																<td>N^</td>
+																<td>E^</td>
+																<td>S^</td>
+																<td>W^</td>
+															</tr>
+															<tr>
+																<td>E^=8</td>
+																<td>E^</td>
+																<td>N^</td>
+																<td>W^</td>
+																<td>S^</td>
+																<td>E</td>
+																<td>N</td>
+																<td>W</td>
+																<td>S</td>
+															</tr>
+															<tr>
+																<td>S^=10</td>
+																<td>S^</td>
+																<td>E^</td>
+																<td>N^</td>
+																<td>W^</td>
+																<td>S</td>
+																<td>E</td>
+																<td>N</td>
+																<td>W</td>
+															</tr>
+															<tr>
+																<td>W^=12</td>
+																<td>W^</td>
+																<td>S^</td>
+																<td>E^</td>
+																<td>N^</td>
+																<td>W</td>
+																<td>S</td>
+																<td>E</td>
+																<td>N</td>
+															</tr>
+															<tr>
+																<td>N^=14</td>
+																<td>N^</td>
+																<td>W^</td>
+																<td>S^</td>
+																<td>E^</td>
+																<td>N</td>
+																<td>W</td>
+																<td>S</td>
+																<td>E</td>
+															</tr>
+													</tbody></table>
+													<p><a href="https://en.wikipedia.org/wiki/Cayley_table" class="external">This is a Cayley table</a></p>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>rotationSecond: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>Second operation, which
+																is the row in the above cayley table.</p>
+															</div>
+														</div>
 													</li>
 													<li>
 														<h5>rotationFirst: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>First operation, which
+																is the column in the above cayley table.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>Composed operation</p>
 											</li>
 										</ul>
 									</li>
@@ -1848,27 +1845,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>by<wbr>Direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>dx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, dy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Approximates the vector <code>V(dx,dy)</code> into one of the
-										eight directions provided by <code>groupD8</code>.</p>
-									</div>
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>X-component of the vector</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>Y-component of the vector</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>Approximation of the vector into
-											one of the eight symmetries.</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -1876,16 +1852,34 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Approximates the vector <code>V(dx,dy)</code> into one of the
+														eight directions provided by <code>groupD8</code>.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>dx: <span class="tsd-signature-type">number</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>X-component of the vector</p>
+															</div>
+														</div>
 													</li>
 													<li>
 														<h5>dy: <span class="tsd-signature-type">number</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>Y-component of the vector</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>Approximation of the vector into
+												one of the eight symmetries.</p>
 											</li>
 										</ul>
 									</li>
@@ -1893,21 +1887,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>inv<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>symmetry whose opposite
-												is needed. Only rotations have opposite symmetries while
-											reflections don&#39;t.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>The opposite symmetry of <code>rotation</code></p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -1919,9 +1898,17 @@
 												<ul class="tsd-parameters">
 													<li>
 														<h5>rotation: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>symmetry whose opposite
+																	is needed. Only rotations have opposite symmetries while
+																reflections don&#39;t.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>The opposite symmetry of <code>rotation</code></p>
 											</li>
 										</ul>
 									</li>
@@ -1929,23 +1916,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>is<wbr>Vertical<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Checks if the rotation angle is vertical, i.e. south
-										or north. It doesn&#39;t work for reflections.</p>
-									</div>
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>The number to check.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>Whether or not the direction is vertical</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -1953,13 +1923,25 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Checks if the rotation angle is vertical, i.e. south
+														or north. It doesn&#39;t work for reflections.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>rotation: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>The number to check.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												<p>Whether or not the direction is vertical</p>
 											</li>
 										</ul>
 									</li>
@@ -1967,28 +1949,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>matrix<wbr>Append<wbr>Rotation<wbr>Inv<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>matrix<span class="tsd-signature-symbol">: </span><a href="../classes/pixi.matrix.html" class="tsd-signature-type" data-tsd-kind="Class">Matrix</a>, rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span>, tx<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, ty<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Helps sprite to compensate texture packer rotation.</p>
-									</div>
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite world matrix</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>The rotation factor to use.</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite anchoring</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite anchoring</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -1996,19 +1956,44 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Helps sprite to compensate texture packer rotation.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>matrix: <a href="../classes/pixi.matrix.html" class="tsd-signature-type" data-tsd-kind="Class">Matrix</a></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite world matrix</p>
+															</div>
+														</div>
 													</li>
 													<li>
 														<h5>rotation: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>The rotation factor to use.</p>
+															</div>
+														</div>
 													</li>
 													<li>
 														<h5><span class="tsd-flag ts-flagOptional">Optional</span> tx: <span class="tsd-signature-type">number</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite anchoring</p>
+															</div>
+														</div>
 													</li>
 													<li>
 														<h5><span class="tsd-flag ts-flagOptional">Optional</span> ty: <span class="tsd-signature-type">number</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite anchoring</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2019,23 +2004,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>rotate180<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Adds 180 degrees to rotation, which is a commutative
-										operation.</p>
-									</div>
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>The number to rotate.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>Rotated number</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -2043,13 +2011,25 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Adds 180 degrees to rotation, which is a commutative
+														operation.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>rotation: <span class="tsd-signature-type">number</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>The number to rotate.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+												<p>Rotated number</p>
 											</li>
 										</ul>
 									</li>
@@ -2057,25 +2037,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>sub<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rotationSecond<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span>, rotationFirst<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Reverse of <code>add</code>.</p>
-									</div>
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>Second operation</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>First operation</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>Result</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -2083,16 +2044,32 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Reverse of <code>add</code>.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>rotationSecond: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>Second operation</p>
+															</div>
+														</div>
 													</li>
 													<li>
 														<h5>rotationFirst: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>First operation</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>Result</p>
 											</li>
 										</ul>
 									</li>
@@ -2100,20 +2077,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>uX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>ind<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite rotation angle.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>The X-component of the U-axis
-											after rotating the axes.</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -2125,9 +2088,16 @@
 												<ul class="tsd-parameters">
 													<li>
 														<h5>ind: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite rotation angle.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>The X-component of the U-axis
+												after rotating the axes.</p>
 											</li>
 										</ul>
 									</li>
@@ -2135,20 +2105,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>uY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>ind<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite rotation angle.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>The Y-component of the U-axis
-											after rotating the axes.</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -2160,9 +2116,16 @@
 												<ul class="tsd-parameters">
 													<li>
 														<h5>ind: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite rotation angle.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>The Y-component of the U-axis
+												after rotating the axes.</p>
 											</li>
 										</ul>
 									</li>
@@ -2170,20 +2133,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>vX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>ind<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite rotation angle.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>The X-component of the V-axis
-											after rotating the axes.</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -2195,9 +2144,16 @@
 												<ul class="tsd-parameters">
 													<li>
 														<h5>ind: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite rotation angle.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>The X-component of the V-axis
+												after rotating the axes.</p>
 											</li>
 										</ul>
 									</li>
@@ -2205,20 +2161,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5>vY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>ind<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GD8Symmetry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">GD8Symmetry</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<dl class="tsd-comment-tags">
-										<dt>memberof</dt>
-										<dd><p>PIXI.groupD8</p>
-										</dd>
-										<dt>param</dt>
-										<dd><p>sprite rotation angle.</p>
-										</dd>
-										<dt>returns</dt>
-										<dd><p>The Y-component of the V-axis
-											after rotating the axes.</p>
-										</dd>
-									</dl>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal tsd-is-external">
@@ -2230,9 +2172,16 @@
 												<ul class="tsd-parameters">
 													<li>
 														<h5>ind: <span class="tsd-signature-type">GD8Symmetry</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>sprite rotation angle.</p>
+															</div>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GD8Symmetry</span></h4>
+												<p>The Y-component of the V-axis
+												after rotating the axes.</p>
 											</li>
 										</ul>
 									</li>
