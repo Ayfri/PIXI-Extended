@@ -8,7 +8,7 @@
 	<body>
 		<p id="values"></p>
 		<script type="module">
-			import {Color, PIXI, FPSCounter, Sprite} from './bundle.js';
+			import {Color, FPSCounter, PIXI, Sprite, randomInt, Text} from './bundle.js';
 			const app = new PIXI.Application({
 				antialias: true,
 				resizeTo: window,
@@ -31,7 +31,16 @@
 			
 			// fps counter
 			const a = new FPSCounter();
+			a.updateBySeconds = 10;
 			a.addToApplication(app);
+			
+			// text
+			const c = new Text({
+				color: Color.random(),
+				text: "testing"
+			});
+			c.position.set(50, 50);
+			c.addToApplication(app);
 			
 			window.app = app;
 		</script>
