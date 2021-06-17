@@ -126,7 +126,7 @@ export class Sprite extends PIXI.Sprite {
 	 * @param yQuotient - The quotient in the Y axis, from 0 up to 1.
 	 */
 	public setPositionFromWindow(xQuotient: number, yQuotient: number) {
-		this.position.set(window.innerWidth / xQuotient, window.innerHeight / yQuotient);
+		this.position.set(window.innerWidth * xQuotient, window.innerHeight * yQuotient);
 	}
 
 	/**
