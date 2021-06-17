@@ -96,10 +96,18 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 		});
 	}
 
+	/**
+	 * Start the ticker.
+	 * @remarks If {@link FPSCounter#autoStart} hasn't been set to `false`, you shouldn't have to use this method.
+	 */
 	public start() {
 		this.ticker.start();
 	}
 
+	/**
+	 * Update the text.
+	 * @remarks If {@link FPSCounter#autoStart} hasn't been set to `false` and/or you have used the {@link FPSCounter#start} method, you shouldn't have to use this method.
+	 */
 	public update() {
 		this.setFPS();
 	}
