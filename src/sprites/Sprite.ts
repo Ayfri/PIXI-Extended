@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {ObservableVector2, Rectangle, Vector2} from '../maths';
+import {collisionBoxes, intersect, ObservableVector2, Rectangle, Vector2} from '../maths';
 import {getColoredTexture, getTextureOrThrow, TextureOrName} from '../textures';
 import {Color, EventEmitter} from '../utils';
 
@@ -45,7 +45,6 @@ export class Sprite extends PIXI.Sprite {
 	 * Creates a new Sprite.
 	 *
 	 * @remarks If a string is passed for the texture argument, it will search in the {@link loadedTexturesNames} and throw an error if not found.
-	 *
 	 * @param texture - The texture of the sprite, can be its name or itself.
 	 */
 	public constructor(texture: TextureOrName) {
@@ -61,6 +60,7 @@ export class Sprite extends PIXI.Sprite {
 	/**
 	 * Returns a readonly Rectangle with the coordinates of the sprite and the width/height of the sprite.
 	 *
+	 * @remarks Expensive object, avoid using it in an update function, prefer using {@link Sprite#collidesWith} if you want to test collisions.
 	 * @returns - The resulting rectangle.
 	 */
 	public get hitBox(): Readonly<Rectangle> {
@@ -100,6 +100,28 @@ export class Sprite extends PIXI.Sprite {
 
 	public show() {
 		this.visible = true;
+	}
+
+	/**
+	 * Test if this sprite collides with another sprite.
+	 *
+	 * @remarks To get more information on this collision, use {@link Sprite#collisionWith}.
+	 * @param other - The other sprite.
+	 * @returns - True if colliding, else false.
+	 */
+	public collidesWith(other: PIXI.Container) {
+		return intersect(this, other);
+	}
+
+	/**
+	 * Test if this sprite collides with another sprite.
+	 *
+	 * @remarks Expensive operation, prefer using {@link Sprite#collidesWith} if you just want to test if the sprite collide.
+	 * @param other - The other sprite.
+	 * @returns - A hit collision with some information on collision if colliding, else null.
+	 */
+	public collisionWith(other: PIXI.Container) {
+		return collisionBoxes(this, other);
 	}
 
 	public addToApplication(application: PIXI.Application) {
