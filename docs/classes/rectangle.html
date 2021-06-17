@@ -136,6 +136,8 @@
 								class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rectangle.html#collideswith"
 								class="tsd-kind-icon">collides<wbr>With</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rectangle.html#collisionwith"
+								class="tsd-kind-icon">collision<wbr>With</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="rectangle.html#contains"
 								class="tsd-kind-icon">contains</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="rectangle.html#copyfrom"
@@ -146,8 +148,6 @@
 								class="tsd-kind-icon">enlarge</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="rectangle.html#fit"
 								class="tsd-kind-icon">fit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rectangle.html#intersect"
-								class="tsd-kind-icon">intersect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rectangle.html#intersectsegment"
 								class="tsd-kind-icon">intersect<wbr>Segment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="rectangle.html#pad"
@@ -171,7 +171,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Rectangle<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">RectangleOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Rectangle<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></li>
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Rectangle<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -185,7 +185,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">RectangleOptions</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h4>
@@ -314,7 +314,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L37">source/src/maths/Rectangle.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L35">source/src/maths/Rectangle.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -339,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L45">source/src/maths/Rectangle.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L43">source/src/maths/Rectangle.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +477,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L29">source/src/maths/Rectangle.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L27">source/src/maths/Rectangle.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h4>
@@ -548,13 +548,13 @@
 					<a name="collideswith" class="tsd-anchor"></a>
 					<h3>collides<wbr>With</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">collides<wbr>With<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">collides<wbr>With<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L98">source/src/maths/Rectangle.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L94">source/src/maths/Rectangle.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -565,7 +565,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>other: <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h5>
+									<h5>other: <span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The other rectangle.</p>
 									</div>
@@ -575,6 +575,43 @@
 							<ul>
 								<li>If the rectangles collides.</li>
 							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="collisionwith" class="tsd-anchor"></a>
+					<h3>collision<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">collision<wbr>With<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L85">source/src/maths/Rectangle.ts:85</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Test if this Rectangle has a collision with another Rectangle.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Expensive function, use {@link Rectangle#collidesWith} to just see if they collide or not.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The other rectangle.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a></h4>
+							<p>The Hit result or null if not intersecting.</p>
 						</li>
 					</ul>
 				</section>
@@ -750,38 +787,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="intersect" class="tsd-anchor"></a>
-					<h3>intersect</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">intersect<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L89">source/src/maths/Rectangle.ts:89</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Test if this Rectangle intersect with another Rectangle.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>other: <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The other rectangle.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a></h4>
-							<p>The Hit result or null if not intersecting.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="intersectsegment" class="tsd-anchor"></a>
 					<h3>intersect<wbr>Segment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -791,7 +796,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L110">source/src/maths/Rectangle.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L106">source/src/maths/Rectangle.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -895,7 +900,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L70">source/src/maths/Rectangle.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L64">source/src/maths/Rectangle.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -935,7 +940,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L80">source/src/maths/Rectangle.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L74">source/src/maths/Rectangle.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -969,37 +974,33 @@
 					<a name="fromsprite" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Sprite</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Sprite<span class="tsd-signature-symbol">(</span>sprite<span class="tsd-signature-symbol">: </span><a href="pixi.sprite.html" class="tsd-signature-type" data-tsd-kind="Class">Sprite</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></li>
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Sprite<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Sprite<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a><span class="tsd-signature-symbol"> | </span><a href="pixi.sprite.html" class="tsd-signature-type" data-tsd-kind="Class">Sprite</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L49">source/src/maths/Rectangle.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L52">source/src/maths/Rectangle.ts:52</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a rectangle from a Sprite or a Container.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>sprite: <a href="pixi.sprite.html" class="tsd-signature-type" data-tsd-kind="Class">Sprite</a></h5>
+									<h5>object: <a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a><span class="tsd-signature-symbol"> | </span><a href="pixi.sprite.html" class="tsd-signature-type" data-tsd-kind="Class">Sprite</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The object to create a Rectangle from.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/Rectangle.ts#L51">source/src/maths/Rectangle.ts:51</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>container: <a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a></h5>
-								</li>
+							<ul>
+								<li>The resulting Rectangle.</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1071,6 +1072,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="rectangle.html#collideswith" class="tsd-kind-icon">collides<wbr>With</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rectangle.html#collisionwith" class="tsd-kind-icon">collision<wbr>With</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="rectangle.html#contains" class="tsd-kind-icon">contains</a>
 							</li>
@@ -1085,9 +1089,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="rectangle.html#fit" class="tsd-kind-icon">fit</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rectangle.html#intersect" class="tsd-kind-icon">intersect</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="rectangle.html#intersectsegment" class="tsd-kind-icon">intersect<wbr>Segment</a>

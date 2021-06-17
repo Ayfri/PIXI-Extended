@@ -318,6 +318,10 @@
 								class="tsd-kind-icon">calculate<wbr>Trimmed<wbr>Vertices</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="sprite.html#calculatevertices"
 								class="tsd-kind-icon">calculate<wbr>Vertices</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sprite.html#collideswith"
+								class="tsd-kind-icon">collides<wbr>With</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sprite.html#collisionwith"
+								class="tsd-kind-icon">collision<wbr>With</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="sprite.html#containspoint"
 								class="tsd-kind-icon">contains<wbr>Point</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="sprite.html#destroy"
@@ -372,6 +376,8 @@
 								class="tsd-kind-icon">set<wbr>Child<wbr>Index</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="sprite.html#setparent"
 								class="tsd-kind-icon">set<wbr>Parent</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sprite.html#setpositionfromwindow"
+								class="tsd-kind-icon">set<wbr>Position<wbr>From<wbr>Window</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="sprite.html#settransform"
 								class="tsd-kind-icon">set<wbr>Transform</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="sprite.html#show"
@@ -1379,7 +1385,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L57">source/src/sprites/Sprite.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L56">source/src/sprites/Sprite.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1450,6 +1456,11 @@
 								<div class="lead">
 									<p>Returns a readonly Rectangle with the coordinates of the sprite and the width/height of the sprite.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Expensive object, avoid using it in an update function, prefer using {@link Sprite#collidesWith} if you want to test collisions.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><a href="rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
@@ -2608,7 +2619,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L105">source/src/sprites/Sprite.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L143">source/src/sprites/Sprite.ts:143</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2690,6 +2701,84 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="collideswith" class="tsd-anchor"></a>
+					<h3>collides<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">collides<wbr>With<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L112">source/src/sprites/Sprite.ts:112</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Test if this sprite collides with another sprite.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>To get more information on this collision, use {@link Sprite#collisionWith}.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The other sprite.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<ul>
+								<li>True if colliding, else false.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="collisionwith" class="tsd-anchor"></a>
+					<h3>collision<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">collision<wbr>With<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L139">source/src/sprites/Sprite.ts:139</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Test if this sprite collides with another sprite.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Expensive operation, prefer using {@link Sprite#collidesWith} if you just want to test if the sprite collide.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The other sprite.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a></h4>
+							<ul>
+								<li>A hit collision with some information on collision if colliding, else null.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -3324,7 +3413,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L109">source/src/sprites/Sprite.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L147">source/src/sprites/Sprite.ts:147</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3544,6 +3633,51 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a></h4>
 							<p>The Container that this DisplayObject was added to.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setpositionfromwindow" class="tsd-anchor"></a>
+					<h3>set<wbr>Position<wbr>From<wbr>Window</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Position<wbr>From<wbr>Window<span class="tsd-signature-symbol">(</span>xQuotient<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, yQuotient<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Sprite.ts#L128">source/src/sprites/Sprite.ts:128</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the position of the sprite from quotients.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>mySprite.position.set(window.innerWidth / 2, window.innerHeight / 5)
+											// equals to :
+											mySprite.setPositionFromWindow(0.5, 0.2)
+										// use 1 / 2 and 1 / 5 if you want to keep it more comprehensible.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>xQuotient: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The quotient in the X axis, from 0 up to 1.</p>
+									</div>
+								</li>
+								<li>
+									<h5>yQuotient: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The quotient in the Y axis, from 0 up to 1.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -4238,6 +4372,12 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="sprite.html#calculatevertices" class="tsd-kind-icon">calculate<wbr>Vertices</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="sprite.html#collideswith" class="tsd-kind-icon">collides<wbr>With</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="sprite.html#collisionwith" class="tsd-kind-icon">collision<wbr>With</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="sprite.html#containspoint" class="tsd-kind-icon">contains<wbr>Point</a>
 							</li>
@@ -4318,6 +4458,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="sprite.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="sprite.html#setpositionfromwindow" class="tsd-kind-icon">set<wbr>Position<wbr>From<wbr>Window</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="sprite.html#settransform" class="tsd-kind-icon">set<wbr>Transform</a>

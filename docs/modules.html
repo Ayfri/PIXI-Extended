@@ -110,6 +110,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/coloredtextureoptions.html"
 								class="tsd-kind-icon">Colored<wbr>Texture<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/irectangle.html"
+								class="tsd-kind-icon">IRectangle</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/textoptions.html"
 								class="tsd-kind-icon">Text<wbr>Options</a></li>
 							</ul>
@@ -169,16 +171,16 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="modules.html#bytestouuid"
 								class="tsd-kind-icon">bytes<wbr>ToUuid</a></li>
-								<li class="tsd-kind-function"><a href="modules.html#collides"
-								class="tsd-kind-icon">collides</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#collisionboxes"
+								class="tsd-kind-icon">collision<wbr>Boxes</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#getcoloredtexture"
 								class="tsd-kind-icon">get<wbr>Colored<wbr>Texture</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#gettexture"
 								class="tsd-kind-icon">get<wbr>Texture</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#gettextureorthrow"
 								class="tsd-kind-icon">get<wbr>Texture<wbr>OrThrow</a></li>
-								<li class="tsd-kind-function"><a href="modules.html#intersectboxes"
-								class="tsd-kind-icon">intersect<wbr>Boxes</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#intersect"
+								class="tsd-kind-icon">intersect</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#ispressed"
 								class="tsd-kind-icon">is<wbr>Pressed</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#loadtexture"
@@ -611,41 +613,46 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="collides" class="tsd-anchor"></a>
-					<h3>collides</h3>
+					<a name="collisionboxes" class="tsd-anchor"></a>
+					<h3>collision<wbr>Boxes</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">collides<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="classes/pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a>, b<span class="tsd-signature-symbol">: </span><a href="classes/pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">collision<wbr>Boxes<span class="tsd-signature-symbol">(</span>box1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span>, box2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/CollisionsUtils.ts#L11">source/src/maths/CollisionsUtils.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/CollisionsUtils.ts#L54">source/src/maths/CollisionsUtils.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A function to test if two PIXI.Container or PIXI.Sprite or Sprite collides.</p>
+									<p>A function to test a collision and get information if colliding.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Expensive function, if you just want to test collision, prefer using <a href="modules.html#intersect">intersect</a> function.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <a href="classes/pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a></h5>
+									<h5>box1: <span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The first object.</p>
+										<p>First rectangle.</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <a href="classes/pixi.container.html" class="tsd-signature-type" data-tsd-kind="Class">Container</a></h5>
+									<h5>box2: <span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The second object.</p>
+										<p>Second rectangle.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="classes/hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
 							<ul>
-								<li>The Hit result or <code>null</code> if not colliding.</li>
+								<li>The Hit result or <code>null</code> it not intersecting.</li>
 							</ul>
 						</li>
 					</ul>
@@ -764,41 +771,41 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="intersectboxes" class="tsd-anchor"></a>
-					<h3>intersect<wbr>Boxes</h3>
+					<a name="intersect" class="tsd-anchor"></a>
+					<h3>intersect</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">intersect<wbr>Boxes<span class="tsd-signature-symbol">(</span>box1<span class="tsd-signature-symbol">: </span><a href="classes/rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a>, box2<span class="tsd-signature-symbol">: </span><a href="classes/rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">intersect<span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/CollisionsUtils.ts#L52">source/src/maths/CollisionsUtils.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/CollisionsUtils.ts#L11">source/src/maths/CollisionsUtils.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>A function to test if two Rectangles are intersecting.</p>
+									<p>Test if two boxes collides.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>box1: <a href="classes/rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h5>
+									<h5>first: <span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>First rectangle.</p>
+										<p>First box.</p>
 									</div>
 								</li>
 								<li>
-									<h5>box2: <a href="classes/rectangle.html" class="tsd-signature-type" data-tsd-kind="Class">Rectangle</a></h5>
+									<h5>second: <span class="tsd-signature-type">Required</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/irectangle.html" class="tsd-signature-type" data-tsd-kind="Interface">IRectangle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Second rectangle.</p>
+										<p>Second box.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="classes/hit.html" class="tsd-signature-type" data-tsd-kind="Class">Hit</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<ul>
-								<li>The Hit result or <code>null</code> it not intersecting.</li>
+								<li>True if colliding, else false.</li>
 							</ul>
 						</li>
 					</ul>
@@ -1184,6 +1191,9 @@
 						<a href="interfaces/coloredtextureoptions.html" class="tsd-kind-icon">Colored<wbr>Texture<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/irectangle.html" class="tsd-kind-icon">IRectangle</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/textoptions.html" class="tsd-kind-icon">Text<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -1250,7 +1260,7 @@
 						<a href="modules.html#bytestouuid" class="tsd-kind-icon">bytes<wbr>ToUuid</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="modules.html#collides" class="tsd-kind-icon">collides</a>
+						<a href="modules.html#collisionboxes" class="tsd-kind-icon">collision<wbr>Boxes</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#getcoloredtexture" class="tsd-kind-icon">get<wbr>Colored<wbr>Texture</a>
@@ -1262,7 +1272,7 @@
 						<a href="modules.html#gettextureorthrow" class="tsd-kind-icon">get<wbr>Texture<wbr>OrThrow</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="modules.html#intersectboxes" class="tsd-kind-icon">intersect<wbr>Boxes</a>
+						<a href="modules.html#intersect" class="tsd-kind-icon">intersect</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#ispressed" class="tsd-kind-icon">is<wbr>Pressed</a>
