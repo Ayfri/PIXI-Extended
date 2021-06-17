@@ -1,9 +1,9 @@
 import * as PIXI from 'pixi.js';
-import {Hit, intersectBoxes} from './CollisionsUtils';
+import {Hit, collisionBoxes, intersect} from './CollisionsUtils';
 import {clamp} from './utils';
 import {Vector2} from './Vector2';
 
-interface RectangleOptions {
+export interface IRectangle {
 	height?: number;
 	width?: number;
 	x?: number;
@@ -11,11 +11,9 @@ interface RectangleOptions {
 }
 
 export class Rectangle extends PIXI.Rectangle {
-	public constructor(options?: RectangleOptions);
-
+	public constructor(options?: IRectangle);
 	public constructor(x?: number, y?: number, width?: number, height?: number);
-
-	public constructor(x?: number | RectangleOptions, y?: number, width?: number, height?: number) {
+	public constructor(x?: number | IRectangle, y?: number, width?: number, height?: number) {
 		if (x && typeof x !== 'number') {
 			height = x.height;
 			width = x.width;
@@ -46,16 +44,12 @@ export class Rectangle extends PIXI.Rectangle {
 		return this.height / 2;
 	}
 
-	public static fromSprite(sprite: PIXI.Sprite): Rectangle;
-
-	public static fromSprite(container: PIXI.Container): Rectangle;
-
 	/**
 	 * Create a rectangle from a Sprite or a Container.
 	 * @param object - The object to create a Rectangle from.
 	 * @returns - The resulting Rectangle.
 	 */
-	public static fromSprite(object: PIXI.Container | PIXI.Sprite): Rectangle {
+	public static fromSprite(object: PIXI.Container | PIXI.Sprite | Required<IRectangle>): Rectangle {
 		return new Rectangle(object.x, object.y, object.width, object.height);
 	}
 
@@ -82,12 +76,14 @@ export class Rectangle extends PIXI.Rectangle {
 	}
 
 	/**
-	 * Test if this Rectangle intersect with another Rectangle.
+	 * Test if this Rectangle has a collision with another Rectangle.
+	 *
+	 * @remarks Expensive function, use {@link Rectangle#collidesWith} to just see if they collide or not.
 	 * @param other - The other rectangle.
 	 * @returns The Hit result or null if not intersecting.
 	 */
-	public intersect(other: Rectangle): Hit | null {
-		return intersectBoxes(this, other);
+	public collisionWith(other: Rectangle): Hit | null {
+		return collisionBoxes(this, other);
 	}
 
 	/**
@@ -95,8 +91,8 @@ export class Rectangle extends PIXI.Rectangle {
 	 * @param other - The other rectangle.
 	 * @returns - If the rectangles collides.
 	 */
-	public collidesWith(other: Rectangle): boolean {
-		return this.x <= other.x + other.width && this.x + this.width >= other.x && this.y <= other.y + other.height && this.y + this.height >= other.y;
+	public collidesWith(other: Required<IRectangle>): boolean {
+		return intersect(this, other);
 	}
 
 	/**

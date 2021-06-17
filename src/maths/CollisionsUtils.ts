@@ -1,15 +1,15 @@
-import * as PIXI from 'pixi.js';
-import {Rectangle} from './Rectangle';
+import {IRectangle, Rectangle} from './Rectangle';
 import {Vector2} from './Vector2';
 
 /**
- * A function to test if two PIXI.Container or PIXI.Sprite or Sprite collides.
- * @param a - The first object.
- * @param b - The second object.
- * @returns - The Hit result or `null` if not colliding.
+ * Test if two boxes collides.
+ *
+ * @param first - First box.
+ * @param second - Second box.
+ * @returns - True if colliding, else false.
  */
-export function collides(a: PIXI.Container, b: PIXI.Container): Hit | null {
-	return intersectBoxes(Rectangle.fromSprite(a), Rectangle.fromSprite(b));
+export function intersect(first: Required<IRectangle>, second: Required<IRectangle>): boolean {
+	return first.x <= second.x + second.width && first.x + first.width >= second.x && first.y <= second.y + second.height && first.y + first.height >= second.y;
 }
 
 export class Hit {
@@ -44,33 +44,38 @@ export class Hit {
 }
 
 /**
- * A function to test if two Rectangles are intersecting.
+ * A function to test a collision and get information if colliding.
+ *
+ * @remarks Expensive function, if you just want to test collision, prefer using {@link intersect} function.
  * @param box1 - First rectangle.
  * @param box2 - Second rectangle.
  * @returns - The Hit result or `null` it not intersecting.
  */
-export function intersectBoxes(box1: Rectangle, box2: Rectangle): Hit | null {
+export function collisionBoxes(box1: Required<IRectangle>, box2: Required<IRectangle>): Hit | null {
 	if (box1.x > box2.x + box2.width || box1.x + box1.width < box2.x) return null;
 	if (box1.y > box2.y + box2.height || box1.y + box1.height < box2.y) return null;
 
-	const dx = box2.x - box1.x;
-	const px = box2.halfX + box1.halfX - Math.abs(dx);
-	const dy = box2.y - box1.y;
-	const py = box2.halfY + box1.halfY - Math.abs(dy);
+	const rect1 = Rectangle.fromSprite(box1);
+	const rect2 = Rectangle.fromSprite(box2);
 
-	const hit = new Hit(box1);
+	const dx = rect2.x - rect1.x;
+	const px = rect2.halfX + rect1.halfX - Math.abs(dx);
+	const dy = rect2.y - rect1.y;
+	const py = rect2.halfY + rect1.halfY - Math.abs(dy);
+
+	const hit = new Hit(rect1);
 	if (px < py) {
 		const sx = Math.sign(dx);
 		hit.delta.x = px * sx;
 		hit.normal.x = sx;
-		hit.position.x = box1.x + box1.halfX * sx;
-		hit.position.y = box2.y;
+		hit.position.x = rect1.x + rect1.halfX * sx;
+		hit.position.y = rect2.y;
 	} else {
 		const sy = Math.sign(dy);
 		hit.delta.y = py * sy;
 		hit.normal.y = sy;
-		hit.position.x = box2.x;
-		hit.position.y = box1.y + box1.halfY * sy;
+		hit.position.x = rect2.x;
+		hit.position.y = rect1.y + rect1.halfY * sy;
 	}
 	return hit;
 }
