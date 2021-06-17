@@ -116,7 +116,7 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 		const quotient = 60 / this.updateBySeconds;
 		const currentTime = Date.now();
 
-		this.timeValues.push(1000 / (quotient * 2) / 60 / (currentTime - this.lastTime));
+		this.timeValues.push(1000 / (quotient / 6) / (currentTime - this.lastTime));
 		if (this.timeValues.length >= quotient) {
 			const total = this.timeValues.reduce((p: number, a: number) => p + a);
 			this.text = this.presentation.replace(/\${count}/g, (total / quotient).toFixed(2));
