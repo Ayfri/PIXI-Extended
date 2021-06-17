@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {Hit, collisionBoxes, intersect} from './CollisionsUtils';
+import {collisionBoxes, Hit, intersect} from './CollisionsUtils';
 import {clamp} from './utils';
 import {Vector2} from './Vector2';
 

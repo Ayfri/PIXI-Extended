@@ -114,6 +114,22 @@ export class Sprite extends PIXI.Sprite {
 	}
 
 	/**
+	 * Set the position of the sprite from quotients.
+	 *
+	 * @example
+	 * mySprite.position.set(window.innerWidth / 2, window.innerHeight / 5)
+	 * // equals to :
+	 * mySprite.setPositionFromWindow(0.5, 0.2)
+	 * // use 1 / 2 and 1 / 5 if you want to keep it more comprehensible.
+	 *
+	 * @param xQuotient - The quotient in the X axis, from 0 up to 1.
+	 * @param yQuotient - The quotient in the Y axis, from 0 up to 1.
+	 */
+	public setPositionFromWindow(xQuotient: number, yQuotient: number) {
+		this.position.set(window.innerWidth / xQuotient, window.innerHeight / yQuotient);
+	}
+
+	/**
 	 * Test if this sprite collides with another sprite.
 	 *
 	 * @remarks Expensive operation, prefer using {@link Sprite#collidesWith} if you just want to test if the sprite collide.
