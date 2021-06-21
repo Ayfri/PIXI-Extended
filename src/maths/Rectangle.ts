@@ -50,7 +50,15 @@ export class Rectangle extends PIXI.Rectangle {
 	 * @returns - The resulting Rectangle.
 	 */
 	public static fromSprite(object: PIXI.Container | PIXI.Sprite | Required<IRectangle>): Rectangle {
-		return new Rectangle(object.x, object.y, object.width, object.height);
+		let x = object.x;
+		let y = object.y;
+
+		if (object instanceof PIXI.Sprite) {
+			x += object.width * -object.anchor.x;
+			y += object.height * -object.anchor.y;
+		}
+
+		return new Rectangle(x, y, object.width, object.height);
 	}
 
 	/**
