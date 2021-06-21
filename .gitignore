@@ -1,5 +1,5 @@
 # Node
-dist/*.js*
+dist
 types
 node_modules
 package-lock.json

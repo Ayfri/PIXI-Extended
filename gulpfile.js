@@ -22,7 +22,7 @@ function bundle() {
 }
 
 function watch() {
-	exec('reload --browser --dir=dist --port=5000', err => {
+	exec('reload --browser --dir=tests --port=5000', err => {
 		if (err) throw err;
 	});
 
