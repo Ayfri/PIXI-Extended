@@ -1,4 +1,6 @@
 import * as PIXI from 'pixi.js';
+import {InteractionManager} from 'pixi.js';
+import {Vector2} from '../maths';
 import {EventEmitter} from '../utils';
 
 /**
@@ -91,12 +93,19 @@ export const LeftClick = new Button(Buttons.LeftButton);
 export const RightClick = new Button(Buttons.RightButton);
 /**
  * The actual position of the mouse.
+ * @remarks You have to use {@link updateMousePosition} every time you want to update this value.
  */
-export const mousePosition: PIXI.Point = new PIXI.Point();
+export const mousePosition = new Vector2();
 
-document.addEventListener('mousemove', (event: MouseEvent) => {
-	mousePosition.set(event.x, event.y);
-});
+/**
+ * Update the {@link mousePosition} values. Returns the mouse position itself.
+ *
+ * @param app - The PIXI Application to get the mouse from.
+ * @returns - The mouse position itself.
+ */
+export function updateMousePosition(app: PIXI.Application) {
+	return mousePosition.copyFrom((app.renderer.plugins.interaction as InteractionManager).mouse.global);
+}
 
 document.addEventListener('mouseup', (event: MouseEvent) => {
 	buttons.forEach(button => {
