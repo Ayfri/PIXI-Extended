@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {Text} from '../sprites';
+import {ContainerEvents, Text} from '../sprites';
 
 interface FPSCounterOptions {
 	/**
@@ -21,6 +21,10 @@ interface FPSCounterOptions {
 	 */
 	updatesBySeconds?: number;
 }
+
+export type FPSCounterEvents = ContainerEvents & {
+	ready: [];
+};
 
 export class FPSCounter extends Text implements FPSCounterOptions {
 	public autoStart: boolean;
@@ -45,8 +49,13 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	 * @default 2
 	 */
 	public updatesBySeconds: number;
+	private _ready: boolean = false;
 	private lastTime: number = Date.now();
 	private timeValues: number[] = [];
+
+	public get ready(): boolean {
+		return this._ready;
+	}
 
 	public constructor(options?: FPSCounterOptions) {
 		super();
@@ -127,5 +136,6 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 			this.timeValues = [];
 		}
 		this.lastTime = currentTime;
+		this._ready ||= true;
 	}
 }
