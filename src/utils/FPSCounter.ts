@@ -40,7 +40,7 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	 * @remarks Upper values means less precise values.
 	 * @default 2
 	 */
-	public updateBySeconds: number = 2;
+	public updatesBySeconds: number = 2;
 	private lastTime: number = Date.now();
 	private timeValues: number[] = [];
 
@@ -84,11 +84,12 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	 */
 	public get value(): Promise<number> {
 		return new Promise<number>(resolve => {
-			const quotient = 60 / this.updateBySeconds;
+			const quotient = 60 / this.updatesBySeconds;
 			const currentTime = Date.now();
+
 			this.timeValues.push(1000 / (quotient * 2) / 60 / (currentTime - this.lastTime));
 			while (this.timeValues.length === quotient) {
-				const total = this.timeValues.reduce((p: number, a: number) => p + a);
+				const total = this.timeValues.reduce((p, a) => p + a);
 				this.timeValues = [];
 				resolve(total / quotient);
 			}
@@ -113,7 +114,7 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	}
 
 	private setFPS(): void {
-		const quotient = 60 / this.updateBySeconds;
+		const quotient = 60 / this.updatesBySeconds;
 		const currentTime = Date.now();
 
 		this.timeValues.push(1000 / (currentTime - this.lastTime));
