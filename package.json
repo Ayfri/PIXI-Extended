@@ -7,6 +7,7 @@
 		"pixi.js"
 	],
 	"dependencies": {
+		"@types/mocha": "^8.2.2",
 		"pixi.js": "^6.0.4"
 	},
 	"description": "A framework as a npm library to help you develop with PIXI 2d games.",
@@ -14,6 +15,7 @@
 		"@types/gulp": "^4.0.8",
 		"@types/node": "^15.12.1",
 		"esbuild": "^0.12.6",
+		"floss": "^5.0.0",
 		"gulp": "^4.0.2",
 		"gulp-clean": "^0.4.0",
 		"gulp-esbuild": "^0.8.1",
@@ -53,6 +55,7 @@
 		"declarations": "gulp clean && tsc --declaration --emitDeclarationOnly --outDir types --skipLibCheck",
 		"prepare": "gulp publish && npm run declarations",
 		"prettier": "prettier --write src ./*.json README.md gulpfile.js",
+		"test": "floss --path tests --debug",
 		"watch": "npm run bundle && gulp watch"
 	},
 	"version": "0.3.2"
