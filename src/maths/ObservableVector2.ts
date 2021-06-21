@@ -284,6 +284,10 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 		return new ObservableVector2<T>(this.cb, this.scope, ...xy);
 	}
 
+	public toJSON() {
+		return this.toVector().toJSON();
+	}
+
 	/**
 	 * Convert this to a ObservableVector2.
 	 * @returns - The ObservableVector2.
