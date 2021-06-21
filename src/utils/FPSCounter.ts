@@ -16,6 +16,10 @@ interface FPSCounterOptions {
 	 * @default PIXI.UPDATE_PRIORITY.LOW
 	 */
 	priority?: PIXI.UPDATE_PRIORITY;
+	/**
+	 * @default 2
+	 */
+	updatesBySeconds?: number;
 }
 
 export class FPSCounter extends Text implements FPSCounterOptions {
@@ -40,17 +44,16 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	 * @remarks Upper values means less precise values.
 	 * @default 2
 	 */
-	public updatesBySeconds: number = 2;
+	public updatesBySeconds: number;
 	private lastTime: number = Date.now();
 	private timeValues: number[] = [];
 
 	public constructor(options?: FPSCounterOptions) {
-		super({
-			text: 'FPS: 60',
-		});
+		super();
 		this.ticker = new PIXI.Ticker();
 		this.autoStart = options?.autoStart ?? true;
 		this.priority = options?.priority ?? PIXI.UPDATE_PRIORITY.LOW;
+		this.updatesBySeconds = options?.updatesBySeconds ?? 2;
 		this.ticker.autoStart = this.autoStart;
 		this.ticker.add(this.update, this, this.priority);
 	}
