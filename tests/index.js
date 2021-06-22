@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {Color, FPSCounter, getColoredTexture, mousePosition, PIXI, Sprite, Text, Vector2, updateMousePosition} = require('../dist/index.js');
+const {clamp, Color, FPSCounter, getColoredTexture, isOdd, map, mousePosition, PIXI, Sprite, Text, updateMousePosition, Vector2} = require('../dist/index.js');
 
 describe('PIXI-Extended', () => {
 	const app = new PIXI.Application({
@@ -14,6 +14,52 @@ describe('PIXI-Extended', () => {
 	sprite.height = 50;
 	sprite.anchor.set(0.5, 0.5);
 	sprite.addToApplication(app);
+
+	describe('Color', () => {
+		it('should be random color', () => {
+			assert.notDeepStrictEqual(Color.random(), Color.WHITE);
+		});
+
+		it('should be inverted', () => {
+			assert.deepStrictEqual(Color.WHITE, Color.BLACK.invert());
+		});
+
+		it('should be in hexadecimal format', () => {
+			assert.deepStrictEqual(Color.GREEN.toHex(), 0x00ff00);
+		});
+
+		it('should be in hexadecimal stringed format', () => {
+			assert.deepStrictEqual(Color.BLUE.toHexString(), '#0000ff');
+		});
+
+		it('should be red color from hex forms', () => {
+			assert.deepStrictEqual(Color.RED, Color.fromHex(0xff0000));
+			assert.deepStrictEqual(Color.RED, Color.fromHexString('#ff0000'));
+		});
+
+		it('should emit redChange event', () => {
+			const color = new Color();
+			color.on('redChange', v => assert.deepStrictEqual(v, 0.5));
+			color.red = 0.5;
+		});
+	});
+
+	describe('Math functions', () => {
+		it('should be odd', () => {
+			assert.ok(isOdd(2));
+			assert.ok(!isOdd(1));
+		});
+
+		it('should be clamped', () => {
+			assert.deepStrictEqual(clamp(10, 0, 5), 5);
+			assert.deepStrictEqual(clamp(2, 0, 5), 2);
+		});
+
+		it('should be mapped', () => {
+			assert.deepStrictEqual(map(10, 0, 20, 20, 40), 30);
+			assert.deepStrictEqual(map(0, 10, 20, 20, 40), 0);
+		});
+	});
 
 	describe('Sprites', () => {
 		it('should be in application ', () => {
@@ -73,9 +119,11 @@ describe('PIXI-Extended', () => {
 		const counter = new FPSCounter();
 		counter.addToApplication(app);
 
-		it('should have a value', async () => {
-			await new Promise(resolve => setTimeout(resolve, 1000));
-			assert.notDeepStrictEqual(counter.text, '');
+		it('should have a value', () => {
+			counter.on('ready', async () => {
+				assert.notDeepStrictEqual(counter.text, '');
+				assert.ok(counter.ready);
+			});
 		});
 	});
 
