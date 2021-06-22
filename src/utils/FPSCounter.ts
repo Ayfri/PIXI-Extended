@@ -141,12 +141,12 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 		if (this.timeValues.length >= quotient) {
 			const total = this.timeValues.reduce((p, a) => p + a);
 			this.text = this.presentation.replace(/\${count}/g, (total / quotient).toFixed(2));
+			if (!this._ready) {
+				this._ready = true;
+				this.emit('ready');
+			}
 			this.timeValues = [];
 		}
 		this.lastTime = currentTime;
-		if (this._ready === false) {
-			this.emit('ready');
-			this._ready = true;
-		}
 	}
 }
