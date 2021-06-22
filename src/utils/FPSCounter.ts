@@ -1,5 +1,7 @@
 import * as PIXI from 'pixi.js';
 import {ContainerEvents, Text} from '../sprites';
+import {EventEmitter} from './EventEmitter';
+import On = EventEmitter.On;
 
 interface FPSCounterOptions {
 	/**
@@ -25,6 +27,12 @@ interface FPSCounterOptions {
 export type FPSCounterEvents = ContainerEvents & {
 	ready: [];
 };
+
+export interface FPSCounter {
+	emit: EventEmitter.Emit<FPSCounterEvents>;
+	on: EventEmitter.On<FPSCounterEvents, this>;
+	once: EventEmitter.Once<FPSCounterEvents, this>;
+}
 
 export class FPSCounter extends Text implements FPSCounterOptions {
 	public autoStart: boolean;
@@ -136,6 +144,9 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 			this.timeValues = [];
 		}
 		this.lastTime = currentTime;
-		this._ready ||= true;
+		if (this._ready === false) {
+			this.emit('ready');
+			this._ready = true;
+		}
 	}
 }
