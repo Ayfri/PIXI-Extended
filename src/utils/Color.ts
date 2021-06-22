@@ -219,7 +219,9 @@ export class Color extends EventEmitter<ColorEvents> {
 	 * @returns - The resulting stringed hexadecimal form.
 	 */
 	public static toHexString(color: Color): `#${string}` {
-		return `#${color.toHex().toString(16)}`;
+		let hexString = color.toHex().toString(16);
+		hexString = '000000'.substr(0, 6 - hexString.length) + hexString;
+		return `#${hexString}`;
 	}
 
 	/**

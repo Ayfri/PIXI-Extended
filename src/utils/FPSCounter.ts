@@ -41,7 +41,6 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	 * @default PIXI.UPDATE_PRIORITY.LOW
 	 */
 	public priority: PIXI.UPDATE_PRIORITY;
-	public ticker: PIXI.Ticker;
 	/**
 	 * The number of time to update the FPSCounter per second.
 	 *
@@ -49,13 +48,10 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 	 * @default 2
 	 */
 	public updatesBySeconds: number;
-	private _ready: boolean = false;
+	public ticker: PIXI.Ticker;
 	private lastTime: number = Date.now();
 	private timeValues: number[] = [];
-
-	public get ready(): boolean {
-		return this._ready;
-	}
+	private _ready: boolean = false;
 
 	public constructor(options?: FPSCounterOptions) {
 		super();
@@ -65,6 +61,10 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 		this.updatesBySeconds = options?.updatesBySeconds ?? 2;
 		this.ticker.autoStart = this.autoStart;
 		this.ticker.add(this.update, this, this.priority);
+	}
+
+	public get ready(): boolean {
+		return this._ready;
 	}
 
 	/**
@@ -131,7 +131,7 @@ export class FPSCounter extends Text implements FPSCounterOptions {
 
 		this.timeValues.push(1000 / (currentTime - this.lastTime));
 		if (this.timeValues.length >= quotient) {
-			const total = this.timeValues.reduce((p: number, a: number) => p + a);
+			const total = this.timeValues.reduce((p, a) => p + a);
 			this.text = this.presentation.replace(/\${count}/g, (total / quotient).toFixed(2));
 			this.timeValues = [];
 		}
