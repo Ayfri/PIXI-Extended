@@ -127,6 +127,8 @@
 								class="tsd-kind-icon">Container<wbr>Events</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#eventlist"
 								class="tsd-kind-icon">Event<wbr>List</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#fpscounterevents"
+								class="tsd-kind-icon">FPSCounter<wbr>Events</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#rgb"
 								class="tsd-kind-icon">RGB</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#rgba"
@@ -171,6 +173,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="modules.html#bytestouuid"
 								class="tsd-kind-icon">bytes<wbr>ToUuid</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#clamp"
+								class="tsd-kind-icon">clamp</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#collisionboxes"
 								class="tsd-kind-icon">collision<wbr>Boxes</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#getcoloredtexture"
@@ -181,12 +185,16 @@
 								class="tsd-kind-icon">get<wbr>Texture<wbr>OrThrow</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#intersect"
 								class="tsd-kind-icon">intersect</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#isodd"
+								class="tsd-kind-icon">is<wbr>Odd</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#ispressed"
 								class="tsd-kind-icon">is<wbr>Pressed</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#loadtexture"
 								class="tsd-kind-icon">load<wbr>Texture</a></li>
 								<li class="tsd-kind-function"><a href="modules.html#loadtextures"
 								class="tsd-kind-icon">load<wbr>Textures</a></li>
+								<li class="tsd-kind-function"><a href="modules.html#map"
+								class="tsd-kind-icon">map</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#random"
 								class="tsd-kind-icon">random</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#randomarray"
@@ -268,6 +276,16 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/EventEmitter.ts#L3">source/src/utils/EventEmitter.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="fpscounterevents" class="tsd-anchor"></a>
+					<h3>FPSCounter<wbr>Events</h3>
+					<div class="tsd-signature tsd-kind-icon">FPSCounter<wbr>Events<span class="tsd-signature-symbol">:</span> <a href="modules.html#containerevents" class="tsd-signature-type" data-tsd-kind="Type alias">ContainerEvents</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>ready<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L27">source/src/utils/FPSCounter.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -620,6 +638,52 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="clamp" class="tsd-anchor"></a>
+					<h3>clamp</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">clamp<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/utils.ts#L20">source/src/maths/utils.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a number whose value is limited to the given range.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to clamp.</p>
+									</div>
+								</li>
+								<li>
+									<h5>min: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The lower boundary of the output range.</p>
+									</div>
+								</li>
+								<li>
+									<h5>max: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The upper boundary of the output range.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>A number in the range [min, max].</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="collisionboxes" class="tsd-anchor"></a>
 					<h3>collision<wbr>Boxes</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -818,6 +882,45 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isodd" class="tsd-anchor"></a>
+					<h3>is<wbr>Odd</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Odd<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/utils.ts#L9">source/src/maths/utils.ts:9</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true if the number is odd.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Use this function with negation to know if a number is even.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The number to test.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<ul>
+								<li>Is the number odd.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="ispressed" class="tsd-anchor"></a>
 					<h3>is<wbr>Pressed</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -929,6 +1032,64 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modules.html#texturesandname" class="tsd-signature-type" data-tsd-kind="Type alias">TexturesAndName</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="map" class="tsd-anchor"></a>
+					<h3>map</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, min1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, min2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/maths/utils.ts#L33">source/src/maths/utils.ts:33</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Map a number from one range to another.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to map.</p>
+									</div>
+								</li>
+								<li>
+									<h5>min1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>First range minimum.</p>
+									</div>
+								</li>
+								<li>
+									<h5>max1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>First range maximum.</p>
+									</div>
+								</li>
+								<li>
+									<h5>min2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Second range minimum.</p>
+									</div>
+								</li>
+								<li>
+									<h5>max2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Second range maximum.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<ul>
+								<li>The number mapped.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -1250,6 +1411,9 @@
 						<a href="modules.html#eventlist" class="tsd-kind-icon">Event<wbr>List</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#fpscounterevents" class="tsd-kind-icon">FPSCounter<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#rgb" class="tsd-kind-icon">RGB</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -1301,6 +1465,9 @@
 						<a href="modules.html#bytestouuid" class="tsd-kind-icon">bytes<wbr>ToUuid</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="modules.html#clamp" class="tsd-kind-icon">clamp</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="modules.html#collisionboxes" class="tsd-kind-icon">collision<wbr>Boxes</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1316,6 +1483,9 @@
 						<a href="modules.html#intersect" class="tsd-kind-icon">intersect</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="modules.html#isodd" class="tsd-kind-icon">is<wbr>Odd</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="modules.html#ispressed" class="tsd-kind-icon">is<wbr>Pressed</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1323,6 +1493,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#loadtextures" class="tsd-kind-icon">load<wbr>Textures</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#map" class="tsd-kind-icon">map</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="modules.html#random" class="tsd-kind-icon">random</a>

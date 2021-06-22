@@ -93,7 +93,7 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="fpscounter.html#constructor"
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="fpscounter.html#constructor"
 								class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
@@ -130,6 +130,8 @@
 								class="tsd-kind-icon">_local<wbr>Bounds<wbr>Rect</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="fpscounter.html#_mask"
 								class="tsd-kind-icon">_mask</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="fpscounter.html#_ready"
+								class="tsd-kind-icon">_ready</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="fpscounter.html#_trackedpointers"
 								class="tsd-kind-icon">_tracked<wbr>Pointers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="fpscounter.html#_width"
@@ -253,6 +255,8 @@
 								class="tsd-kind-icon">pivot</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="fpscounter.html#position"
 								class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="fpscounter.html#ready"
+								class="tsd-kind-icon">ready</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="fpscounter.html#rotation"
 								class="tsd-kind-icon">rotation</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="fpscounter.html#scale"
@@ -395,18 +399,18 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">new FPSCounter<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">FPSCounterOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="fpscounter.html" class="tsd-signature-type" data-tsd-kind="Class">FPSCounter</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="text.html">Text</a>.<a href="text.html#constructor">constructor</a></p>
+								<p>Inherited from <a href="text.html">Text</a>.<a href="text.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L49">source/src/utils/FPSCounter.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L62">source/src/utils/FPSCounter.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -587,6 +591,16 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_ready" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _ready</h3>
+					<div class="tsd-signature tsd-kind-icon">_ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L62">source/src/utils/FPSCounter.ts:62</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 					<a name="_trackedpointers" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> _tracked<wbr>Pointers</h3>
@@ -710,9 +724,8 @@
 					<h3>auto<wbr>Start</h3>
 					<div class="tsd-signature tsd-kind-icon">auto<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of FPSCounterOptions.autoStart</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L26">source/src/utils/FPSCounter.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L38">source/src/utils/FPSCounter.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -837,11 +850,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="emit" class="tsd-anchor"></a>
 					<h3>emit</h3>
-					<div class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">:</span> <a href="../modules/eventemitter.html#emit" class="tsd-signature-type" data-tsd-kind="Type alias">Emit</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules.html#containerevents" class="tsd-signature-type" data-tsd-kind="Type alias">ContainerEvents</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">:</span> <a href="../modules/eventemitter.html#emit" class="tsd-signature-type" data-tsd-kind="Type alias">Emit</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules.html#fpscounterevents" class="tsd-signature-type" data-tsd-kind="Type alias">FPSCounterEvents</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="text.html">Text</a>.<a href="text.html#emit">emit</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Container.ts#L12">source/src/sprites/Container.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L32">source/src/utils/FPSCounter.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -928,7 +941,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L48">source/src/utils/FPSCounter.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L60">source/src/utils/FPSCounter.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -946,22 +959,22 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
-					<div class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">:</span> <a href="../modules/eventemitter.html#on" class="tsd-signature-type" data-tsd-kind="Type alias">On</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules.html#containerevents" class="tsd-signature-type" data-tsd-kind="Type alias">ContainerEvents</a><span class="tsd-signature-symbol">, </span><a href="fpscounter.html" class="tsd-signature-type" data-tsd-kind="Class">FPSCounter</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">:</span> <a href="../modules/eventemitter.html#on" class="tsd-signature-type" data-tsd-kind="Type alias">On</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules.html#fpscounterevents" class="tsd-signature-type" data-tsd-kind="Type alias">FPSCounterEvents</a><span class="tsd-signature-symbol">, </span><a href="fpscounter.html" class="tsd-signature-type" data-tsd-kind="Class">FPSCounter</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="text.html">Text</a>.<a href="text.html#on">on</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Container.ts#L13">source/src/sprites/Container.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L33">source/src/utils/FPSCounter.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="once" class="tsd-anchor"></a>
 					<h3>once</h3>
-					<div class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">:</span> <a href="../modules/eventemitter.html#once" class="tsd-signature-type" data-tsd-kind="Type alias">Once</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules.html#containerevents" class="tsd-signature-type" data-tsd-kind="Type alias">ContainerEvents</a><span class="tsd-signature-symbol">, </span><a href="fpscounter.html" class="tsd-signature-type" data-tsd-kind="Class">FPSCounter</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">:</span> <a href="../modules/eventemitter.html#once" class="tsd-signature-type" data-tsd-kind="Type alias">Once</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules.html#fpscounterevents" class="tsd-signature-type" data-tsd-kind="Type alias">FPSCounterEvents</a><span class="tsd-signature-symbol">, </span><a href="fpscounter.html" class="tsd-signature-type" data-tsd-kind="Class">FPSCounter</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="text.html">Text</a>.<a href="text.html#once">once</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/sprites/Container.ts#L14">source/src/sprites/Container.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L34">source/src/utils/FPSCounter.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -981,9 +994,8 @@
 					<h3>presentation</h3>
 					<div class="tsd-signature tsd-kind-icon">presentation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;FPS: ${count}&#x27;</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of FPSCounterOptions.presentation</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L33">source/src/utils/FPSCounter.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L45">source/src/utils/FPSCounter.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1005,9 +1017,8 @@
 					<h3>priority</h3>
 					<div class="tsd-signature tsd-kind-icon">priority<span class="tsd-signature-symbol">:</span> <a href="../enums/pixi.update_priority.html" class="tsd-signature-type" data-tsd-kind="Enumeration">UPDATE_PRIORITY</a></div>
 					<aside class="tsd-sources">
-						<p>Implementation of FPSCounterOptions.priority</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L39">source/src/utils/FPSCounter.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L51">source/src/utils/FPSCounter.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1093,7 +1104,7 @@
 					<div class="tsd-signature tsd-kind-icon">ticker<span class="tsd-signature-symbol">:</span> <a href="pixi.ticker.html" class="tsd-signature-type" data-tsd-kind="Class">Ticker</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L40">source/src/utils/FPSCounter.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L59">source/src/utils/FPSCounter.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1103,7 +1114,7 @@
 					<div class="tsd-signature tsd-kind-icon">time<wbr>Values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L49">source/src/utils/FPSCounter.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L61">source/src/utils/FPSCounter.ts:61</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1142,9 +1153,8 @@
 					<h3>updates<wbr>BySeconds</h3>
 					<div class="tsd-signature tsd-kind-icon">updates<wbr>BySeconds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of FPSCounterOptions.updatesBySeconds</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L47">source/src/utils/FPSCounter.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L58">source/src/utils/FPSCounter.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1280,7 +1290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L68">source/src/utils/FPSCounter.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L85">source/src/utils/FPSCounter.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1638,6 +1648,23 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="ready" class="tsd-anchor"></a>
+					<h3>ready</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L74">source/src/utils/FPSCounter.ts:74</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 					<a name="rotation" class="tsd-anchor"></a>
 					<h3>rotation</h3>
@@ -1799,7 +1826,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L77">source/src/utils/FPSCounter.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L94">source/src/utils/FPSCounter.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1856,7 +1883,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L88">source/src/utils/FPSCounter.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L105">source/src/utils/FPSCounter.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3359,7 +3386,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L119">source/src/utils/FPSCounter.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L136">source/src/utils/FPSCounter.ts:136</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -3504,7 +3531,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L107">source/src/utils/FPSCounter.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L124">source/src/utils/FPSCounter.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3662,7 +3689,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L115">source/src/utils/FPSCounter.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/Ayfri/PIXI-Utils/tree/master/src/utils/FPSCounter.ts#L132">source/src/utils/FPSCounter.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3751,7 +3778,7 @@
 					<li class="current tsd-kind-class">
 						<a href="fpscounter.html" class="tsd-kind-icon">FPSCounter</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 								<a href="fpscounter.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
@@ -3798,6 +3825,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="fpscounter.html#_mask" class="tsd-kind-icon">_mask</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="fpscounter.html#_ready" class="tsd-kind-icon">_ready</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="fpscounter.html#_trackedpointers" class="tsd-kind-icon">_tracked<wbr>Pointers</a>
@@ -3975,6 +4005,9 @@
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
 								<a href="fpscounter.html#position" class="tsd-kind-icon">position</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="fpscounter.html#ready" class="tsd-kind-icon">ready</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="fpscounter.html#rotation" class="tsd-kind-icon">rotation</a>
