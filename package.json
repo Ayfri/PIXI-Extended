@@ -53,9 +53,10 @@
 	"scripts": {
 		"bundle": "npm run prettier && gulp bundle",
 		"declarations": "gulp clean && tsc --declaration --emitDeclarationOnly --outDir types --skipLibCheck",
-		"prepare": "gulp publish && npm run declarations",
+		"prepublishOnly": "npm run bundle && npm run declarations",
 		"prettier": "prettier --write src ./*.json README.md gulpfile.js",
 		"test": "floss --path tests --debug",
+		"test:build": "npm run bundle && npm run test",
 		"watch": "npm run bundle && gulp watch"
 	},
 	"version": "0.3.2"
