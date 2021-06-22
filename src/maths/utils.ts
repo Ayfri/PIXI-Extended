@@ -18,7 +18,7 @@ export function isOdd(value: number): boolean {
  * @returns - A number in the range [min, max].
  */
 export function clamp(value: number, min: number, max: number): number {
-	return Math.max(Math.min(value, min), max);
+	return Math.min(Math.max(value, min), max);
 }
 
 /**
