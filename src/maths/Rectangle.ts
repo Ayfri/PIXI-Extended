@@ -24,6 +24,9 @@ export class Rectangle extends PIXI.Rectangle {
 		super(x as number | undefined, y, width, height);
 	}
 
+	/**
+	 * Returns a rectangle from the Window.
+	 */
 	public static get WINDOW() {
 		return new Rectangle(0, 0, window.innerWidth, window.innerHeight);
 	}
@@ -44,6 +47,11 @@ export class Rectangle extends PIXI.Rectangle {
 		return this.height / 2;
 	}
 
+	/**
+	 * Returns a rectangle from your Application.
+	 * @param app - The Application
+	 * @returns - The resulting rectangle.
+	 */
 	public static appRectangle(app: PIXI.Application) {
 		return new Rectangle(app.screen);
 	}

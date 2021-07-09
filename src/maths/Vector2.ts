@@ -435,7 +435,10 @@ export class Vector2 implements PIXI.IPoint {
 	}
 
 	public toJSON() {
-		return {x: this.x, y: this.y};
+		return {
+			x: this.x,
+			y: this.y,
+		};
 	}
 
 	public toString(): string {

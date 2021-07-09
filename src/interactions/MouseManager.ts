@@ -45,13 +45,12 @@ export enum Buttons {
 
 export class Button extends EventEmitter<Record<ButtonEvent, [event?: MouseEvent, duration?: number]>> {
 	private _pressedAt: number = 0;
+	private _isPressed: boolean = false;
 
 	public constructor(public readonly id: Buttons | MouseEvent['button']) {
 		super();
 		buttons.add(this);
 	}
-
-	private _isPressed: boolean = false;
 
 	public get isPressed(): boolean {
 		return this._isPressed;

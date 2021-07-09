@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import {ContainerEvents, Text} from '../sprites';
 import {EventEmitter} from './EventEmitter';
-import On = EventEmitter.On;
 
 interface FPSCounterOptions {
 	/**

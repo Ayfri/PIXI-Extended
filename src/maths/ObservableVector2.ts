@@ -2,6 +2,9 @@ import * as PIXI from 'pixi.js';
 import {Vector2, XY} from './Vector2';
 
 export class ObservableVector2<T = any> implements PIXI.IPoint {
+	public _x: number;
+	public _y: number;
+
 	/**
 	 * Creates a new ObservableVector2.
 	 * @param cb - The callback to call whenever a value change.
@@ -33,8 +36,6 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 		this.fromObject?.set(...values);
 	}
 
-	public _x: number;
-
 	/**
 	 * The X value.
 	 * @returns - The x-component of the vector
@@ -54,8 +55,6 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 			if (this.fromObject) this.fromObject.x = value;
 		}
 	}
-
-	public _y: number;
 
 	/**
 	 * The Y value.
@@ -82,8 +81,8 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 	 * @param point - The point.
 	 * @returns - The ObservableVector2.
 	 */
-	public static fromPoint(point: PIXI.ObservablePoint): ObservableVector2 {
-		return new ObservableVector2(point.cb, point.scope, point.x, point.y, point);
+	public static fromPoint<T = any>(point: PIXI.ObservablePoint): ObservableVector2<T> {
+		return new ObservableVector2<T>(point.cb, point.scope, point.x, point.y, point);
 	}
 
 	/**
@@ -124,7 +123,7 @@ export class ObservableVector2<T = any> implements PIXI.IPoint {
 	 * @param dest - An optional destination.
 	 * @returns - The absolute values of X and Y.
 	 */
-	public abs(dest?: ObservableVector2): ObservableVector2 {
+	public abs(dest?: ObservableVector2<T>): ObservableVector2<T> {
 		if (!dest) dest = this;
 		dest.set(Math.abs(this.x), Math.abs(this.y));
 		return dest;

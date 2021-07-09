@@ -24,6 +24,10 @@ export class Color extends EventEmitter<ColorEvents> {
 	public static readonly GREEN: Color = new Color(0, 1, 0);
 	public static readonly BLUE: Color = new Color(0, 0, 1);
 	public static readonly WHITE: Color = new Color(1, 1, 1);
+	private _red: number = 0;
+	private _green: number = 0;
+	private _blue: number = 0;
+	private _alpha: number = 1;
 
 	/**
 	 * Creates a new color.
@@ -79,8 +83,6 @@ export class Color extends EventEmitter<ColorEvents> {
 		this.set(...value);
 	}
 
-	private _red: number = 0;
-
 	/**
 	 * Get the red value.
 	 *
@@ -100,8 +102,6 @@ export class Color extends EventEmitter<ColorEvents> {
 		this.emit('redChange', value);
 		this.emit('change', this._red, this._blue, this._green, this._alpha);
 	}
-
-	private _green: number = 0;
 
 	/**
 	 * Get the green value.
@@ -123,8 +123,6 @@ export class Color extends EventEmitter<ColorEvents> {
 		this.emit('change', this._red, this._blue, this._green, this._alpha);
 	}
 
-	private _blue: number = 0;
-
 	/**
 	 * Get the blue value.
 	 *
@@ -144,8 +142,6 @@ export class Color extends EventEmitter<ColorEvents> {
 		this.emit('blueChange', value);
 		this.emit('change', this._red, this._blue, this._green, this._alpha);
 	}
-
-	private _alpha: number = 1;
 
 	/**
 	 * Get the alpha value.
