@@ -7,7 +7,6 @@ package-lock.json
 
 ### Files
 .github
-dist/index.html
-dist/bundle*
 gulpfile.js
 src
+tests
