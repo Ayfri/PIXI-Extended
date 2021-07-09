@@ -197,17 +197,26 @@ describe('PIXI-Extended', () => {
 	});
 
 	describe('Text', () => {
-		const c = new Text({
+		const text = new Text({
 			color: Color.random(),
 			text: 'lorem ipsum',
 		});
+		console.log(text);
 
-		it('color should be random', () => {
-			assert.notDeepStrictEqual(sprite.color, Color.WHITE);
+		it('should have random color', () => {
+			assert.notDeepStrictEqual(text.color, Color.WHITE);
 		});
 
-		c.position.set(50, 50);
-		c.addToApplication(app);
+		it('should have random background color', () => {
+			text.backgroundColor = Color.random();
+			text.background.show();
+
+			assert.notDeepStrictEqual(text.background.color, Color.WHITE);
+			assert.notDeepStrictEqual(text.background, PIXI.Texture.EMPTY);
+		});
+
+		text.position.set(50, 50);
+		text.addToApplication(app);
 	});
 
 	describe('FPSCounter', () => {
