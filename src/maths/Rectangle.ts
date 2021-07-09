@@ -44,6 +44,10 @@ export class Rectangle extends PIXI.Rectangle {
 		return this.height / 2;
 	}
 
+	public static appRectangle(app: PIXI.Application) {
+		return new Rectangle(app.screen);
+	}
+
 	/**
 	 * Create a rectangle from a Sprite or a Container.
 	 * @param object - The object to create a Rectangle from.
