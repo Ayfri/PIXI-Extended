@@ -59,5 +59,5 @@
 		"test:build": "npm run bundle && npm run test",
 		"watch": "npm run bundle && gulp watch"
 	},
-	"version": "0.3.2"
+	"version": "0.4.0"
 }
