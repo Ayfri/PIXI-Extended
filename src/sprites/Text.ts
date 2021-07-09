@@ -15,15 +15,13 @@ export interface TextOptions {
 export type TextColor = Color | Color[];
 
 export class Text extends Container {
-	public override background: Sprite;
+	public override background = new Sprite(PIXI.Texture.WHITE);
 	public textObject: PIXI.Text;
 
 	public constructor();
 	public constructor(options: TextOptions);
 	public constructor(text?: string, options?: Omit<TextOptions, 'text'>);
 	public constructor(text?: string | TextOptions, options?: Omit<TextOptions, 'text'>) {
-		super();
-
 		let content: string;
 		let background: PIXI.Texture;
 		let color: Color | undefined;
@@ -37,10 +35,10 @@ export class Text extends Container {
 			color = options?.color;
 		}
 
-		this.background = new Sprite(background);
+		super(background);
 		this.textObject = new PIXI.Text(content, options?.style);
-		if (color) this.color = color;
 		this.addChild(this.textObject);
+		if (color) this.color = color;
 	}
 
 	/**

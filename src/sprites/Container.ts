@@ -23,13 +23,26 @@ export class Container extends PIXI.Container {
 			this.background = new Sprite(background);
 			this.addChild(this.background);
 		}
+
+		(this.transform.position as PIXI.ObservablePoint<PIXI.Transform>).cb = ((a: any) => {
+			if (this.background?.transform) {
+				this.background.transform.position.copyFrom(this.transform.position);
+				this.background.transform.scale.copyFrom(this.transform.scale);
+				this.background.transform.pivot.copyFrom(this.pivot);
+				this.background.transform.skew.copyFrom(this.skew);
+				this.background.transform.rotation = this.rotation;
+				this.background.width = this.width;
+				this.background.height = this.height;
+			}
+			this.transform['_localID']++;
+		}) as (this: any) => any;
 	}
 
-	public override get position(): ObservableVector2 {
-		return ObservableVector2.fromPoint(this.transform.position);
+	public override get position() {
+		return ObservableVector2.fromPoint<PIXI.Transform>(this.transform.position);
 	}
 
-	public override set position(value: ObservableVector2) {
+	public override set position(value: ObservableVector2<PIXI.Transform>) {
 		this.transform.position.copyFrom(value);
 	}
 
